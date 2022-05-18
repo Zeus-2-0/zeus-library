@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.edi.models.enrollment;
 
+import com.brihaspathee.zeus.edi.models.common.*;
 import lombok.*;
 
 import java.util.HashSet;
