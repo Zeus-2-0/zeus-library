@@ -4,7 +4,7 @@
 
     <groupId>com.brihaspathee.zeus</groupId>
     <artifactId>zeus-library</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>zeus-library</name>
     <description>Common Classes for all Zeus Microservices</description>
