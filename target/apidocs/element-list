@@ -1,7 +1,0 @@
-com.brihaspathee.zeus.constants
-com.brihaspathee.zeus.edi.models.common
-com.brihaspathee.zeus.edi.models.enrollment
-com.brihaspathee.zeus.exception
-com.brihaspathee.zeus.schema.validation
-com.brihaspathee.zeus.test
-com.brihaspathee.zeus.web.response
