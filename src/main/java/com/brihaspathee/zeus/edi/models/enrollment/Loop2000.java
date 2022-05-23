@@ -35,6 +35,11 @@ public class Loop2000 {
     private REF subscriberIdentifier;
 
     /**
+     * The group policy id associated with the member's plan
+     */
+    private REF groupPolicyId;
+
+    /**
      * Contains other supplmental identifiers of the member
      */
     @Builder.Default
@@ -101,11 +106,13 @@ public class Loop2000 {
      */
     private Loop2700 reportingCategories;
 
+
     @Override
     public String toString() {
         return "Loop2000{" +
                 "memberDetail=" + memberDetail +
                 ", subscriberIdentifier=" + subscriberIdentifier +
+                ", groupPolicyId=" + groupPolicyId +
                 ", memberSupplementalIdentifiers=" + memberSupplementalIdentifiers +
                 ", memberLevelDates=" + memberLevelDates +
                 ", memberDemographics=" + memberDemographics +
