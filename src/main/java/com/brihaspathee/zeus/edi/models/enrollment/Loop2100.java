@@ -32,6 +32,11 @@ public class Loop2100 {
     private Loop2100B incorrectMemberDemographics;
 
     /**
+     * Contains the member mailing address
+     */
+    private Loop2100C memberMailingAddress;
+
+    /**
      * Contains the employer details of the member
      */
     @Builder.Default
@@ -64,6 +69,7 @@ public class Loop2100 {
         return "Loop2100{" +
                 "memberDemographics=" + memberDemographics +
                 ", incorrectMemberDemographics=" + incorrectMemberDemographics +
+                ", memberMailingAddress=" + memberMailingAddress +
                 ", employers=" + employers +
                 ", schools=" + schools +
                 ", custodialParent=" + custodialParent +
