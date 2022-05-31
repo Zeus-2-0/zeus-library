@@ -27,9 +27,9 @@ public class Loop2100 {
     private Loop2100A memberDemographics;
 
     /**
-     * Contains the incorrect address of the member
+     * Contains the incorrect member name and demographics
      */
-    private Loop2100B incorrectMemberAddress;
+    private Loop2100B incorrectMemberDemographics;
 
     /**
      * Contains the employer details of the member
@@ -63,7 +63,7 @@ public class Loop2100 {
     public String toString() {
         return "Loop2100{" +
                 "memberDemographics=" + memberDemographics +
-                ", incorrectMemberAddress=" + incorrectMemberAddress +
+                ", incorrectMemberDemographics=" + incorrectMemberDemographics +
                 ", employers=" + employers +
                 ", schools=" + schools +
                 ", custodialParent=" + custodialParent +
