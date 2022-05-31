@@ -57,9 +57,14 @@ public class Loop2000 {
     private Loop2100A memberDemographics;
 
     /**
-     * Contains the incorrect address of the member
+     * Contains the incorrect member demographics
      */
-    private Loop2100B incorrectMemberAddress;
+    private Loop2100B incorrectMemberDemographics;
+
+    /**
+     * Contains the member mailing address
+     */
+    private Loop2100C memberMailingAddress;
 
     /**
      * Contains the employer details of the member
@@ -116,7 +121,8 @@ public class Loop2000 {
                 ", memberSupplementalIdentifiers=" + memberSupplementalIdentifiers +
                 ", memberLevelDates=" + memberLevelDates +
                 ", memberDemographics=" + memberDemographics +
-                ", incorrectMemberAddress=" + incorrectMemberAddress +
+                ", incorrectMemberDemographics=" + incorrectMemberDemographics +
+                ", memberMailingAddress=" + memberMailingAddress +
                 ", employers=" + employers +
                 ", schools=" + schools +
                 ", custodialParent=" + custodialParent +
