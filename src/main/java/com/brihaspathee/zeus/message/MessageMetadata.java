@@ -20,7 +20,7 @@ public class MessageMetadata {
 
     private String messageSource;
 
-    private String messageDestination;
+    private String [] messageDestination;
 
     private String messageCreationTimestamp;
 
