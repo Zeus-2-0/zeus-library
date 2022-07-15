@@ -13,9 +13,13 @@ public class ApiResponseConstants {
 
     public static final String SUCCESS = "Success";
     public static final String FAIL = "Fail";
-    public static final String API_SUCCESS = "10000";
-    public static final String API_FAIL = "11000";
+    public static final String API_SUCCESS = "100000";
+    public static final String API_FAIL = "110000";
     public static final String SUCCESS_REASON = "API Call was successful";
     public static final String FAILURE_REASON = "API Call was not successful";
     public static final String TRADING_PARTNER_API = "TRADING_PARTNER_API";
+    public static final String UNAUTHORIZED = "User not authorized";
+    public static final String INVALID_USERNAME = "Invalid username provided";
+    public static final String INVALID_PASSWORD = "Invalid password provided";
+    public static final String INVALID_USERNAME_PASSWORD = "Username or password is invalid";
 }
