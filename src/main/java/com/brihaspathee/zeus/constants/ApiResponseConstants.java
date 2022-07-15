@@ -22,4 +22,5 @@ public class ApiResponseConstants {
     public static final String INVALID_USERNAME = "Invalid username provided";
     public static final String INVALID_PASSWORD = "Invalid password provided";
     public static final String INVALID_USERNAME_PASSWORD = "Username or password is invalid";
+    public static final String FORBIDDEN = "User not authorized to perform the requested operation";
 }
