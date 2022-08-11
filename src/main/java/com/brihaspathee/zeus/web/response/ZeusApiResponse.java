@@ -30,6 +30,7 @@ public class ZeusApiResponse<E> {
      * Time stamp when the response was generated
      */
     @JsonFormat(pattern="dd MMM yyyy hh:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime timestamp;
 
     private int statusCode;
