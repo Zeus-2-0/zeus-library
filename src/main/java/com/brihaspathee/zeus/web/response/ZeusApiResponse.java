@@ -29,10 +29,7 @@ public class ZeusApiResponse<E> {
     /**
      * Time stamp when the response was generated
      */
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
-    private LocalDateTime timestamp;
+    // private LocalDateTime timestamp;
 
     private int statusCode;
 
@@ -50,7 +47,6 @@ public class ZeusApiResponse<E> {
     @Override
     public String toString() {
         return "ZeusApiResponse{" +
-                "timestamp=" + timestamp +
                 ", statusCode=" + statusCode +
                 ", status=" + status +
                 ", reason='" + reason + '\'' +
