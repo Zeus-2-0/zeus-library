@@ -16,10 +16,10 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ZeusMessagePayload<T> {
+public class ZeusMessagePayload {
 
     private MessageMetadata messageMetadata;
 
-    private T payload;
+    private Object payload;
 
 }
