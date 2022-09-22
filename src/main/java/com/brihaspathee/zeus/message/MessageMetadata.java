@@ -2,6 +2,8 @@ package com.brihaspathee.zeus.message;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -18,12 +20,25 @@ import lombok.*;
 @NoArgsConstructor
 public class MessageMetadata {
 
+    /**
+     * Source of the message
+     */
     private String messageSource;
 
+    /**
+     * The destinations for the messages
+     */
     private String [] messageDestination;
 
-    private String messageCreationTimestamp;
+    /**
+     * The time when the message was created
+     */
+    private LocalDateTime messageCreationTimestamp;
 
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
         return "MessageMetadata{" +
