@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.web.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -80,6 +81,7 @@ public class MemberDto {
      * The date of birth of the member
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The date of birth of the member", example = "5/21/1983", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate dateOfBirth;
 
