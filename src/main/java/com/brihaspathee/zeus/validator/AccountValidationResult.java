@@ -22,6 +22,16 @@ import java.util.List;
 public class AccountValidationResult {
 
     /**
+     * A unique id that is created as a response for the validation
+     */
+    private String responseId;
+
+    /**
+     * The request payload id for which the response is sent
+     */
+    private String requestPayloadId;
+
+    /**
      * The account for which the validation is being formed
      */
     private String accountNumber;
