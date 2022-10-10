@@ -37,6 +37,11 @@ public class AccountValidationResult {
     private String accountNumber;
 
     /**
+     * A unique payload id for the result payload
+     */
+    private String resultPayloadId;
+
+    /**
      * indicates if the validation passed or failed, this will indicate a failure even if
      * one of the rules at the account level or at the member level failed
      */
