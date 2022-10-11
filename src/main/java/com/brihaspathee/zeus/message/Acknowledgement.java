@@ -20,12 +20,12 @@ import lombok.*;
 public class Acknowledgement {
 
     /**
-     * Unique id for the message
+     * Unique id for the acknowledgment
      */
-    private String validationMessageId;
+    private String ackId;
 
     /**
-     * The account that needs to be validated
+     * The request payload id for which the acknowledgement is sent
      */
-    private AccountDto accountDto;
+    private String requestPayloadId;
 }
