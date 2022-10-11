@@ -18,8 +18,19 @@ import lombok.*;
 @NoArgsConstructor
 public class ZeusMessagePayload<T> {
 
+    /**
+     * Metadata details of the payload
+     */
     private MessageMetadata messageMetadata;
 
+    /**
+     * Unique payload id for the payload
+     */
+    private String payloadId;
+
+    /**
+     * The payload that is to be transmitted
+     */
     private T payload;
 
 }
