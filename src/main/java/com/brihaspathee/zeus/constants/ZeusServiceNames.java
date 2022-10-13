@@ -11,16 +11,16 @@ package com.brihaspathee.zeus.constants;
  */
 public class ZeusServiceNames {
 
-    public static final String FILE_MGMT_SERVICE = "Success";
-    public static final String FILE_STORAGE_SERVICE = "Fail";
-    public static final String TRANSACTION_ORIG_SERVICE = "Success";
-    public static final String TRANSACTION_STORAGE_SERVICE = "Fail";
-    public static final String DATA_TRANSFORM_SERVICE = "Success";
-    public static final String TRANSACTION_MANAGER = "Fail";
-    public static final String VALIDATION_SERVICE = "Success";
-    public static final String MEMBER_MGMT_SERVICE = "Fail";
-    public static final String CONFIG_SERVICE = "Success";
-    public static final String API_GATEWAY = "Fail";
-    public static final String REF_DATA_SERVICE = "Success";
-    public static final String TP_SERVICE = "Fail";
+    public static final String FILE_MGMT_SERVICE = "FILE-MGMT-SERVICE";
+    public static final String FILE_STORAGE_SERVICE = "FILE-STORAGE-SERVICE";
+    public static final String TRANSACTION_ORIG_SERVICE = "TRANSACTION-ORIG-SERVICE";
+    public static final String TRANSACTION_STORAGE_SERVICE = "TRANSACTION-STORAGE-SERVICE";
+    public static final String DATA_TRANSFORM_SERVICE = "DATA-TRANSFORM-SERVICE";
+    public static final String TRANSACTION_MANAGER = "TRANSACTION-MANAGER";
+    public static final String VALIDATION_SERVICE = "VALIDATION-SERVICE";
+    public static final String MEMBER_MGMT_SERVICE = "MEMBER-MGMT-SERVICE";
+    public static final String CONFIG_SERVICE = "CONFIG-SERVICE";
+    public static final String API_GATEWAY = "API-GATEWAY";
+    public static final String REF_DATA_SERVICE = "REF-DATA-SERVICE";
+    public static final String TP_SERVICE = "TP-SERVICE";
 }
