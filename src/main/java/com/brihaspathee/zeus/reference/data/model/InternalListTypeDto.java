@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import javax.validation.constraints.Null;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created in Intellij IDEA
@@ -23,11 +25,12 @@ import java.util.List;
 public class InternalListTypeDto {
 
     /**
-     * The key of the internal list type
+     * The primary key of the account
      */
     @JsonProperty(required = false)
-    @Schema(description = "The key of the internal list type", example = "1001")
-    private Long internalListTypeSK;
+    @Schema(description = "The key of the internal list type", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Null
+    private UUID internalListTypeSK;
 
     /**
      * The name of the internal list type
