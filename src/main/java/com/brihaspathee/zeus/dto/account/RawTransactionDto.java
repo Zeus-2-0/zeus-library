@@ -1,4 +1,4 @@
-package com.brihaspathee.zeus.web.model;
+package com.brihaspathee.zeus.dto.account;
 
 import com.brihaspathee.zeus.edi.models.enrollment.Transaction;
 import lombok.*;

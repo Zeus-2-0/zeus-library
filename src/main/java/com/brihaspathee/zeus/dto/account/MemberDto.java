@@ -1,4 +1,4 @@
-package com.brihaspathee.zeus.web.model;
+package com.brihaspathee.zeus.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

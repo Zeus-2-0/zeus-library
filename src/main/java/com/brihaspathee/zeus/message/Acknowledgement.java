@@ -1,6 +1,5 @@
 package com.brihaspathee.zeus.message;
 
-import com.brihaspathee.zeus.web.model.AccountDto;
 import lombok.*;
 
 /**

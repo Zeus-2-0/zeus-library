@@ -1,4 +1,4 @@
-package com.brihaspathee.zeus.web.model;
+package com.brihaspathee.zeus.dto.account;
 
 import lombok.*;
 
@@ -7,8 +7,8 @@ import java.util.Set;
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
- * Date: 15, September 2022
- * Time: 6:58 AM
+ * Date: 16, September 2022
+ * Time: 7:32 AM
  * Project: Zeus
  * Package Name: com.brihaspathee.zeus.web.model
  * To change this template use File | Settings | File and Code Template
@@ -18,10 +18,10 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountList {
+public class MemberList {
 
     /**
-     * List of all the account dtos
+     * List of all the member dtos
      */
-    private Set<AccountDto> accountDtos;
+    private Set<MemberDto> memberDtos;
 }
