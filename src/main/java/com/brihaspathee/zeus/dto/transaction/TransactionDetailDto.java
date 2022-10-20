@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.transaction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -71,6 +72,7 @@ public class TransactionDetailDto {
      * The effective date received in the transaction
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The effective date received in the transaction", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectiveDate;
 
@@ -78,6 +80,7 @@ public class TransactionDetailDto {
      * The end date received in the transaction
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The end date received in the transaction", example = "1/31/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 

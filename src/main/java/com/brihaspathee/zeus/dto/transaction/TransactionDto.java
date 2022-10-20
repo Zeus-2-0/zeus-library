@@ -43,9 +43,6 @@ public class TransactionDto {
     /**
      * The zeus file control number
      */
-    /**
-     * The zeus transaction control number
-     */
     @JsonProperty(required = false)
     @Schema(description = "The zeus file control number", example = "DFEV323455DE5S3", required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private String zfcn;

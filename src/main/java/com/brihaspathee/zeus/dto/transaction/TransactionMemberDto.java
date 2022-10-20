@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
 import javax.validation.constraints.Null;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -40,6 +42,36 @@ public class TransactionMemberDto {
      */
     @JsonProperty(required = true)
     private TransactionDto transaction;
+
+    /**
+     * Unique member code assigned for the member during transaction processing
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Unique member code assigned for the member during transaction processing", example = "DR323FS55WGS53D", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    private String transactionMemberCode;
+
+    /**
+     * Transaction type received for the member in the transaction
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Transaction type received for the member in the transaction", example = "ADD", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    private String transactionTypeCode;
+
+    /**
+     * Effective date received for the member in the transaction
+     */
+    @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Schema(description = "Effective date received for the member in the transaction", example = "01/01/2023", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    private LocalDate effectiveDate;
+
+    /**
+     * End date received for the member in the transaction
+     */
+    @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Schema(description = "End date received for the member in the transaction", example = "12/31/2023", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    private LocalDate endDate;
 
     /**
      * The relationship type code of the member with respect to head of the household
