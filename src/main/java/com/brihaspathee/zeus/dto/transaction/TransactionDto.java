@@ -55,6 +55,13 @@ public class TransactionDto {
     private LocalDateTime transactionReceivedDate;
 
     /**
+     * The source of the transaction
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the transaction", example = "MARKETPLACE", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    private String transactionSourceTypeCode;
+
+    /**
      * The transaction details
      */
     @JsonProperty(required = true)
