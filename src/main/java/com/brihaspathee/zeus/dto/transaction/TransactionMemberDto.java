@@ -85,6 +85,13 @@ public class TransactionMemberDto {
     private String relationshipTypeCode;
 
     /**
+     * The maintenance reason type code received for the member in the transaction
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The maintenance reason type code received for the member in the transaction", example = "BIRTH", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String reasonTypeCode;
+
+    /**
      * The first name of the member
      */
     @JsonProperty(required = true)
