@@ -118,7 +118,7 @@ public class TransactionMemberDto {
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The date of birth of the member", example = "5/21/1983", required = false, accessMode = Schema.AccessMode.READ_WRITE)
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
 
     /**
      * The gender of the member
