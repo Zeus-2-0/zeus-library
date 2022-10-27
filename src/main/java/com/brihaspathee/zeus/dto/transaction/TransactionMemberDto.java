@@ -113,6 +113,13 @@ public class TransactionMemberDto {
     private String lastName;
 
     /**
+     * Identifies if the member uses tobacco
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the member uses tobacco", example = "UNKNOWN", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String tobaccoIndicator;
+
+    /**
      * The date of birth of the member
      */
     @JsonProperty(required = false)
