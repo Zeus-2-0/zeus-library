@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.transaction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,6 +54,7 @@ public class TransactionMemberEmailDto {
      * The date when the member email was received
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the member email was received", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime receivedDate;
 

@@ -92,6 +92,7 @@ public class TransactionDetailDto {
      * The maintenance effective date received in the transaction
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Schema(description = "The maintenance effective date received in the transaction", example = "1/15/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate maintenanceEffectiveDate;
 
