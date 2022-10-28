@@ -135,6 +135,13 @@ public class TransactionAlternateContactDto {
     private String stateTypeCode;
 
     /**
+     * The zip code received in the address
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The zip code received in the address", example = "33556", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String zipCode;
+
+    /**
      * The date when the alternate contact was received
      */
     @JsonProperty(required = false)
