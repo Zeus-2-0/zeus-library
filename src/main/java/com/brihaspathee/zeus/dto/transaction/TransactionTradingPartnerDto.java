@@ -90,4 +90,23 @@ public class TransactionTradingPartnerDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the record was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "TransactionTradingPartnerDto{" +
+                "tradingPartnerSK=" + tradingPartnerSK +
+                ", transaction=" + transaction +
+                ", tradingPartnerId='" + tradingPartnerId + '\'' +
+                ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", businessTypeCode='" + businessTypeCode + '\'' +
+                ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
+                ", stateTypeCode='" + stateTypeCode + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

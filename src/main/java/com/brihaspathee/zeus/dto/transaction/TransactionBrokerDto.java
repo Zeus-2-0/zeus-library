@@ -89,7 +89,7 @@ public class TransactionBrokerDto {
      * The date when the broker was received
      */
     @JsonProperty(required = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern ="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="EST" )
     @Schema(description = "The date when the broker was received", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime receivedDate;
 
