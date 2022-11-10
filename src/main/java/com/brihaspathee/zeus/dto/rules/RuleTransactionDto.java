@@ -25,18 +25,12 @@ import lombok.*;
 public class RuleTransactionDto {
 
     /**
-     * The rule for which the transaction types are define
-     */
-    @JsonProperty(required = false)
-    private RuleDto rule;
-
-    /**
      * The type of transaction that the rule should be executed against
      */
     @JsonProperty(required = false)
     @Schema(description = "The type of transaction that the rule should be executed against", example = "ADD",
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
-    private String TransactionTypeCode;
+    private String transactionTypeCode;
 
     /**
      * toString method
@@ -45,8 +39,7 @@ public class RuleTransactionDto {
     @Override
     public String toString() {
         return "RuleTransactionDto{" +
-                "rule=" + rule +
-                ", TransactionTypeCode='" + TransactionTypeCode + '\'' +
+                ", transactionTypeCode='" + transactionTypeCode + '\'' +
                 '}';
     }
 }

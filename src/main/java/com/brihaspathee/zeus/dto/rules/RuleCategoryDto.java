@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import java.util.List;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -55,6 +57,12 @@ public class RuleCategoryDto {
     @Schema(description = "Identifies the rule types within the category", example = "PRE VALIDATION RULE",
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private String ruleType;
+
+    /**
+     * The rule sets associated with the rule category
+     */
+    @JsonProperty(required = false)
+    private List<RuleSetDto> ruleSets;
 
     /**
      * toString method

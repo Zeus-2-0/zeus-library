@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import java.util.List;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -33,10 +35,10 @@ public class RuleSetDto {
     private String ruleSetId;
 
     /**
-     * The rule category that the rule set belongs
+     * The rules that belongs to the rule set
      */
     @JsonProperty(required = false)
-    private RuleCategoryDto ruleCategory;
+    private List<RuleDto> rules;
 
     /**
      * The rule set name. This is name for the rule set
@@ -72,6 +74,7 @@ public class RuleSetDto {
     public String toString() {
         return "RuleSetDto{" +
                 "ruleSetId='" + ruleSetId + '\'' +
+                ", rules=" + rules +
                 ", ruleSetName='" + ruleSetName + '\'' +
                 ", ruleSetDesc='" + ruleSetDesc + '\'' +
                 ", active=" + active +

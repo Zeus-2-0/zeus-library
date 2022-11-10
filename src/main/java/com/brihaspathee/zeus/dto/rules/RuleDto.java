@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+import java.util.List;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -33,10 +35,10 @@ public class RuleDto {
     private String ruleId;
 
     /**
-     * The rule set that the rule belongs
+     * The list of transaction types for which the rule should be executed
      */
     @JsonProperty(required = false)
-    private RuleSetDto ruleSet;
+    private List<RuleTransactionDto> ruleTransactions;
 
     /**
      * The rule name. This is name for the rule
@@ -80,7 +82,7 @@ public class RuleDto {
     public String toString() {
         return "RuleDto{" +
                 "ruleId='" + ruleId + '\'' +
-                ", ruleSet=" + ruleSet +
+                ", ruleTransactions=" + ruleTransactions +
                 ", ruleName='" + ruleName + '\'' +
                 ", ruleDesc='" + ruleDesc + '\'' +
                 ", active=" + active +
