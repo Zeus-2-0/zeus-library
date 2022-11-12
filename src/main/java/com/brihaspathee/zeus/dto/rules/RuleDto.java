@@ -72,8 +72,6 @@ public class RuleDto {
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private boolean memberLevel;
 
-    private String ruleImplName;
-
     /**
      * toString method
      * @return

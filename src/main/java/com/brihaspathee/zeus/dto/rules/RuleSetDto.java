@@ -64,8 +64,6 @@ public class RuleSetDto {
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
     private boolean active;
 
-    private String ruleSetImplName;
-
     /**
      * toString method
      * @return
