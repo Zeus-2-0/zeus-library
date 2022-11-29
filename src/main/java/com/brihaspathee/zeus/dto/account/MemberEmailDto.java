@@ -41,6 +41,13 @@ public class MemberEmailDto {
     private UUID memberSK;
 
     /**
+     * The unique code of the member email in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Member Email Code - Unique id that is assigned to the member email in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String memberEmailCode;
+
+    /**
      * The email type code of the email
      */
     @JsonProperty(required = true)

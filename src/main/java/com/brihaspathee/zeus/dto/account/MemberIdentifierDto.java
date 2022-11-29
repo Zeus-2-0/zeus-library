@@ -40,6 +40,13 @@ public class MemberIdentifierDto {
     private UUID memberSK;
 
     /**
+     * The unique code of the member identifier in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Member Address Code - Unique id that is assigned to the member address in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String memberIdentifierCode;
+
+    /**
      * The identifier type code of the identifier
      */
     @JsonProperty(required = true)

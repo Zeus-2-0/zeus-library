@@ -41,6 +41,13 @@ public class MemberPhoneDto {
     private UUID memberSK;
 
     /**
+     * The unique code of the member phone in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Member Phone Code - Unique id that is assigned to the member phone in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String memberPhoneCode;
+
+    /**
      * The phone type code of the phone
      */
     @JsonProperty(required = true)

@@ -29,8 +29,7 @@ public class MemberAddressDto {
      * The primary key of the member address
      */
     @JsonProperty(required = false)
-    @Schema(description = "Member Address SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
-    @Null
+    @Schema(description = "Member Address SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private UUID memberAddressSK;
 
     /**
@@ -39,6 +38,13 @@ public class MemberAddressDto {
     @JsonProperty(required = false)
     @Schema(description = "Member SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private UUID memberSK;
+
+    /**
+     * The unique code of the member address in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Member Address Code - Unique id that is assigned to the member address in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String memberAddressCode;
 
     /**
      * The type of the address

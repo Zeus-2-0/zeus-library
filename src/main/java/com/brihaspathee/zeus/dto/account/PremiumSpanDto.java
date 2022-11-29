@@ -43,6 +43,20 @@ public class PremiumSpanDto {
     private UUID enrollmentSpanSK;
 
     /**
+     * The unique code of the premium span in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Premium Span Code - Unique id that is assigned to the premium span in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String premiumSpanCode;
+
+    /**
+     * The zeus transaction control number of the transaction that created the premium span
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The zeus transaction control number of the transaction that created the premium span", example = "SDFG43456DFG23G", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * The list of members associated with the premium span
      */
     @JsonProperty(required = true)
@@ -117,4 +131,29 @@ public class PremiumSpanDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the premium span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "PremiumSpanDto{" +
+                "premiumSpanSK=" + premiumSpanSK +
+                ", enrollmentSpanSK=" + enrollmentSpanSK +
+                ", premiumSpanCode='" + premiumSpanCode + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", memberPremiumSpans=" + memberPremiumSpans +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", csrVariant='" + csrVariant + '\'' +
+                ", totalPremiumAmount=" + totalPremiumAmount +
+                ", totalResponsibleAmount=" + totalResponsibleAmount +
+                ", aptcAmount=" + aptcAmount +
+                ", otherPayAmount=" + otherPayAmount +
+                ", csrAmount=" + csrAmount +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

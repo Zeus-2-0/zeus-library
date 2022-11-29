@@ -41,6 +41,13 @@ public class MemberLanguageDto {
     private UUID memberSK;
 
     /**
+     * The unique code of the member language in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Member Language Code - Unique id that is assigned to the member address in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String memberLanguageCode;
+
+    /**
      * The language type code of the language
      */
     @JsonProperty(required = true)

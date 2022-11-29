@@ -43,6 +43,13 @@ public class EnrollmentSpanDto {
     private UUID accountSK;
 
     /**
+     * The unique code of the enrollment span in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String enrollmentSpanCode;
+
+    /**
      * The premium spans associated with the enrollment span
      */
     @JsonProperty(required = true)
@@ -145,4 +152,32 @@ public class EnrollmentSpanDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the enrollment span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "EnrollmentSpanDto{" +
+                "enrollmentSpanSK=" + enrollmentSpanSK +
+                ", accountSK=" + accountSK +
+                ", enrollmentSpanCode='" + enrollmentSpanCode + '\'' +
+                ", premiumSpans=" + premiumSpans +
+                ", stateTypeCode='" + stateTypeCode + '\'' +
+                ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
+                ", businessUnitTypeCode='" + businessUnitTypeCode + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", exchangeSubscriberId='" + exchangeSubscriberId + '\'' +
+                ", effectuationDate=" + effectuationDate +
+                ", planId='" + planId + '\'' +
+                ", groupPolicyId='" + groupPolicyId + '\'' +
+                ", productTypeCode='" + productTypeCode + '\'' +
+                ", statusTypeCode='" + statusTypeCode + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

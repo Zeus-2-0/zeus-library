@@ -26,18 +26,17 @@ import java.util.UUID;
 public class AccountDto {
 
     /**
-     * The primary key of the account
+     * The primary key of the account in MMS
      */
     @JsonProperty(required = false)
-    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
-    @Null
+    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private UUID accountSK;
 
     /**
      * The account number of the account
      */
-    @JsonProperty(required = false)
-    @Schema(description = "Account Number - Unique id that is assigned to the account", example = "DFEV323455DE5S3", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @JsonProperty(required = true)
+    @Schema(description = "Account Number - Unique id that is assigned to the account", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private String accountNumber;
 
     /**
