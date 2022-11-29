@@ -59,6 +59,24 @@ public class AccountDto {
     private Set<MemberDto> members;
 
     /**
+     * List of brokers associated with the account
+     */
+    @JsonProperty(required = true)
+    private Set<BrokerDto> brokers;
+
+    /**
+     * List of sponsors associated with the account
+     */
+    @JsonProperty(required = true)
+    private Set<SponsorDto> sponsors;
+
+    /**
+     * List of payers associated with the account
+     */
+    @JsonProperty(required = true)
+    private Set<PayerDto> payers;
+
+    /**
      * Account attributes associated with the account
      */
     @JsonProperty(required = false)

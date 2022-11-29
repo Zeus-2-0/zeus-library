@@ -149,6 +149,13 @@ public class MemberDto {
     private Set<MemberEmailDto> memberEmails;
 
     /**
+     * The list of alternate contacts associated with the member
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The list of alternate contacts associated with the member")
+    private Set<AlternateContactDto> alternateContacts;
+
+    /**
      * The list of member premiums associated with the member
      */
     @JsonProperty(required = false)
