@@ -61,6 +61,13 @@ public class MemberIdentifierDto {
     private String identifierValue;
 
     /**
+     * Identifies if the identifier is active
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the identifier is active", example = "true", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private boolean isActive;
+
+    /**
      * The date when the identifier was created
      */
     @JsonProperty(required = false)
