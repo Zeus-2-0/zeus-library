@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.account;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -72,6 +73,7 @@ public class MemberEmailDto {
      * The start date of the email
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The start date of the email", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
@@ -79,6 +81,7 @@ public class MemberEmailDto {
      * The end date of the email
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The end date of the email", example = "12/31/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
@@ -86,6 +89,7 @@ public class MemberEmailDto {
      * The date when the email was created
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the email was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -93,6 +97,7 @@ public class MemberEmailDto {
      * The date when the email was updated
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the email was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 

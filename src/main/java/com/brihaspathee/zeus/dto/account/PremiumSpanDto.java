@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.account;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -66,6 +67,7 @@ public class PremiumSpanDto {
      * Start date of the premium span
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The start date of the premium span", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
@@ -73,6 +75,7 @@ public class PremiumSpanDto {
      * End date of the premium span
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The end date of the premium span", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
@@ -122,6 +125,7 @@ public class PremiumSpanDto {
      * The date when the premium span was created
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the premium span was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -129,6 +133,7 @@ public class PremiumSpanDto {
      * The date when the premium span was updated
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the premium span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 

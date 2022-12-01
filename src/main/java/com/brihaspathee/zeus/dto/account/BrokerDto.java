@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.account;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -93,6 +94,7 @@ public class BrokerDto {
      * The start date of the broker
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "Start date of the broker", example = "1/1/2022", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
@@ -100,6 +102,7 @@ public class BrokerDto {
      * The end date of the broker
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "End date of the broker", example = "12/31/2022", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
@@ -107,6 +110,7 @@ public class BrokerDto {
      * The date when the account was created
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the account was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -114,6 +118,7 @@ public class BrokerDto {
      * The date when the account was updated
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the account was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 

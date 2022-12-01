@@ -166,6 +166,7 @@ public class MemberDto {
      * The date when the member was created
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the member was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -173,6 +174,7 @@ public class MemberDto {
      * The date when the member was updated
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the member was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 

@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.dto.account;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -65,15 +66,23 @@ public class MemberLanguageDto {
      * The start date of the language
      */
     @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
     @Schema(description = "The start date of the language", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
+    /**
+     * The end date of the language
+     */
+    @JsonProperty(required = true)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Schema(description = "The end date of the language", example = "12/31/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
     /**
      * The date when the language was created
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the language was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -81,6 +90,7 @@ public class MemberLanguageDto {
      * The date when the language was updated
      */
     @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Schema(description = "The date when the language was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
