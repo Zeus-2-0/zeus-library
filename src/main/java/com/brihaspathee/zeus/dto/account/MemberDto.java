@@ -175,4 +175,35 @@ public class MemberDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the member was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberDto{" +
+                "memberSK=" + memberSK +
+                ", accountSK=" + accountSK +
+                ", memberCode='" + memberCode + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", relationshipTypeCode='" + relationshipTypeCode + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", genderTypeCode='" + genderTypeCode + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", memberAttributes=" + memberAttributes +
+                ", memberAddresses=" + memberAddresses +
+                ", memberIdentifiers=" + memberIdentifiers +
+                ", memberLanguages=" + memberLanguages +
+                ", memberPhones=" + memberPhones +
+                ", memberEmails=" + memberEmails +
+                ", alternateContacts=" + alternateContacts +
+                ", memberPremiums=" + memberPremiums +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

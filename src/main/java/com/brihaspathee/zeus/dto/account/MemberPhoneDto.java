@@ -88,4 +88,23 @@ public class MemberPhoneDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the phone number was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberPhoneDto{" +
+                "memberPhoneSK=" + memberPhoneSK +
+                ", memberSK=" + memberSK +
+                ", memberPhoneCode='" + memberPhoneCode + '\'' +
+                ", phoneTypeCode='" + phoneTypeCode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

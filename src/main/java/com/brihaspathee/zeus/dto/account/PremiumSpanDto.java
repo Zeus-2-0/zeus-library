@@ -43,18 +43,18 @@ public class PremiumSpanDto {
     private UUID enrollmentSpanSK;
 
     /**
-     * The unique code of the premium span in MMS
-     */
-    @JsonProperty(required = true)
-    @Schema(description = "Premium Span Code - Unique id that is assigned to the premium span in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
-    private String premiumSpanCode;
-
-    /**
      * The zeus transaction control number of the transaction that created the premium span
      */
     @JsonProperty(required = true)
     @Schema(description = "The zeus transaction control number of the transaction that created the premium span", example = "SDFG43456DFG23G", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private String ztcn;
+
+    /**
+     * The unique code of the premium span in MMS
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Premium Span Code - Unique id that is assigned to the premium span in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String premiumSpanCode;
 
     /**
      * The list of members associated with the premium span

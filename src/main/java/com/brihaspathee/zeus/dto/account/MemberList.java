@@ -24,4 +24,15 @@ public class MemberList {
      * List of all the member dtos
      */
     private Set<MemberDto> memberDtos;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberList{" +
+                "memberDtos=" + memberDtos +
+                '}';
+    }
 }

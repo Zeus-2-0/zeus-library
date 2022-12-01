@@ -24,4 +24,15 @@ public class AccountList {
      * List of all the account dtos
      */
     private Set<AccountDto> accountDtos;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "AccountList{" +
+                "accountDtos=" + accountDtos +
+                '}';
+    }
 }

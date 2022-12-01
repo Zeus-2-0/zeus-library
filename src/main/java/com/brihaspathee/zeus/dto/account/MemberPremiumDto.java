@@ -74,4 +74,21 @@ public class MemberPremiumDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the premium span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberPremiumDto{" +
+                "memberPremiumSK=" + memberPremiumSK +
+                ", memberCode='" + memberCode + '\'' +
+                ", memberSK=" + memberSK +
+                ", exchangeMemberId='" + exchangeMemberId + '\'' +
+                ", individualPremiumAmount=" + individualPremiumAmount +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

@@ -66,4 +66,20 @@ public class AccountAttributeDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the account attribute was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "AccountAttributeDto{" +
+                "accountAttributeSK=" + accountAttributeSK +
+                ", attributeSK=" + attributeSK +
+                ", accountSK=" + accountSK +
+                ", attributeValue='" + attributeValue + '\'' +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

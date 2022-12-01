@@ -80,4 +80,22 @@ public class MemberIdentifierDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the identifier was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberIdentifierDto{" +
+                "memberIdentifierSK=" + memberIdentifierSK +
+                ", memberSK=" + memberSK +
+                ", memberIdentifierCode='" + memberIdentifierCode + '\'' +
+                ", identifierTypeCode='" + identifierTypeCode + '\'' +
+                ", identifierValue='" + identifierValue + '\'' +
+                ", isActive=" + isActive +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

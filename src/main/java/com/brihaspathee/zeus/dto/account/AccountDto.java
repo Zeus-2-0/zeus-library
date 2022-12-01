@@ -96,4 +96,24 @@ public class AccountDto {
     @Schema(description = "The date when the account was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "AccountDto{" +
+                "accountSK=" + accountSK +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", enrollmentSpans=" + enrollmentSpans +
+                ", members=" + members +
+                ", brokers=" + brokers +
+                ", sponsors=" + sponsors +
+                ", payers=" + payers +
+                ", accountAttributes=" + accountAttributes +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

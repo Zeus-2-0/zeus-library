@@ -83,4 +83,23 @@ public class MemberLanguageDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the language was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "MemberLanguageDto{" +
+                "memberLanguageSK=" + memberLanguageSK +
+                ", memberSK=" + memberSK +
+                ", memberLanguageCode='" + memberLanguageCode + '\'' +
+                ", languageTypeCode='" + languageTypeCode + '\'' +
+                ", languageCode='" + languageCode + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }
