@@ -23,4 +23,7 @@ public class ZeusServiceNames {
     public static final String API_GATEWAY = "API-GATEWAY";
     public static final String REF_DATA_SERVICE = "REF-DATA-SERVICE";
     public static final String TP_SERVICE = "TP-SERVICE";
+    public static final String ACCOUNT_PROCESSOR_SERVICE = "ACCOUNT-PROCESSOR-SERVICE";
+    public static final String PLAN_CATALOG = "PLAN-CATALOG";
+    public static final String RULE_SERVICE = "RULE-SERVICE";
 }
