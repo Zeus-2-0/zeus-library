@@ -11,5 +11,5 @@ package com.brihaspathee.zeus.constants;
  */
 public enum EnrollmentSpanStatus {
 
-    ENROLL, PREMEM, NO_VALID_STATUS, CANCEL, SUSPEND, DELINQ, ELECT
+    ENROLLED, PRE_MEMBER, NO_VALID_STATUS, CANCELED, SUSPENDED, DELINQUENT, ELECTED
 }
