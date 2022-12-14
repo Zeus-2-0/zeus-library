@@ -46,14 +46,14 @@ public class EnrollmentSpanDto {
     /**
      * The unique code of the enrollment span in MMS
      */
-    @JsonProperty(required = true)
-    @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @JsonProperty(required = false)
+    @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private String enrollmentSpanCode;
 
     /**
      * The premium spans associated with the enrollment span
      */
-    @JsonProperty(required = true)
+    @JsonProperty(required = false)
     private Set<PremiumSpanDto> premiumSpans;
 
     /**
@@ -96,16 +96,16 @@ public class EnrollmentSpanDto {
     /**
      * The exchange subscriber id associated with the enrollment span
      */
-    @JsonProperty(required = true)
-    @Schema(description = "The exchange subscriber id associated with the enrollment span", example = "5236346", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @JsonProperty(required = false)
+    @Schema(description = "The exchange subscriber id associated with the enrollment span", example = "5236346", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private String exchangeSubscriberId;
 
     /**
      * The effectuation date of the enrollment span
      */
-    @JsonProperty(required = true)
+    @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "Effectuation date associated with the enrollment span", example = "12/14/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Effectuation date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectuationDate;
 
     /**
@@ -132,15 +132,15 @@ public class EnrollmentSpanDto {
     /**
      * The status of the enrollment span
      */
-    @JsonProperty(required = true)
-    @Schema(description = "Status of the enrollment span", example = "ENROLLED", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @JsonProperty(required = false)
+    @Schema(description = "Status of the enrollment span", example = "ENROLLED", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private String statusTypeCode;
 
     /**
      * The zeus transaction control number of the transaction that created the enrollment span
      */
-    @JsonProperty(required = true)
-    @Schema(description = "The zeus transaction control number of the transaction that created the enrollment span", example = "SDFG43456DFG23G", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the enrollment span", example = "SDFG43456DFG23G", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private String ztcn;
 
     /**
