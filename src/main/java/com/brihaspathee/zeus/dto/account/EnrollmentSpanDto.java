@@ -130,6 +130,13 @@ public class EnrollmentSpanDto {
     private String productTypeCode;
 
     /**
+     * Identifies if the enrollment span is delinquent or not
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Identifies if the enrollment span is delinquent or not", example = "true", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    private boolean delinqInd;
+
+    /**
      * The status of the enrollment span
      */
     @JsonProperty(required = false)
