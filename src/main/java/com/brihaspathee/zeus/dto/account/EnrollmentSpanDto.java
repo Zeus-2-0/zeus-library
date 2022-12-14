@@ -137,6 +137,22 @@ public class EnrollmentSpanDto {
     private boolean delinqInd;
 
     /**
+     * The paid through date of the enrollment span
+     */
+    @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Schema(description = "Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    private LocalDate paidThroughDate;
+
+    /**
+     * The claim paid through date of the enrollment span
+     */
+    @JsonProperty(required = false)
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Schema(description = "Claim Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    private LocalDate claimPaidThroughDate;
+
+    /**
      * The status of the enrollment span
      */
     @JsonProperty(required = false)
