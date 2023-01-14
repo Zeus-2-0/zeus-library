@@ -3,9 +3,10 @@ package com.brihaspathee.zeus.dto.account;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Null;
 import lombok.*;
 
-import javax.validation.constraints.Null;
+//import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
