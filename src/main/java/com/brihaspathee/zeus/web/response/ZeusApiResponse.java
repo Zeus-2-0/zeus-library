@@ -32,6 +32,7 @@ public class ZeusApiResponse<E> {
 //    @JsonFormat(pattern="dd MMM yyyy hh:mm:ss")
 //    @JsonSerialize(using = LocalDateTimeSerializer.class)
 //    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern ="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="EST" )
     private LocalDateTime timestamp;
 
     private int statusCode;
