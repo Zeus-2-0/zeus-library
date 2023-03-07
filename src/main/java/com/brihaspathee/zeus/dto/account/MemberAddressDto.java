@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
-//import javax.validation.constraints.Null;
+//import jakarta.validation.constraints.Null;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;

@@ -2,11 +2,15 @@ package com.brihaspathee.zeus.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Null;
 import lombok.*;
 
-//import javax.validation.constraints.Null;
+//import jakarta.validation.constraints.Null;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -83,6 +87,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = true)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "Start date associated with the enrollment span", example = "1/1/2022", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
@@ -91,6 +97,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = true)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "End date associated with the enrollment span", example = "12/31/2022", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
