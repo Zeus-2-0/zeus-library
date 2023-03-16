@@ -67,7 +67,7 @@ public class XWalkResponse {
     @Override
     public String toString() {
         return "XWalkResponse{" +
-                ", internalListCode='" + internalListCode + '\'' +
+                "internalListCode='" + internalListCode + '\'' +
                 ", internalListTypeName='" + internalListTypeName + '\'' +
                 ", externalListCode='" + externalListCode + '\'' +
                 ", externalListTypeName='" + externalListTypeName + '\'' +
