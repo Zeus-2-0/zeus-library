@@ -2,6 +2,12 @@ package com.brihaspathee.zeus.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
@@ -94,6 +100,8 @@ public class MemberAddressDto {
      */
     @JsonProperty(required = true)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "The start date of the address", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
@@ -102,6 +110,8 @@ public class MemberAddressDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "The end date of the address", example = "12/31/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
@@ -110,6 +120,8 @@ public class MemberAddressDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Schema(description = "The date when the address was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -118,6 +130,8 @@ public class MemberAddressDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Schema(description = "The date when the address was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 

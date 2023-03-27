@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Null;
 import lombok.*;
@@ -114,6 +116,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "Effectuation date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectuationDate;
 
@@ -150,6 +154,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate paidThroughDate;
 
@@ -158,6 +164,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "Claim Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate claimPaidThroughDate;
 
@@ -180,6 +188,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Schema(description = "The date when the enrollment span was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
@@ -188,6 +198,8 @@ public class EnrollmentSpanDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Schema(description = "The date when the enrollment span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
