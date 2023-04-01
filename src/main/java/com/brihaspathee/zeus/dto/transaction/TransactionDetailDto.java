@@ -54,11 +54,11 @@ public class TransactionDetailDto {
     private String transactionTypeCode;
 
     /**
-     * Identifies if the transaction is a dependent only coverage transaction
+     * Identifies the type of coverage for the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The type of transaction", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
-    private AtomicBoolean dependentCoverage;
+    @Schema(description = "The type of coverage", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String coverageTypeCode;
 
     /**
      * The plan id received in the transaction

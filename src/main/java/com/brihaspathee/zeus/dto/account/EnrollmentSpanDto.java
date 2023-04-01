@@ -144,11 +144,11 @@ public class EnrollmentSpanDto {
     private String productTypeCode;
 
     /**
-     * Identifies if the enrollment span covers only dependents
+     * Identifies the type of coverage for an enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "The type of transaction", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
-    private AtomicBoolean dependentCoverage;
+    @Schema(description = "The type of coverage", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String coverageTypeCode;
 
     /**
      * Identifies if the enrollment span is delinquent or not
