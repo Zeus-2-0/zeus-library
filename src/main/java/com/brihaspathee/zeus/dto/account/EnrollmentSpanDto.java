@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -141,6 +142,13 @@ public class EnrollmentSpanDto {
     @JsonProperty(required = true)
     @Schema(description = "Product type code of the plan", example = "HMO", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private String productTypeCode;
+
+    /**
+     * Identifies if the enrollment span covers only dependents
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The type of transaction", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean dependentCoverage;
 
     /**
      * Identifies if the enrollment span is delinquent or not

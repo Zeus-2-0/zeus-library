@@ -12,6 +12,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -35,7 +36,7 @@ public class TransactionDetailDto {
      * The primary key of the transaction detail
      */
     @JsonProperty(required = false)
-    @Schema(description = "Transaction Detail SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Transaction Detail SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     @Null
     private UUID transactionDetailSK;
 
@@ -49,36 +50,43 @@ public class TransactionDetailDto {
      * The type of transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The type of transaction", example = "ADD", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The type of transaction", example = "ADD", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String transactionTypeCode;
+
+    /**
+     * Identifies if the transaction is a dependent only coverage transaction
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The type of transaction", example = "true", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean dependentCoverage;
 
     /**
      * The plan id received in the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The plan id received in the transaction", example = "67138CA0234501", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The plan id received in the transaction", example = "67138CA0234501", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String planId;
 
     /**
      * The csr variant received in the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The csr variant received in the transaction", example = "03", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The csr variant received in the transaction", example = "03", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String csrVariant;
 
     /**
      * The group policy id received in the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The group policy id received in the transaction", example = "72352456", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The group policy id received in the transaction", example = "72352456", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String groupPolicyId;
 
     /**
      * The effective date received in the transaction
      */
-    @JsonProperty(required = false)
+    @JsonProperty(required = true)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "The effective date received in the transaction", example = "1/1/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The effective date received in the transaction", example = "1/1/2021", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectiveDate;
 
     /**
@@ -86,7 +94,7 @@ public class TransactionDetailDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "The end date received in the transaction", example = "1/31/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The end date received in the transaction", example = "1/31/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
     /**
@@ -94,7 +102,7 @@ public class TransactionDetailDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Schema(description = "The maintenance effective date received in the transaction", example = "1/15/2021", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The maintenance effective date received in the transaction", example = "1/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate maintenanceEffectiveDate;
 
 
@@ -102,14 +110,14 @@ public class TransactionDetailDto {
      * The date when the record was created
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the record was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the record was created", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
     /**
      * The date when the record was updated
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the record was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the record was updated", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
     /**
