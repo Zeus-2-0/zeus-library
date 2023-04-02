@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -131,6 +132,12 @@ public class PremiumSpanDto {
     @JsonProperty(required = false)
     @Schema(description = "The CSR amount period of the premium span", example = "150.00", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private BigDecimal csrAmount;
+    /**
+     * Identifies if the premium span was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the premium span was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The date when the premium span was created

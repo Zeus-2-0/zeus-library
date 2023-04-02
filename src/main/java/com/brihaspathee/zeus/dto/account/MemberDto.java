@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -114,6 +115,13 @@ public class MemberDto {
     @JsonProperty(required = false)
     @Schema(description = "The weight of the member in pounds", example = "65.6", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private double weight;
+
+    /**
+     * Identifies if the member was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the member was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The list of member attributes associated with the member

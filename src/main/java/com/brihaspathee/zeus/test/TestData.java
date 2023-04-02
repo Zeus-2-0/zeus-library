@@ -18,12 +18,15 @@ import lombok.*;
 @AllArgsConstructor
 public class TestData<E> {
 
+    private String testCaseDescription;
+
     private E testData;
 
     @Override
     public String toString() {
         return "TestData{" +
-                "testData=" + testData +
+                "testCaseDescription='" + testCaseDescription + '\'' +
+                ", testData=" + testData +
                 '}';
     }
 }

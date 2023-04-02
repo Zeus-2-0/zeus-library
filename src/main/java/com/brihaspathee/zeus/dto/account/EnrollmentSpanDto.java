@@ -188,8 +188,16 @@ public class EnrollmentSpanDto {
      * The zeus transaction control number of the transaction that created the enrollment span
      */
     @JsonProperty(required = false)
-    @Schema(description = "The zeus transaction control number of the transaction that created the enrollment span", example = "SDFG43456DFG23G", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The zeus transaction control number of the transaction that created the enrollment span", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String ztcn;
+
+    /**
+     * Identifies if the enrollment span was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the enrollment span was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
+
 
     /**
      * The date when the enrollment span was created
