@@ -18,10 +18,25 @@ import lombok.*;
 @AllArgsConstructor
 public class TestData<E> {
 
+    /**
+     * Unique test case id created for the test case
+     */
+    private String testCaseId;
+
+    /**
+     * A short description of the test case
+     */
     private String testCaseDescription;
 
+    /**
+     * Test data
+     */
     private E testData;
 
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
         return "TestData{" +
