@@ -4,7 +4,7 @@
 
     <groupId>com.brihaspathee.zeus</groupId>
     <artifactId>zeus-library</artifactId>
-    <version>1.0.91-SNAPSHOT</version>
+    <version>1.0.91</version>
     <packaging>jar</packaging>
     <name>zeus-library</name>
     <description>Common Classes for all Zeus Microservices</description>
@@ -27,7 +27,7 @@
         <!--        <developerConnection>scm:git:ssh://github.com:Zeus-2-0/zeus-library.git</developerConnection>-->
         <developerConnection>scm:git:git@github.com:Zeus-2-0/zeus-library.git</developerConnection>
         <url>scm:git:http://github.com/Zeus-2-0/zeus-library</url>
-        <tag>zeus-library-1.0.0</tag>
+        <tag>zeus-library-1.0.91</tag>
     </scm>
 
     <developers>
