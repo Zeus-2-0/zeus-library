@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class BuildTestData<T> {
 
     public List<T> buildData(String methodName, TestClass<T> testClass){
-        log.info("Test Class:{}", testClass);
+        // log.info("Test Class:{}", testClass);
 
         // Get the test method that is matching the method name passed in as input
         TestMethod<T> testMethod =
@@ -29,7 +29,7 @@ public class BuildTestData<T> {
                         .filter(userTestMethod -> userTestMethod.getTestMethodName().equals(methodName))
                         .findFirst()
                         .get();
-        log.info("Test Method:{}", testMethod);
+        // log.info("Test Method:{}", testMethod);
 
         // Get the test data for the method
         List<TestData<T>> userTestData = testMethod.getTestData();
