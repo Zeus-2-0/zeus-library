@@ -39,7 +39,7 @@ public class EnrollmentSpanDto {
      * The primary key of the record
      */
     @JsonProperty(required = false)
-    @Schema(description = "Enrollment Span SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Enrollment Span SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     @Null
     private UUID enrollmentSpanSK;
 
@@ -47,7 +47,7 @@ public class EnrollmentSpanDto {
      * The account key of the account that the enrollment span is associated with
      */
     @JsonProperty(required = false)
-    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", requiredMode = Schema.RequiredMode.NOT_REQUIRED , accessMode = Schema.AccessMode.READ_WRITE)
     @Null
     private UUID accountSK;
 
@@ -55,7 +55,7 @@ public class EnrollmentSpanDto {
      * The unique code of the enrollment span in MMS
      */
     @JsonProperty(required = false)
-    @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String enrollmentSpanCode;
 
     /**
@@ -68,21 +68,21 @@ public class EnrollmentSpanDto {
      * The state associated with the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "State associated with the enrollment span", example = "FL", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "State associated with the enrollment span", example = "FL", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String stateTypeCode;
 
     /**
      * The marketplace associated with the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "Marketplace associated with the enrollment span", example = "FFM", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Marketplace associated with the enrollment span", example = "FFM", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String marketplaceTypeCode;
 
     /**
      * The business unit associated with the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "Business unit associated with the enrollment span", example = "FL_BU", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Business unit associated with the enrollment span", example = "FL_BU", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String businessUnitTypeCode;
 
     /**
@@ -92,7 +92,7 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Schema(description = "Start date associated with the enrollment span", example = "1/1/2022", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Start date associated with the enrollment span", example = "1/1/2022", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate startDate;
 
     /**
@@ -102,14 +102,14 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Schema(description = "End date associated with the enrollment span", example = "12/31/2022", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "End date associated with the enrollment span", example = "12/31/2022", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
     /**
      * The exchange subscriber id associated with the enrollment span
      */
     @JsonProperty(required = false)
-    @Schema(description = "The exchange subscriber id associated with the enrollment span", example = "5236346", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The exchange subscriber id associated with the enrollment span", example = "5236346", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String exchangeSubscriberId;
 
     /**
@@ -119,28 +119,28 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Schema(description = "Effectuation date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Effectuation date associated with the enrollment span", example = "12/14/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectuationDate;
 
     /**
      * The plan id of the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "Plan Id associated with the enrollment span", example = "52345FL424525235", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Plan Id associated with the enrollment span", example = "52345FL424525235", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String planId;
 
     /**
      * The group policy id of the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "Group policy id associated with the enrollment span", example = "523452345", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Group policy id associated with the enrollment span", example = "523452345", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String groupPolicyId;
 
     /**
      * The product type code of the enrollment span
      */
     @JsonProperty(required = true)
-    @Schema(description = "Product type code of the plan", example = "HMO", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Product type code of the plan", example = "HMO", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String productTypeCode;
 
     /**
@@ -154,7 +154,7 @@ public class EnrollmentSpanDto {
      * Identifies if the enrollment span is delinquent or not
      */
     @JsonProperty(required = false)
-    @Schema(description = "Identifies if the enrollment span is delinquent or not", example = "true", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Identifies if the enrollment span is delinquent or not", example = "true", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private boolean delinqInd;
 
     /**
@@ -164,7 +164,7 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Schema(description = "Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Paid through date associated with the enrollment span", example = "12/14/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate paidThroughDate;
 
     /**
@@ -174,14 +174,14 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @Schema(description = "Claim Paid through date associated with the enrollment span", example = "12/14/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Claim Paid through date associated with the enrollment span", example = "12/14/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate claimPaidThroughDate;
 
     /**
      * The status of the enrollment span
      */
     @JsonProperty(required = false)
-    @Schema(description = "Status of the enrollment span", example = "ENROLLED", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Status of the enrollment span", example = "ENROLLED", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String statusTypeCode;
 
     /**
@@ -206,7 +206,7 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @Schema(description = "The date when the enrollment span was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the enrollment span was created", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
     /**
@@ -216,7 +216,7 @@ public class EnrollmentSpanDto {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @Schema(description = "The date when the enrollment span was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the enrollment span was updated", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
     /**
