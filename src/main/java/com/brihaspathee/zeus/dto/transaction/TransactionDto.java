@@ -10,7 +10,9 @@ import lombok.*;
 
 //import jakarta.validation.constraints.Null;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -35,7 +37,8 @@ public class TransactionDto {
      * The primary key of the account
      */
     @JsonProperty(required = false)
-    @Schema(description = "Transaction SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Transaction SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     @Null
     private UUID transactionSK;
 
@@ -43,14 +46,16 @@ public class TransactionDto {
      * The zeus transaction control number
      */
     @JsonProperty(required = true)
-    @Schema(description = "The zeus transaction control number", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The zeus transaction control number", example = "DFEV323455DE5S3",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private String ztcn;
 
     /**
      * The zeus file control number
      */
     @JsonProperty(required = false)
-    @Schema(description = "The zeus file control number", example = "DFEV323455DE5S3", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The zeus file control number", example = "DFEV323455DE5S3",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private String zfcn;
 
     /**
@@ -58,14 +63,16 @@ public class TransactionDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern ="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone="EST" )
-    @Schema(description = "The date when the transaction was received", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The date when the transaction was received", example = "12/15/2021",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDateTime transactionReceivedDate;
 
     /**
      * The source of the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The source of the transaction", example = "MARKETPLACE", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The source of the transaction", example = "MARKETPLACE",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private String transactionSourceTypeCode;
 
     /**
@@ -126,15 +133,26 @@ public class TransactionDto {
      * The date when the account was created
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the transaction was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the transaction was created", example = "12/15/2021",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
     /**
      * The date when the account was updated
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the transaction was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the transaction was updated", example = "12/15/2021",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * This is a hashmap of the codes that should be used when creating the account from the transaction in unit test mode
+     * This is used only for unit testing the Account Processing Service
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Map of the codes to be used for entities for an account",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
+    private Map<String, List<String>> testEntityCodes = new HashMap<>();
 
     /**
      * toString method

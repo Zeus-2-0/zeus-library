@@ -33,21 +33,21 @@ public class AccountDto {
      * The primary key of the account in MMS
      */
     @JsonProperty(required = false)
-    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Account SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private UUID accountSK;
 
     /**
      * The account number of the account
      */
     @JsonProperty(required = true)
-    @Schema(description = "Account Number - Unique id that is assigned to the account", example = "DFEV323455DE5S3", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Account Number - Unique id that is assigned to the account", example = "DFEV323455DE5S3", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String accountNumber;
 
     /**
      * The line of business associated with the account
      */
     @JsonProperty(required = true)
-    @Schema(description = "Line of business of the account", example = "HIX", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Line of business of the account", example = "HIX", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String lineOfBusinessTypeCode;
 
     /**
@@ -93,7 +93,7 @@ public class AccountDto {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @Schema(description = "The date when the account was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the account was created", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
     /**
@@ -103,7 +103,7 @@ public class AccountDto {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @Schema(description = "The date when the account was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the account was updated", example = "12/15/2021", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
 
     /**

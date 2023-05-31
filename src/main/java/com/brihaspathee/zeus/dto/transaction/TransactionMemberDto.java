@@ -13,7 +13,9 @@ import org.springframework.cglib.core.Local;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -38,7 +40,8 @@ public class TransactionMemberDto {
      * The primary key of the member
      */
     @JsonProperty(required = false)
-    @Schema(description = "Member SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec", required = false, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Member SK - This is a UUID value", example = "657cfd75-634e-49f1-9556-4d79f79848ec",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     @Null
     private UUID memberSK;
 
@@ -52,14 +55,17 @@ public class TransactionMemberDto {
      * Unique member code assigned for the member during transaction processing
      */
     @JsonProperty(required = true)
-    @Schema(description = "Unique member code assigned for the member during transaction processing", example = "DR323FS55WGS53D", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Unique member code assigned for the member during transaction processing",
+            example = "DR323FS55WGS53D",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private String transactionMemberCode;
 
     /**
      * Transaction type received for the member in the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "Transaction type received for the member in the transaction", example = "ADD", required = true, accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "Transaction type received for the member in the transaction", example = "ADD",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private String transactionTypeCode;
 
     /**
@@ -67,7 +73,8 @@ public class TransactionMemberDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "Effective date received for the member in the transaction", example = "01/01/2023", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Effective date received for the member in the transaction", example = "01/01/2023",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate effectiveDate;
 
     /**
@@ -75,49 +82,56 @@ public class TransactionMemberDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "End date received for the member in the transaction", example = "12/31/2023", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "End date received for the member in the transaction", example = "12/31/2023",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
 
     /**
      * The relationship type code of the member with respect to head of the household
      */
     @JsonProperty(required = true)
-    @Schema(description = "The relationship of the member with the head of the household", example = "HOH", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The relationship of the member with the head of the household", example = "HOH",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String relationshipTypeCode;
 
     /**
      * The maintenance reason type code received for the member in the transaction
      */
     @JsonProperty(required = true)
-    @Schema(description = "The maintenance reason type code received for the member in the transaction", example = "BIRTH", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The maintenance reason type code received for the member in the transaction",
+            example = "BIRTH", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String reasonTypeCode;
 
     /**
      * The first name of the member
      */
     @JsonProperty(required = true)
-    @Schema(description = "The first name of the member", example = "John", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The first name of the member", example = "John",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String firstName;
 
     /**
      * The middle name of the member
      */
     @JsonProperty(required = false)
-    @Schema(description = "The middle name of the member", example = "Mosley", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The middle name of the member", example = "Mosley",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String middleName;
 
     /**
      * The last name of the member
      */
     @JsonProperty(required = true)
-    @Schema(description = "The last name of the member", example = "Doe", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The last name of the member", example = "Doe",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String lastName;
 
     /**
      * Identifies if the member uses tobacco
      */
     @JsonProperty(required = true)
-    @Schema(description = "Identifies if the member uses tobacco", example = "UNKNOWN", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "Identifies if the member uses tobacco", example = "UNKNOWN",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String tobaccoIndicator;
 
     /**
@@ -125,28 +139,32 @@ public class TransactionMemberDto {
      */
     @JsonProperty(required = false)
     @JsonFormat(pattern="yyyy-MM-dd")
-    @Schema(description = "The date of birth of the member", example = "5/21/1983", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date of birth of the member", example = "5/21/1983",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate dateOfBirth;
 
     /**
      * The gender of the member
      */
     @JsonProperty(required = true)
-    @Schema(description = "The gender of the member", example = "MALE", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The gender of the member", example = "MALE",
+            requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String genderTypeCode;
 
     /**
      * The member rate received in the transaction
      */
     @JsonProperty(required = false)
-    @Schema(description = "The rate received for the member in the transaction", example = "115.35", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The rate received for the member in the transaction", example = "115.35",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private BigDecimal memberRate;
 
     /**
      * The product catalog rate received for the member
      */
     @JsonProperty(required = false)
-    @Schema(description = "The product catalog rate received for the member", example = "115.35", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The product catalog rate received for the member", example = "115.35",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private BigDecimal productCatalogRate;
 
     /**
@@ -189,15 +207,26 @@ public class TransactionMemberDto {
      * The date when the record was created
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the transaction was created", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the transaction was created", example = "12/15/2021",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime createdDate;
 
     /**
      * The date when the record was updated
      */
     @JsonProperty(required = false)
-    @Schema(description = "The date when the transaction was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
+    @Schema(description = "The date when the transaction was updated", example = "12/15/2021",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * This is a hashmap of the codes that should be used when creating the account from the transaction in unit test mode
+     * This is used only for unit testing the Account Processing Service
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Map of the codes to be used for entities within a member",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
+    private Map<String, List<String>> testEntityCodes = new HashMap<>();
 
     /**
      * toString method
