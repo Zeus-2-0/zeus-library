@@ -152,7 +152,7 @@ public class TransactionDto {
     @JsonProperty(required = false)
     @Schema(description = "Map of the codes to be used for entities for an account",
             requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
-    private Map<String, List<String>> testEntityCodes = new HashMap<>();
+    private Map<String, List<String>> entityCodes = new HashMap<>();
 
     /**
      * toString method
