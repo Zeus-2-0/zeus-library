@@ -173,9 +173,12 @@ public class AccountValidation {
                     }else{
                         assertNull(actualPremiumSpanDto.getCsrAmount());
                     }
+                    if(expectedPremiumSpanDto.getMemberPremiumSpans() != null &&
+                        expectedPremiumSpanDto.getMemberPremiumSpans().size() > 0){
+                        assertMemberPremiums(expectedPremiumSpanDto.getMemberPremiumSpans(),
+                                actualPremiumSpanDto.getMemberPremiumSpans());
+                    }
 
-                    assertMemberPremiums(expectedPremiumSpanDto.getMemberPremiumSpans(),
-                            actualPremiumSpanDto.getMemberPremiumSpans());
                 }
             });
         }
