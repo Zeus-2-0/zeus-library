@@ -107,7 +107,11 @@ public class AccountValidation {
                         assertEquals(expectedEnrollmentSpanDto.getEffectuationDate(),
                                 actualEnrollmentSpanDto.getEffectuationDate());
                     }
-
+                    if(expectedEnrollmentSpanDto.getChanged() != null){
+                        assertNotNull(actualEnrollmentSpanDto.getChanged());
+                        assertEquals(expectedEnrollmentSpanDto.getChanged().get(),
+                                actualEnrollmentSpanDto.getChanged().get());
+                    }
                     assertEquals(expectedEnrollmentSpanDto.getStatusTypeCode(),
                             actualEnrollmentSpanDto.getStatusTypeCode());
                     assertEquals(expectedEnrollmentSpanDto.getZtcn(),
@@ -161,12 +165,12 @@ public class AccountValidation {
                     }
 
                     if(expectedPremiumSpanDto.getOtherPayAmount() != null){
+
                         assertEquals(expectedPremiumSpanDto.getOtherPayAmount().longValue(),
                                 actualPremiumSpanDto.getOtherPayAmount().longValue());
                     }else{
                         assertNull(actualPremiumSpanDto.getOtherPayAmount());
                     }
-
                     if(expectedPremiumSpanDto.getCsrAmount() != null){
                         assertEquals(expectedPremiumSpanDto.getCsrAmount().longValue(),
                                 actualPremiumSpanDto.getCsrAmount().longValue());
@@ -177,6 +181,11 @@ public class AccountValidation {
                         expectedPremiumSpanDto.getMemberPremiumSpans().size() > 0){
                         assertMemberPremiums(expectedPremiumSpanDto.getMemberPremiumSpans(),
                                 actualPremiumSpanDto.getMemberPremiumSpans());
+                    }
+                    if(expectedPremiumSpanDto.getChanged() != null){
+                        assertNotNull(actualPremiumSpanDto.getChanged());
+                        assertEquals(expectedPremiumSpanDto.getChanged().get(),
+                                actualPremiumSpanDto.getChanged().get());
                     }
 
                 }
@@ -237,8 +246,13 @@ public class AccountValidation {
                     assertEquals(expectedMemberDto.getDateOfBirth(), actualMemberDto.getDateOfBirth());
                     assertEquals(expectedMemberDto.getRelationshipTypeCode(), actualMemberDto.getRelationshipTypeCode());
                     assertEquals(expectedMemberDto.getGenderTypeCode(), actualMemberDto.getGenderTypeCode());
-                    assertEquals(expectedMemberDto.getHeight(), expectedMemberDto.getHeight());
-                    assertEquals(expectedMemberDto.getWeight(), expectedMemberDto.getWeight());
+                    assertEquals(expectedMemberDto.getHeight(), actualMemberDto.getHeight());
+                    assertEquals(expectedMemberDto.getWeight(), actualMemberDto.getWeight());
+                    if(expectedMemberDto.getChanged() != null){
+                        assertNotNull(actualMemberDto.getChanged());
+                        assertEquals(expectedMemberDto.getChanged().get(),
+                                actualMemberDto.getChanged().get());
+                    }
                     assertMemberAddresses(expectedMemberDto.getMemberAddresses(), actualMemberDto.getMemberAddresses());
                 }
             });
