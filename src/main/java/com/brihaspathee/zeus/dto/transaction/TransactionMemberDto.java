@@ -160,6 +160,22 @@ public class TransactionMemberDto {
     private BigDecimal memberRate;
 
     /**
+     * The height of the member
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The height of the member in the transaction", example = "125",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private double height;
+
+    /**
+     * The weight of the member
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The weight of the member in the transaction", example = "135.65",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private double weight;
+
+    /**
      * The product catalog rate received for the member
      */
     @JsonProperty(required = false)
