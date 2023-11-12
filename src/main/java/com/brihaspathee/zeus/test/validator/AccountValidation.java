@@ -57,6 +57,9 @@ public class AccountValidation {
         assertEquals(expectedAccountDto.getAccountNumber(), actualAccountDto.getAccountNumber());
         assertEnrollmentSpans(expectedAccountDto.getEnrollmentSpans(), actualAccountDto.getEnrollmentSpans());
         assertMemberDetails(expectedAccountDto.getMembers(), actualAccountDto.getMembers());
+        assertBrokers(expectedAccountDto.getBrokers(), actualAccountDto.getBrokers());
+        assertSponsors(expectedAccountDto.getSponsors(), actualAccountDto.getSponsors());
+        assertPayers(expectedAccountDto.getPayers(), actualAccountDto.getPayers());
     }
 
     /**
@@ -222,6 +225,156 @@ public class AccountValidation {
     }
 
     /**
+     * Compare the details of the brokers
+     * @param expectedBrokers - Brokers expected in the account
+     * @param actualBrokers - Actual brokers in the account
+     */
+    private void assertBrokers(Set<BrokerDto> expectedBrokers,
+                               Set<BrokerDto> actualBrokers){
+        if(expectedBrokers == null || expectedBrokers.isEmpty()){
+            assertNull(actualBrokers);
+            return;
+        }
+        int expectedBrokerSize = expectedBrokers.size();
+        int actualBrokerSize = actualBrokers.size();
+        assertEquals(expectedBrokerSize, actualBrokerSize);
+        expectedBrokers.forEach(expectedBrokerDto -> {
+            BrokerDto actualBrokerDto = actualBrokers.stream().filter(actualBrokDto ->
+                    expectedBrokerDto.getBrokerCode().equals(actualBrokDto.getBrokerCode()))
+                    .findFirst().orElse(BrokerDto.builder()
+                            .brokerCode("Random Broker Code")
+                            .build());
+            assertEquals(expectedBrokerDto.getBrokerCode(), actualBrokerDto.getBrokerCode());
+            if (expectedBrokerDto.getBrokerSK() != null){
+                assertNotNull(actualBrokerDto.getBrokerSK());
+                assertEquals(expectedBrokerDto.getBrokerSK(), actualBrokerDto.getBrokerSK());
+            }
+            if(expectedBrokerDto.getChanged() != null){
+                assertNotNull(actualBrokerDto.getChanged());
+                assertEquals(expectedBrokerDto.getChanged().get(),
+                        actualBrokerDto.getChanged().get());
+            }
+            assertEquals(expectedBrokerDto.getBrokerId(), actualBrokerDto.getBrokerId());
+            assertEquals(expectedBrokerDto.getBrokerName(), actualBrokerDto.getBrokerName());
+            assertEquals(expectedBrokerDto.getStartDate(), actualBrokerDto.getStartDate());
+            if(expectedBrokerDto.getEndDate() == null){
+                assertNull(actualBrokerDto.getEndDate());
+            }else {
+                assertNotNull(actualBrokerDto.getEndDate());
+                assertEquals(expectedBrokerDto.getEndDate(), actualBrokerDto.getEndDate());
+            }
+            if (expectedBrokerDto.getAgencyId() != null){
+                assertNotNull(actualBrokerDto.getAgencyId());
+                assertEquals(expectedBrokerDto.getAgencyId(), actualBrokerDto.getAgencyId());
+            }else{
+                assertNull(actualBrokerDto.getAgencyId());
+            }
+            if (expectedBrokerDto.getAgencyName() != null){
+                assertNotNull(actualBrokerDto.getAgencyName());
+                assertEquals(expectedBrokerDto.getAgencyName(), actualBrokerDto.getAgencyName());
+            }else{
+                assertNull(actualBrokerDto.getAgencyName());
+            }
+            if (expectedBrokerDto.getAccountNumber1() != null){
+                assertNotNull(actualBrokerDto.getAccountNumber1());
+                assertEquals(expectedBrokerDto.getAccountNumber1(), actualBrokerDto.getAccountNumber1());
+            }else{
+                assertNull(actualBrokerDto.getAccountNumber1());
+            }
+            if (expectedBrokerDto.getAccountNumber2() != null){
+                assertNotNull(actualBrokerDto.getAccountNumber2());
+                assertEquals(expectedBrokerDto.getAccountNumber2(), actualBrokerDto.getAccountNumber2());
+            }else{
+                assertNull(actualBrokerDto.getAccountNumber2());
+            }
+        });
+    }
+
+    /**
+     * Compare the details of the sponsors
+     * @param expectedSponsors - Sponsors expected in the account
+     * @param actualSponsors - Actual Sponsors in the account
+     */
+    private void assertSponsors(Set<SponsorDto> expectedSponsors,
+                               Set<SponsorDto> actualSponsors){
+        if(expectedSponsors == null || expectedSponsors.isEmpty()){
+            assertNull(actualSponsors);
+            return;
+        }
+        int expectedSponsorSize = expectedSponsors.size();
+        int actualSponsorSize = actualSponsors.size();
+        assertEquals(expectedSponsorSize, actualSponsorSize);
+        expectedSponsors.forEach(expectedSponsorDto -> {
+            SponsorDto actualSponsorDto = actualSponsors.stream().filter(actualSponDto ->
+                            expectedSponsorDto.getSponsorCode().equals(actualSponDto.getSponsorCode()))
+                    .findFirst().orElse(SponsorDto.builder()
+                            .sponsorCode("Random Sponsor Code")
+                            .build());
+            assertEquals(expectedSponsorDto.getSponsorCode(), actualSponsorDto.getSponsorCode());
+            if (expectedSponsorDto.getSponsorSK() != null){
+                assertNotNull(actualSponsorDto.getSponsorSK());
+                assertEquals(expectedSponsorDto.getSponsorSK(), actualSponsorDto.getSponsorSK());
+            }
+            if(expectedSponsorDto.getChanged() != null){
+                assertNotNull(actualSponsorDto.getChanged());
+                assertEquals(expectedSponsorDto.getChanged().get(),
+                        actualSponsorDto.getChanged().get());
+            }
+            assertEquals(expectedSponsorDto.getSponsorId(), actualSponsorDto.getSponsorId());
+            assertEquals(expectedSponsorDto.getSponsorName(), actualSponsorDto.getSponsorName());
+            assertEquals(expectedSponsorDto.getStartDate(), actualSponsorDto.getStartDate());
+            if(expectedSponsorDto.getEndDate() == null){
+                assertNull(actualSponsorDto.getEndDate());
+            }else {
+                assertNotNull(actualSponsorDto.getEndDate());
+                assertEquals(expectedSponsorDto.getEndDate(), actualSponsorDto.getEndDate());
+            }
+        });
+    }
+
+    /**
+     * Compare the details of the payers
+     * @param expectedPayers - Payers expected in the account
+     * @param actualPayers - Actual Payers in the account
+     */
+    private void assertPayers(Set<PayerDto> expectedPayers,
+                                Set<PayerDto> actualPayers){
+        if(expectedPayers == null || expectedPayers.isEmpty()){
+            assertNull(actualPayers);
+            return;
+        }
+        int expectedPayerSize = expectedPayers.size();
+        int actualPayerSize = actualPayers.size();
+        assertEquals(expectedPayerSize, actualPayerSize);
+        expectedPayers.forEach(expectedPayerDto -> {
+            PayerDto actualPayerDto = actualPayers.stream().filter(actualPyrDto ->
+                            expectedPayerDto.getPayerCode().equals(actualPyrDto.getPayerCode()))
+                    .findFirst().orElse(PayerDto.builder()
+                            .payerCode("Random Payer Code")
+                            .build());
+            assertEquals(expectedPayerDto.getPayerCode(), actualPayerDto.getPayerCode());
+            if (expectedPayerDto.getPayerSK() != null){
+                assertNotNull(actualPayerDto.getPayerSK());
+                assertEquals(expectedPayerDto.getPayerSK(), actualPayerDto.getPayerSK());
+            }
+            if(expectedPayerDto.getChanged() != null){
+                assertNotNull(actualPayerDto.getChanged());
+                assertEquals(expectedPayerDto.getChanged().get(),
+                        actualPayerDto.getChanged().get());
+            }
+            assertEquals(expectedPayerDto.getPayerId(), actualPayerDto.getPayerId());
+            assertEquals(expectedPayerDto.getPayerName(), actualPayerDto.getPayerName());
+            assertEquals(expectedPayerDto.getStartDate(), actualPayerDto.getStartDate());
+            if(expectedPayerDto.getEndDate() == null){
+                assertNull(actualPayerDto.getEndDate());
+            }else {
+                assertNotNull(actualPayerDto.getEndDate());
+                assertEquals(expectedPayerDto.getEndDate(), actualPayerDto.getEndDate());
+            }
+        });
+    }
+
+    /**
      * Asser the details of the members
      * @param expectedMembers
      * @param actualMembers
@@ -254,6 +407,10 @@ public class AccountValidation {
                                 actualMemberDto.getChanged().get());
                     }
                     assertMemberAddresses(expectedMemberDto.getMemberAddresses(), actualMemberDto.getMemberAddresses());
+                    assertMemberIdentifiers(expectedMemberDto.getMemberIdentifiers(), actualMemberDto.getMemberIdentifiers());
+                    assertMemberPhones(expectedMemberDto.getMemberPhones(), actualMemberDto.getMemberPhones());
+                    assertMemberLanguages(expectedMemberDto.getMemberLanguages(), actualMemberDto.getMemberLanguages());
+                    assertMemberEmails(expectedMemberDto.getMemberEmails(), actualMemberDto.getMemberEmails());
                 }
             });
         }
@@ -264,9 +421,10 @@ public class AccountValidation {
      * @param expectedMemberAddresses
      * @param actualMemberAddresses
      */
-    public void assertMemberAddresses(Set<MemberAddressDto> expectedMemberAddresses,
+    private void assertMemberAddresses(Set<MemberAddressDto> expectedMemberAddresses,
                                       Set<MemberAddressDto> actualMemberAddresses){
         if(expectedMemberAddresses == null){
+            assertNull(actualMemberAddresses);
             return;
         }
         assertNotNull(actualMemberAddresses);
@@ -282,15 +440,206 @@ public class AccountValidation {
                                 .build());
                 assertEquals(expectedMemberAddressDto.getMemberAddressCode(), actualMemberAddressDto.getMemberAddressCode());
                 if (expectedMemberAddressDto.getMemberAddressCode().equals(actualMemberAddressDto.getMemberAddressCode())) {
+                    if (expectedMemberAddressDto.getMemberAddressSK() != null){
+                        assertNotNull(actualMemberAddressDto.getMemberAddressSK());
+                        assertEquals(expectedMemberAddressDto.getMemberAddressSK(), actualMemberAddressDto.getMemberAddressSK());
+                    }
+                    if(expectedMemberAddressDto.getChanged() != null){
+                        assertNotNull(actualMemberAddressDto.getChanged());
+                        assertEquals(expectedMemberAddressDto.getChanged().get(),
+                                actualMemberAddressDto.getChanged().get());
+                    }
                     assertEquals(expectedMemberAddressDto.getAddressTypeCode(), actualMemberAddressDto.getAddressTypeCode());
                     assertEquals(expectedMemberAddressDto.getAddressLine1(), actualMemberAddressDto.getAddressLine1());
                     assertEquals(expectedMemberAddressDto.getAddressLine2(), actualMemberAddressDto.getAddressLine2());
                     assertEquals(expectedMemberAddressDto.getCity(), actualMemberAddressDto.getCity());
                     assertEquals(expectedMemberAddressDto.getStateTypeCode(), actualMemberAddressDto.getStateTypeCode());
                     assertEquals(expectedMemberAddressDto.getZipCode(), actualMemberAddressDto.getZipCode());
+                    assertEquals(expectedMemberAddressDto.getStartDate(), actualMemberAddressDto.getStartDate());
+                    if(expectedMemberAddressDto.getEndDate() == null){
+                        assertNull(actualMemberAddressDto.getEndDate());
+                    }else {
+                        assertNotNull(actualMemberAddressDto.getEndDate());
+                        assertEquals(expectedMemberAddressDto.getEndDate(), actualMemberAddressDto.getEndDate());
+                    }
                 }
             });
         }
+    }
+
+    /**
+     * Compare the identifiers
+     * @param expectedMemberIdentifiers
+     * @param actualMemberIdentifiers
+     */
+    private void assertMemberIdentifiers(Set<MemberIdentifierDto> expectedMemberIdentifiers,
+                                         Set<MemberIdentifierDto> actualMemberIdentifiers){
+        if (expectedMemberIdentifiers == null || expectedMemberIdentifiers.isEmpty()){
+            assertNull(actualMemberIdentifiers);
+            return;
+        }
+        assertNotNull(actualMemberIdentifiers);
+        int expectedMemberIdentifierSize = expectedMemberIdentifiers.size();
+        int actualMemberIdentifierSize = actualMemberIdentifiers.size();
+        assertEquals(expectedMemberIdentifierSize, actualMemberIdentifierSize);
+        expectedMemberIdentifiers.forEach(expectedMemberIdentifierDto -> {
+            MemberIdentifierDto actualMemberIdentifierDto = actualMemberIdentifiers.stream().filter(actualMemIdentDto ->
+                            expectedMemberIdentifierDto.getMemberIdentifierCode().equals(actualMemIdentDto.getMemberIdentifierCode()))
+                    .findFirst().orElse(MemberIdentifierDto.builder()
+                            .memberIdentifierCode("Random Member Identifier Code")
+                            .build());
+            assertEquals(expectedMemberIdentifierDto.getMemberIdentifierCode(), actualMemberIdentifierDto.getMemberIdentifierCode());
+            if (expectedMemberIdentifierDto.getMemberIdentifierSK() != null){
+                log.info("Expected member Identifier sk:{}", expectedMemberIdentifierDto.getMemberIdentifierSK());
+                assertNotNull(actualMemberIdentifierDto.getMemberIdentifierSK());
+                assertEquals(expectedMemberIdentifierDto.getMemberIdentifierSK(), actualMemberIdentifierDto.getMemberIdentifierSK());
+            }
+            if(expectedMemberIdentifierDto.getChanged() != null){
+                log.info("Member Identifier code:{}", expectedMemberIdentifierDto.getMemberIdentifierCode());
+                assertNotNull(actualMemberIdentifierDto.getChanged());
+                assertEquals(expectedMemberIdentifierDto.getChanged().get(),
+                        actualMemberIdentifierDto.getChanged().get());
+            }
+            assertEquals(expectedMemberIdentifierDto.getIdentifierTypeCode(), actualMemberIdentifierDto.getIdentifierTypeCode());
+            assertEquals(expectedMemberIdentifierDto.getIdentifierValue(), actualMemberIdentifierDto.getIdentifierValue());
+            assertEquals(expectedMemberIdentifierDto.isActive(), actualMemberIdentifierDto.isActive());
+        });
+    }
+
+    /**
+     * Compare the phone numbers
+     * @param expectedMemberPhones
+     * @param actualMemberPhones
+     */
+    private void assertMemberPhones(Set<MemberPhoneDto> expectedMemberPhones,
+                                         Set<MemberPhoneDto> actualMemberPhones){
+        if (expectedMemberPhones == null || expectedMemberPhones.isEmpty()){
+            assertNull(actualMemberPhones);
+            return;
+        }
+        assertNotNull(actualMemberPhones);
+        int expectedMemberPhoneSize = expectedMemberPhones.size();
+        int actualMemberPhoneSize = actualMemberPhones.size();
+        assertEquals(expectedMemberPhoneSize, actualMemberPhoneSize);
+        expectedMemberPhones.forEach(expectedMemberPhoneDto -> {
+            MemberPhoneDto actualMemberPhoneDto = actualMemberPhones.stream().filter(actualMemPhoneDto ->
+                            expectedMemberPhoneDto.getMemberPhoneCode().equals(actualMemPhoneDto.getMemberPhoneCode()))
+                    .findFirst().orElse(MemberPhoneDto.builder()
+                            .memberPhoneCode("Random Member Phone Code")
+                            .build());
+            assertEquals(expectedMemberPhoneDto.getMemberPhoneCode(), actualMemberPhoneDto.getMemberPhoneCode());
+            if (expectedMemberPhoneDto.getMemberPhoneSK() != null){
+                log.info("Expected member phone sk:{}", expectedMemberPhoneDto.getMemberPhoneSK());
+                assertNotNull(actualMemberPhoneDto.getMemberPhoneSK());
+                assertEquals(expectedMemberPhoneDto.getMemberPhoneSK(), actualMemberPhoneDto.getMemberPhoneSK());
+            }
+            if(expectedMemberPhoneDto.getChanged() != null){
+                log.info("Member Phone code:{}", expectedMemberPhoneDto.getMemberPhoneCode());
+                assertNotNull(actualMemberPhoneDto.getChanged());
+                assertEquals(expectedMemberPhoneDto.getChanged().get(),
+                        actualMemberPhoneDto.getChanged().get());
+            }
+            assertEquals(expectedMemberPhoneDto.getPhoneTypeCode(), actualMemberPhoneDto.getPhoneTypeCode());
+            assertEquals(expectedMemberPhoneDto.getPhoneNumber(), actualMemberPhoneDto.getPhoneNumber());
+            assertEquals(expectedMemberPhoneDto.getStartDate(), actualMemberPhoneDto.getStartDate());
+            if(expectedMemberPhoneDto.getEndDate() == null){
+                assertNull(actualMemberPhoneDto.getEndDate());
+            }else {
+                assertNotNull(actualMemberPhoneDto.getEndDate());
+                assertEquals(expectedMemberPhoneDto.getEndDate(), actualMemberPhoneDto.getEndDate());
+            }
+        });
+    }
+
+    /**
+     * Compare the languages
+     * @param expectedMemberLanguages
+     * @param actualMemberLanguages
+     */
+    private void assertMemberLanguages(Set<MemberLanguageDto> expectedMemberLanguages,
+                                    Set<MemberLanguageDto> actualMemberLanguages){
+        if (expectedMemberLanguages == null || expectedMemberLanguages.isEmpty()){
+            assertNull(actualMemberLanguages);
+            return;
+        }
+        assertNotNull(actualMemberLanguages);
+        int expectedMemberLanguageSize = expectedMemberLanguages.size();
+        int actualMemberLanguageSize = actualMemberLanguages.size();
+        assertEquals(expectedMemberLanguageSize, actualMemberLanguageSize);
+        expectedMemberLanguages.forEach(expectedMemberLanguageDto -> {
+            MemberLanguageDto actualMemberLanguageDto = actualMemberLanguages.stream().filter(actualMemLangDto ->
+                            expectedMemberLanguageDto.getMemberLanguageCode().equals(actualMemLangDto.getMemberLanguageCode()))
+                    .findFirst().orElse(MemberLanguageDto.builder()
+                            .memberLanguageCode("Random Member Language Code")
+                            .build());
+            assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
+            if (expectedMemberLanguageDto.getMemberLanguageSK() != null){
+                log.info("Expected member language sk:{}", expectedMemberLanguageDto.getMemberLanguageSK());
+                assertNotNull(actualMemberLanguageDto.getMemberLanguageSK());
+                assertEquals(expectedMemberLanguageDto.getMemberLanguageSK(), actualMemberLanguageDto.getMemberLanguageSK());
+            }
+            if(expectedMemberLanguageDto.getChanged() != null){
+                log.info("Member Language code:{}", expectedMemberLanguageDto.getMemberLanguageCode());
+                assertNotNull(actualMemberLanguageDto.getChanged());
+                assertEquals(expectedMemberLanguageDto.getChanged().get(),
+                        actualMemberLanguageDto.getChanged().get());
+            }
+            assertEquals(expectedMemberLanguageDto.getLanguageTypeCode(), actualMemberLanguageDto.getLanguageTypeCode());
+            assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
+            assertEquals(expectedMemberLanguageDto.getStartDate(), actualMemberLanguageDto.getStartDate());
+            if(expectedMemberLanguageDto.getEndDate() == null){
+                assertNull(actualMemberLanguageDto.getEndDate());
+            }else {
+                assertNotNull(actualMemberLanguageDto.getEndDate());
+                assertEquals(expectedMemberLanguageDto.getEndDate(), actualMemberLanguageDto.getEndDate());
+            }
+        });
+    }
+
+    /**
+     * Compare the emails
+     * @param expectedMemberEmails
+     * @param actualMemberEmails
+     */
+    private void assertMemberEmails(Set<MemberEmailDto> expectedMemberEmails,
+                                       Set<MemberEmailDto> actualMemberEmails){
+        if (expectedMemberEmails == null || expectedMemberEmails.isEmpty()){
+            assertNull(actualMemberEmails);
+            return;
+        }
+        assertNotNull(actualMemberEmails);
+        int expectedMemberEmailSize = expectedMemberEmails.size();
+        int actualMemberEmailSize = actualMemberEmails.size();
+        assertEquals(expectedMemberEmailSize, actualMemberEmailSize);
+        expectedMemberEmails.forEach(expectedMemberEmailDto -> {
+            MemberEmailDto actualMemberEmailDto = actualMemberEmails.stream().filter(actualMemEmailDto ->
+                            expectedMemberEmailDto.getMemberEmailCode().equals(actualMemEmailDto.getMemberEmailCode()))
+                    .findFirst().orElse(MemberEmailDto.builder()
+                            .memberEmailCode("Random Member Email Code")
+                            .build());
+            assertEquals(expectedMemberEmailDto.getMemberEmailCode(), actualMemberEmailDto.getMemberEmailCode());
+            if (expectedMemberEmailDto.getMemberEmailSK() != null){
+                log.info("Expected member email sk:{}", expectedMemberEmailDto.getMemberEmailSK());
+                assertNotNull(actualMemberEmailDto.getMemberEmailSK());
+                assertEquals(expectedMemberEmailDto.getMemberEmailSK(), actualMemberEmailDto.getMemberEmailSK());
+            }
+            if(expectedMemberEmailDto.getChanged() != null){
+                log.info("Member Email code:{}", expectedMemberEmailDto.getMemberEmailCode());
+                assertNotNull(actualMemberEmailDto.getChanged());
+                assertEquals(expectedMemberEmailDto.getChanged().get(),
+                        actualMemberEmailDto.getChanged().get());
+            }
+            assertEquals(expectedMemberEmailDto.getEmailTypeCode(), actualMemberEmailDto.getEmailTypeCode());
+            assertEquals(expectedMemberEmailDto.getEmail(), actualMemberEmailDto.getEmail());
+            assertEquals(expectedMemberEmailDto.isPrimary(), actualMemberEmailDto.isPrimary());
+            assertEquals(expectedMemberEmailDto.getStartDate(), actualMemberEmailDto.getStartDate());
+            if(expectedMemberEmailDto.getEndDate() == null){
+                assertNull(actualMemberEmailDto.getEndDate());
+            }else {
+                assertNotNull(actualMemberEmailDto.getEndDate());
+                assertEquals(expectedMemberEmailDto.getEndDate(), actualMemberEmailDto.getEndDate());
+            }
+        });
     }
 
     /**

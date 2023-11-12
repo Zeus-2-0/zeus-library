@@ -16,6 +16,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -88,6 +89,13 @@ public class PayerDto {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "End date of the payer", example = "12/31/2022", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
+
+    /**
+     * Identifies if the payer was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the payer was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The date when the account was created

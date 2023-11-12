@@ -13,6 +13,7 @@ import lombok.*;
 //import jakarta.validation.constraints.Null;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -72,6 +73,13 @@ public class MemberIdentifierDto {
     @JsonProperty(required = true)
     @Schema(description = "Identifies if the identifier is active", example = "true", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private boolean isActive;
+
+    /**
+     * Identifies if the identifier was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the identifier was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The date when the identifier was created

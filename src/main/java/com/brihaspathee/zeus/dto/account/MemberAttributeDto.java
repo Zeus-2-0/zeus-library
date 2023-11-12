@@ -13,6 +13,7 @@ import lombok.*;
 //import jakarta.validation.constraints.Null;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -58,6 +59,13 @@ public class MemberAttributeDto {
     @JsonProperty(required = true)
     @Schema(description = "The value of the attribute", example = "FFM-FL", required = true, accessMode = Schema.AccessMode.READ_WRITE)
     private String attributeValue;
+
+    /**
+     * Identifies if the attribute was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the attribute was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The date when the attribute was created

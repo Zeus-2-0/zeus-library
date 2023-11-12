@@ -16,6 +16,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA
@@ -95,6 +96,13 @@ public class MemberEmailDto {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @Schema(description = "The end date of the email", example = "12/31/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDate endDate;
+
+    /**
+     * Identifies if the email was updated
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "Identifies if the email was updated", example = "false", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private AtomicBoolean changed;
 
     /**
      * The date when the email was created
