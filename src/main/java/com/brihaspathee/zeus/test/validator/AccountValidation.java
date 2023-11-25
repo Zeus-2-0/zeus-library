@@ -156,6 +156,7 @@ public class AccountValidation {
                     assertEquals(expectedPremiumSpanDto.getEndDate(), actualPremiumSpanDto.getEndDate());
                     assertEquals(expectedPremiumSpanDto.getStatusTypeCode(), actualPremiumSpanDto.getStatusTypeCode());
                     assertEquals(expectedPremiumSpanDto.getCsrVariant(), actualPremiumSpanDto.getCsrVariant());
+                    assertEquals(expectedPremiumSpanDto.getSequence(), actualPremiumSpanDto.getSequence());
                     assertEquals(expectedPremiumSpanDto.getTotalPremiumAmount().longValue(),
                             actualPremiumSpanDto.getTotalPremiumAmount().longValue());
                     assertEquals(expectedPremiumSpanDto.getTotalResponsibleAmount().longValue(),
