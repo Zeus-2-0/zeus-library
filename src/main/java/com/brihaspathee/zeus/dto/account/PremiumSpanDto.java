@@ -141,6 +141,16 @@ public class PremiumSpanDto {
     private BigDecimal csrAmount;
 
     /**
+     * The sequence in which the premium span is created
+     * This is useful when the enrollment span is reinstated and there are two premium span with the same start and
+     * end dates (Canceled), the premium span with the bigger sequence will be determined as the premium span that was
+     * last created and will be used during the reinstatement process
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The sequence in which the premium span is created", example = "1", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private int sequence;
+
+    /**
      * Identifies if the premium span was updated
      */
     @JsonProperty(required = true)
