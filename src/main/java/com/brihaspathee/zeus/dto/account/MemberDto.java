@@ -217,6 +217,7 @@ public class MemberDto {
                 ", genderTypeCode='" + genderTypeCode + '\'' +
                 ", height=" + height +
                 ", weight=" + weight +
+                ", changed=" + changed +
                 ", memberAttributes=" + memberAttributes +
                 ", memberAddresses=" + memberAddresses +
                 ", memberIdentifiers=" + memberIdentifiers +

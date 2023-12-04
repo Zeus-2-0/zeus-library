@@ -79,4 +79,21 @@ public class TransactionMemberIdentifierDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the record was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "TransactionMemberIdentifierDto{" +
+                "memberIdentifierSK=" + memberIdentifierSK +
+                ", member=" + member +
+                ", identifierTypeCode='" + identifierTypeCode + '\'' +
+                ", identifierValue='" + identifierValue + '\'' +
+                ", receivedDate=" + receivedDate +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

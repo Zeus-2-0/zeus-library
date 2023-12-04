@@ -1,6 +1,8 @@
 package com.brihaspathee.zeus.test.validator;
 
 import com.brihaspathee.zeus.dto.account.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
@@ -27,7 +29,7 @@ public class AccountValidation {
      * @param actualAccountList
      */
     public void assertAccount(AccountList expectedAccountList,
-                              AccountList actualAccountList){
+                              AccountList actualAccountList) {
         Set<AccountDto> expectedAccountDtos = expectedAccountList.getAccountDtos();
         Set<AccountDto> actualAccountDtos = actualAccountList.getAccountDtos();
         log.info("Ex Accounts:{}", expectedAccountDtos);
@@ -41,7 +43,12 @@ public class AccountValidation {
                             .accountSK(UUID.randomUUID())
                             .accountNumber("Random Account")
                             .build());
-            assertAccount(expectedAccountDto, actualAccount);
+            try {
+                assertAccount(expectedAccountDto, actualAccount);
+            } catch (JsonProcessingException e) {
+//                throw new RuntimeException(e);
+                log.info(e.getMessage());
+            }
         }));
     }
 
@@ -51,9 +58,12 @@ public class AccountValidation {
      * @param actualAccountDto the actual account details
      */
     public void assertAccount(AccountDto expectedAccountDto,
-                              AccountDto actualAccountDto){
+                              AccountDto actualAccountDto) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String actualAccountDtoString = objectMapper.writeValueAsString(actualAccountDto);
         log.info("Expected Account:{}", expectedAccountDto);
         log.info("Actual Account:{}", actualAccountDto);
+        log.info("Actual Account String :{}", actualAccountDtoString);
         assertEquals(expectedAccountDto.getAccountNumber(), actualAccountDto.getAccountNumber());
         assertEnrollmentSpans(expectedAccountDto.getEnrollmentSpans(), actualAccountDto.getEnrollmentSpans());
         assertMemberDetails(expectedAccountDto.getMembers(), actualAccountDto.getMembers());
@@ -69,11 +79,17 @@ public class AccountValidation {
      */
     private void assertEnrollmentSpans(Set<EnrollmentSpanDto> expectedEnrollmentSpans,
                                        Set<EnrollmentSpanDto> actualEnrollmentSpans){
+        if(expectedEnrollmentSpans == null || expectedEnrollmentSpans.isEmpty()){
+            assertNull(actualEnrollmentSpans);
+            return;
+        }else{
+            assertNotNull(actualEnrollmentSpans);
+        }
         int expectedEnrollmentSpanSize = expectedEnrollmentSpans.size();
         int actualEnrollmentSpanSize = actualEnrollmentSpans.size();
         assertEquals(expectedEnrollmentSpanSize, actualEnrollmentSpanSize);
         if(expectedEnrollmentSpanSize == actualEnrollmentSpanSize){
-            expectedEnrollmentSpans.stream().forEach(expectedEnrollmentSpanDto -> {
+            expectedEnrollmentSpans.forEach(expectedEnrollmentSpanDto -> {
                 EnrollmentSpanDto actualEnrollmentSpanDto = actualEnrollmentSpans.stream().filter(actualSpan ->
                                 expectedEnrollmentSpanDto.getEnrollmentSpanCode().equals(actualSpan.getEnrollmentSpanCode()))
                         .findFirst().orElse(EnrollmentSpanDto.builder()
@@ -84,6 +100,12 @@ public class AccountValidation {
                 assertEquals(expectedEnrollmentSpanCode,
                         actualEnrollmentSpanCode);
                 if(expectedEnrollmentSpanCode.equals(actualEnrollmentSpanCode)){
+                    if(expectedEnrollmentSpanDto.getEnrollmentSpanSK() != null){
+                        assertNotNull(actualEnrollmentSpanDto.getEnrollmentSpanSK());
+                        assertEquals(expectedEnrollmentSpanDto.getEnrollmentSpanSK(), actualEnrollmentSpanDto.getEnrollmentSpanSK());
+                    }else{
+                        assertNull(actualEnrollmentSpanDto.getEnrollmentSpanSK());
+                    }
                     assertEquals(expectedEnrollmentSpanDto.getStateTypeCode(),
                             actualEnrollmentSpanDto.getStateTypeCode());
                     assertEquals(expectedEnrollmentSpanDto.getMarketplaceTypeCode(),
@@ -151,6 +173,12 @@ public class AccountValidation {
                                 .build());
                 assertEquals(expectedPremiumSpanDto.getPremiumSpanCode(), actualPremiumSpanDto.getPremiumSpanCode());
                 if(expectedPremiumSpanDto.getPremiumSpanCode().equals(actualPremiumSpanDto.getPremiumSpanCode())){
+                    if(expectedPremiumSpanDto.getPremiumSpanSK() != null){
+                        assertNotNull(actualPremiumSpanDto.getPremiumSpanSK());
+                        assertEquals(expectedPremiumSpanDto.getPremiumSpanSK(), actualPremiumSpanDto.getPremiumSpanSK());
+                    }else{
+                        assertNull(actualPremiumSpanDto.getPremiumSpanSK());
+                    }
                     assertEquals(expectedPremiumSpanDto.getZtcn(), actualPremiumSpanDto.getZtcn());
                     assertEquals(expectedPremiumSpanDto.getStartDate(), actualPremiumSpanDto.getStartDate());
                     assertEquals(expectedPremiumSpanDto.getEndDate(), actualPremiumSpanDto.getEndDate());
@@ -382,6 +410,10 @@ public class AccountValidation {
      */
     public void assertMemberDetails(Set<MemberDto> expectedMembers,
                                     Set<MemberDto> actualMembers){
+        if(expectedMembers == null || expectedMembers.isEmpty()){
+            assertNull(actualMembers);
+            return;
+        }
         int expectedMemberSize = expectedMembers.size();
         int actualMemberSize = actualMembers.size();
         assertEquals(expectedMemberSize, actualMemberSize);

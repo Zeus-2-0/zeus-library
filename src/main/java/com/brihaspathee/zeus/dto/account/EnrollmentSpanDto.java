@@ -241,6 +241,7 @@ public class EnrollmentSpanDto {
                 ", productTypeCode='" + productTypeCode + '\'' +
                 ", statusTypeCode='" + statusTypeCode + '\'' +
                 ", ztcn='" + ztcn + '\'' +
+                ", changed='" + changed + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", premiumSpans=" + premiumSpans +
