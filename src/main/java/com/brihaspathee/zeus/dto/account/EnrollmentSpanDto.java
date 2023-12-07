@@ -180,9 +180,23 @@ public class EnrollmentSpanDto {
     /**
      * The status of the enrollment span
      */
-    @JsonProperty(required = false)
-    @Schema(description = "Status of the enrollment span", example = "ENROLLED", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    @JsonProperty(required = true)
+    @Schema(description = "Status of the enrollment span", example = "ENROLLED", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String statusTypeCode;
+
+    /**
+     * The effective reason associated with the enrollment span
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Effective Reason of the enrollment span", example = "MBS", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String effectiveReason;
+
+    /**
+     * The term reason associated with the enrollment span
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Term Reason of the enrollment span", example = "VW", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String termReason;
 
     /**
      * The zeus transaction control number of the transaction that created the enrollment span

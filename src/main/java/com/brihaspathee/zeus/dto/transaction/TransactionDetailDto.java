@@ -82,6 +82,13 @@ public class TransactionDetailDto {
     private String groupPolicyId;
 
     /**
+     * The maintenance reason code received in the transaction
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The maintenance reason code received in the transaction", example = "MBS", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String maintenanceReasonCode;
+
+    /**
      * The effective date received in the transaction
      */
     @JsonProperty(required = true)

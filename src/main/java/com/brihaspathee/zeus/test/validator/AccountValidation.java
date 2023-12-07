@@ -132,6 +132,18 @@ public class AccountValidation {
                         assertEquals(expectedEnrollmentSpanDto.getEffectuationDate(),
                                 actualEnrollmentSpanDto.getEffectuationDate());
                     }
+                    if(expectedEnrollmentSpanDto.getEffectiveReason() == null){
+                        assertNull(actualEnrollmentSpanDto.getEffectiveReason());
+                    }else {
+                        assertNotNull(actualEnrollmentSpanDto.getEffectiveReason());
+                        assertEquals(expectedEnrollmentSpanDto.getEffectiveReason(), actualEnrollmentSpanDto.getEffectiveReason());
+                    }
+                    if(expectedEnrollmentSpanDto.getTermReason() == null){
+                        assertNull(actualEnrollmentSpanDto.getTermReason());
+                    }else {
+                        assertNotNull(actualEnrollmentSpanDto.getTermReason());
+                        assertEquals(expectedEnrollmentSpanDto.getTermReason(), actualEnrollmentSpanDto.getTermReason());
+                    }
                     if(expectedEnrollmentSpanDto.getChanged() != null){
                         assertNotNull(actualEnrollmentSpanDto.getChanged());
                         assertEquals(expectedEnrollmentSpanDto.getChanged().get(),
