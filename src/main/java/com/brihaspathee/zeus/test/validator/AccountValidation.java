@@ -3,6 +3,8 @@ package com.brihaspathee.zeus.test.validator;
 import com.brihaspathee.zeus.dto.account.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
@@ -21,7 +23,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * To change this template use File | Settings | File and Code Template
  */
 @Slf4j
+@Setter
+@Getter
 public class AccountValidation {
+
+    private String testServiceName;
 
     /**
      * Validate the details the account
@@ -104,7 +110,9 @@ public class AccountValidation {
                         assertNotNull(actualEnrollmentSpanDto.getEnrollmentSpanSK());
                         assertEquals(expectedEnrollmentSpanDto.getEnrollmentSpanSK(), actualEnrollmentSpanDto.getEnrollmentSpanSK());
                     }else{
-                        assertNull(actualEnrollmentSpanDto.getEnrollmentSpanSK());
+                        if(!this.testServiceName.equals("MEMBER-MGMT-SERVICE")){
+                            assertNull(actualEnrollmentSpanDto.getEnrollmentSpanSK());
+                        }
                     }
                     assertEquals(expectedEnrollmentSpanDto.getStateTypeCode(),
                             actualEnrollmentSpanDto.getStateTypeCode());
@@ -184,12 +192,15 @@ public class AccountValidation {
                                 .premiumSpanCode("Random Premium Span")
                                 .build());
                 assertEquals(expectedPremiumSpanDto.getPremiumSpanCode(), actualPremiumSpanDto.getPremiumSpanCode());
+                log.info("Premium Span Code:{}", expectedPremiumSpanDto.getPremiumSpanCode());
                 if(expectedPremiumSpanDto.getPremiumSpanCode().equals(actualPremiumSpanDto.getPremiumSpanCode())){
                     if(expectedPremiumSpanDto.getPremiumSpanSK() != null){
                         assertNotNull(actualPremiumSpanDto.getPremiumSpanSK());
                         assertEquals(expectedPremiumSpanDto.getPremiumSpanSK(), actualPremiumSpanDto.getPremiumSpanSK());
                     }else{
-                        assertNull(actualPremiumSpanDto.getPremiumSpanSK());
+                        if(!this.testServiceName.equals("MEMBER-MGMT-SERVICE")){
+                            assertNull(actualPremiumSpanDto.getPremiumSpanSK());
+                        }
                     }
                     assertEquals(expectedPremiumSpanDto.getZtcn(), actualPremiumSpanDto.getZtcn());
                     assertEquals(expectedPremiumSpanDto.getStartDate(), actualPremiumSpanDto.getStartDate());

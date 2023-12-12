@@ -29,6 +29,11 @@ public class TestData<E> {
     private String testCaseDescription;
 
     /**
+     * The name of the service for which the test case is executed
+     */
+    private String serviceName;
+
+    /**
      * Test data
      */
     private E testData;
