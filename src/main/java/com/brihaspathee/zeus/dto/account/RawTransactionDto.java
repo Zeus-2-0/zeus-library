@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.dto.account;
 
 import com.brihaspathee.zeus.edi.models.enrollment.Transaction;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 /**
@@ -17,6 +18,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RawTransactionDto {
 
     /**

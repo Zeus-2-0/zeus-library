@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -34,6 +35,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PremiumSpanDto {
 
     /**
@@ -52,11 +54,14 @@ public class PremiumSpanDto {
     private UUID enrollmentSpanSK;
 
     /**
-     * The zeus transaction control number of the transaction that created the premium span
+     * The sequence in which the premium span is created
+     * This is useful when the enrollment span is reinstated and there are two premium span with the same start and
+     * end dates (Canceled), the premium span with the bigger sequence will be determined as the premium span that was
+     * last created and will be used during the reinstatement process
      */
     @JsonProperty(required = true)
-    @Schema(description = "The zeus transaction control number of the transaction that created the premium span", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
-    private String ztcn;
+    @Schema(description = "The sequence in which the premium span is created", example = "1", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private int sequence;
 
     /**
      * The unique code of the premium span in MMS
@@ -66,10 +71,11 @@ public class PremiumSpanDto {
     private String premiumSpanCode;
 
     /**
-     * The list of members associated with the premium span
+     * The zeus transaction control number of the transaction that created the premium span
      */
     @JsonProperty(required = true)
-    private Set<MemberPremiumDto> memberPremiumSpans;
+    @Schema(description = "The zeus transaction control number of the transaction that created the premium span", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
 
     /**
      * Start date of the premium span
@@ -140,15 +146,6 @@ public class PremiumSpanDto {
     @Schema(description = "The CSR amount period of the premium span", example = "150.00", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private BigDecimal csrAmount;
 
-    /**
-     * The sequence in which the premium span is created
-     * This is useful when the enrollment span is reinstated and there are two premium span with the same start and
-     * end dates (Canceled), the premium span with the bigger sequence will be determined as the premium span that was
-     * last created and will be used during the reinstatement process
-     */
-    @JsonProperty(required = true)
-    @Schema(description = "The sequence in which the premium span is created", example = "1", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
-    private int sequence;
 
     /**
      * Identifies if the premium span was updated
@@ -178,6 +175,12 @@ public class PremiumSpanDto {
     private LocalDateTime updatedDate;
 
     /**
+     * The list of members associated with the premium span
+     */
+    @JsonProperty(required = true)
+    private Set<MemberPremiumDto> memberPremiumSpans;
+
+    /**
      * toString method
      * @return
      */
@@ -186,9 +189,9 @@ public class PremiumSpanDto {
         return "PremiumSpanDto{" +
                 "premiumSpanSK=" + premiumSpanSK +
                 ", enrollmentSpanSK=" + enrollmentSpanSK +
+                ", sequence=" + sequence +
                 ", ztcn='" + ztcn + '\'' +
                 ", premiumSpanCode='" + premiumSpanCode + '\'' +
-                ", memberPremiumSpans=" + memberPremiumSpans +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", statusTypeCode='" + statusTypeCode + '\'' +
@@ -201,6 +204,7 @@ public class PremiumSpanDto {
                 ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
+                ", memberPremiumSpans=" + memberPremiumSpans +
                 '}';
     }
 }

@@ -137,9 +137,11 @@ public class TransactionDetailDto {
                 "transactionDetailSK=" + transactionDetailSK +
                 ", transaction=" + transaction +
                 ", transactionTypeCode='" + transactionTypeCode + '\'' +
+                ", coverageTypeCode='" + coverageTypeCode + '\'' +
                 ", planId='" + planId + '\'' +
                 ", csrVariant='" + csrVariant + '\'' +
                 ", groupPolicyId='" + groupPolicyId + '\'' +
+                ", maintenanceReasonCode='" + maintenanceReasonCode + '\'' +
                 ", effectiveDate=" + effectiveDate +
                 ", endDate=" + endDate +
                 ", maintenanceEffectiveDate=" + maintenanceEffectiveDate +

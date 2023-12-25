@@ -165,6 +165,7 @@ public class TransactionDto {
                 ", ztcn='" + ztcn + '\'' +
                 ", zfcn='" + zfcn + '\'' +
                 ", transactionReceivedDate=" + transactionReceivedDate +
+                ", transactionSourceTypeCode='" + transactionSourceTypeCode + '\'' +
                 ", transactionDetail=" + transactionDetail +
                 ", transactionStatus=" + transactionStatus +
                 ", transactionAttributes=" + transactionAttributes +
@@ -176,6 +177,7 @@ public class TransactionDto {
                 ", members=" + members +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
+                ", entityCodes=" + entityCodes +
                 '}';
     }
 }

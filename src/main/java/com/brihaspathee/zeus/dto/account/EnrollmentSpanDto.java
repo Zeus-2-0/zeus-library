@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -33,6 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EnrollmentSpanDto {
 
     /**
@@ -57,12 +59,6 @@ public class EnrollmentSpanDto {
     @JsonProperty(required = false)
     @Schema(description = "Enrollment Span Code - Unique id that is assigned to the enrollment span in MMS", example = "DFEV323455DE5S3", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
     private String enrollmentSpanCode;
-
-    /**
-     * The premium spans associated with the enrollment span
-     */
-    @JsonProperty(required = false)
-    private Set<PremiumSpanDto> premiumSpans;
 
     /**
      * The state associated with the enrollment span
@@ -234,6 +230,12 @@ public class EnrollmentSpanDto {
     private LocalDateTime updatedDate;
 
     /**
+     * The premium spans associated with the enrollment span
+     */
+    @JsonProperty(required = false)
+    private Set<PremiumSpanDto> premiumSpans;
+
+    /**
      * toString method
      * @return
      */
@@ -253,9 +255,15 @@ public class EnrollmentSpanDto {
                 ", planId='" + planId + '\'' +
                 ", groupPolicyId='" + groupPolicyId + '\'' +
                 ", productTypeCode='" + productTypeCode + '\'' +
+                ", coverageTypeCode='" + coverageTypeCode + '\'' +
+                ", delinqInd=" + delinqInd +
+                ", paidThroughDate=" + paidThroughDate +
+                ", claimPaidThroughDate=" + claimPaidThroughDate +
                 ", statusTypeCode='" + statusTypeCode + '\'' +
+                ", effectiveReason='" + effectiveReason + '\'' +
+                ", termReason='" + termReason + '\'' +
                 ", ztcn='" + ztcn + '\'' +
-                ", changed='" + changed + '\'' +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", premiumSpans=" + premiumSpans +

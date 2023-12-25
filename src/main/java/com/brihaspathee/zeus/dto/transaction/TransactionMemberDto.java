@@ -61,6 +61,16 @@ public class TransactionMemberDto {
     private String transactionMemberCode;
 
     /**
+     * If the member in the transaction is matched to a member in the account (MMS)
+     * this field will be populated with the code assigned to the member in MMS
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Member code assigned to the member in MMS",
+            example = "DR323FS55WGS53D",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
+    private String mmsMemberCode;
+
+    /**
      * Transaction type received for the member in the transaction
      */
     @JsonProperty(required = true)
@@ -253,13 +263,22 @@ public class TransactionMemberDto {
         return "TransactionMemberDto{" +
                 "memberSK=" + memberSK +
                 ", transaction=" + transaction +
+                ", transactionMemberCode='" + transactionMemberCode + '\'' +
+                ", mmsMemberCode='" + mmsMemberCode + '\'' +
+                ", transactionTypeCode='" + transactionTypeCode + '\'' +
+                ", effectiveDate=" + effectiveDate +
+                ", endDate=" + endDate +
                 ", relationshipTypeCode='" + relationshipTypeCode + '\'' +
+                ", reasonTypeCode='" + reasonTypeCode + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", tobaccoIndicator='" + tobaccoIndicator + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
                 ", genderTypeCode='" + genderTypeCode + '\'' +
                 ", memberRate=" + memberRate +
+                ", height=" + height +
+                ", weight=" + weight +
                 ", productCatalogRate=" + productCatalogRate +
                 ", memberPhones=" + memberPhones +
                 ", memberAddresses=" + memberAddresses +
@@ -269,6 +288,7 @@ public class TransactionMemberDto {
                 ", alternateContacts=" + alternateContacts +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
+                ", entityCodes=" + entityCodes +
                 '}';
     }
 }

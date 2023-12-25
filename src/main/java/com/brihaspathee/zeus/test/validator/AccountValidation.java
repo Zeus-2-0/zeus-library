@@ -38,8 +38,8 @@ public class AccountValidation {
                               AccountList actualAccountList) {
         Set<AccountDto> expectedAccountDtos = expectedAccountList.getAccountDtos();
         Set<AccountDto> actualAccountDtos = actualAccountList.getAccountDtos();
-        log.info("Ex Accounts:{}", expectedAccountDtos);
-        log.info("Ac Account:{}", actualAccountDtos);
+//        log.info("Ex Accounts:{}", expectedAccountDtos);
+//        log.info("Ac Account:{}", actualAccountDtos);
         expectedAccountDtos.stream().forEach( (expectedAccountDto -> {
             AccountDto actualAccount = actualAccountDtos.stream().filter(
                             (actualAccountDto) -> {
@@ -134,8 +134,9 @@ public class AccountValidation {
                             actualEnrollmentSpanDto.getGroupPolicyId());
                     assertEquals(expectedEnrollmentSpanDto.getProductTypeCode(),
                             actualEnrollmentSpanDto.getProductTypeCode());
-                    if(expectedEnrollmentSpanDto.getEffectuationDate() == null && actualEnrollmentSpanDto.getEffectuationDate() != null){
-                        assertEquals(LocalDate.now(), actualEnrollmentSpanDto.getEffectuationDate());
+                    if(expectedEnrollmentSpanDto.getEffectuationDate() == null){
+                        assertNull(actualEnrollmentSpanDto.getEffectuationDate());
+//                        assertEquals(LocalDate.now(), actualEnrollmentSpanDto.getEffectuationDate());
                     }else{
                         assertEquals(expectedEnrollmentSpanDto.getEffectuationDate(),
                                 actualEnrollmentSpanDto.getEffectuationDate());
@@ -192,7 +193,7 @@ public class AccountValidation {
                                 .premiumSpanCode("Random Premium Span")
                                 .build());
                 assertEquals(expectedPremiumSpanDto.getPremiumSpanCode(), actualPremiumSpanDto.getPremiumSpanCode());
-                log.info("Premium Span Code:{}", expectedPremiumSpanDto.getPremiumSpanCode());
+//                log.info("Premium Span Code:{}", expectedPremiumSpanDto.getPremiumSpanCode());
                 if(expectedPremiumSpanDto.getPremiumSpanCode().equals(actualPremiumSpanDto.getPremiumSpanCode())){
                     if(expectedPremiumSpanDto.getPremiumSpanSK() != null){
                         assertNotNull(actualPremiumSpanDto.getPremiumSpanSK());
@@ -232,8 +233,11 @@ public class AccountValidation {
                     }else{
                         assertNull(actualPremiumSpanDto.getCsrAmount());
                     }
+//                    log.info("Expected Member premiums not null:{}", expectedPremiumSpanDto);
                     if(expectedPremiumSpanDto.getMemberPremiumSpans() != null &&
                         expectedPremiumSpanDto.getMemberPremiumSpans().size() > 0){
+//                        log.info("Expected Premium Dto SK:{}",expectedPremiumSpanDto.getPremiumSpanCode());
+//                        log.info("Actual Premium Dto SK:{}",actualPremiumSpanDto.getPremiumSpanCode());
                         assertMemberPremiums(expectedPremiumSpanDto.getMemberPremiumSpans(),
                                 actualPremiumSpanDto.getMemberPremiumSpans());
                     }
@@ -257,6 +261,8 @@ public class AccountValidation {
                                       Set<MemberPremiumDto> actualMemberPremiums){
         int expectedMemberPremiumSize = expectedMemberPremiums.size();
         int actualMemberPremiumSize = actualMemberPremiums.size();
+//        log.info("Expected Premium Span size:{}", expectedMemberPremiumSize);
+//        log.info("Actual Premium Span size:{}", actualMemberPremiumSize);
         assertEquals(expectedMemberPremiumSize, actualMemberPremiumSize);
         if(expectedMemberPremiumSize == actualMemberPremiumSize){
             expectedMemberPremiums.stream().forEach(expectedMemberPremiumDto -> {
@@ -504,6 +510,8 @@ public class AccountValidation {
                         assertNotNull(actualMemberAddressDto.getChanged());
                         assertEquals(expectedMemberAddressDto.getChanged().get(),
                                 actualMemberAddressDto.getChanged().get());
+                    }else{
+                        assertNull(actualMemberAddressDto.getChanged());
                     }
                     assertEquals(expectedMemberAddressDto.getAddressTypeCode(), actualMemberAddressDto.getAddressTypeCode());
                     assertEquals(expectedMemberAddressDto.getAddressLine1(), actualMemberAddressDto.getAddressLine1());
@@ -546,15 +554,17 @@ public class AccountValidation {
                             .build());
             assertEquals(expectedMemberIdentifierDto.getMemberIdentifierCode(), actualMemberIdentifierDto.getMemberIdentifierCode());
             if (expectedMemberIdentifierDto.getMemberIdentifierSK() != null){
-                log.info("Expected member Identifier sk:{}", expectedMemberIdentifierDto.getMemberIdentifierSK());
+//                log.info("Expected member Identifier sk:{}", expectedMemberIdentifierDto.getMemberIdentifierSK());
                 assertNotNull(actualMemberIdentifierDto.getMemberIdentifierSK());
                 assertEquals(expectedMemberIdentifierDto.getMemberIdentifierSK(), actualMemberIdentifierDto.getMemberIdentifierSK());
             }
             if(expectedMemberIdentifierDto.getChanged() != null){
-                log.info("Member Identifier code:{}", expectedMemberIdentifierDto.getMemberIdentifierCode());
+//                log.info("Member Identifier code:{}", expectedMemberIdentifierDto.getMemberIdentifierCode());
                 assertNotNull(actualMemberIdentifierDto.getChanged());
                 assertEquals(expectedMemberIdentifierDto.getChanged().get(),
                         actualMemberIdentifierDto.getChanged().get());
+            }else{
+                assertNull(actualMemberIdentifierDto.getChanged());
             }
             assertEquals(expectedMemberIdentifierDto.getIdentifierTypeCode(), actualMemberIdentifierDto.getIdentifierTypeCode());
             assertEquals(expectedMemberIdentifierDto.getIdentifierValue(), actualMemberIdentifierDto.getIdentifierValue());
@@ -585,15 +595,17 @@ public class AccountValidation {
                             .build());
             assertEquals(expectedMemberPhoneDto.getMemberPhoneCode(), actualMemberPhoneDto.getMemberPhoneCode());
             if (expectedMemberPhoneDto.getMemberPhoneSK() != null){
-                log.info("Expected member phone sk:{}", expectedMemberPhoneDto.getMemberPhoneSK());
+//                log.info("Expected member phone sk:{}", expectedMemberPhoneDto.getMemberPhoneSK());
                 assertNotNull(actualMemberPhoneDto.getMemberPhoneSK());
                 assertEquals(expectedMemberPhoneDto.getMemberPhoneSK(), actualMemberPhoneDto.getMemberPhoneSK());
             }
             if(expectedMemberPhoneDto.getChanged() != null){
-                log.info("Member Phone code:{}", expectedMemberPhoneDto.getMemberPhoneCode());
+//                log.info("Member Phone code:{}", expectedMemberPhoneDto.getMemberPhoneCode());
                 assertNotNull(actualMemberPhoneDto.getChanged());
                 assertEquals(expectedMemberPhoneDto.getChanged().get(),
                         actualMemberPhoneDto.getChanged().get());
+            }else{
+                assertNull(actualMemberPhoneDto.getChanged());
             }
             assertEquals(expectedMemberPhoneDto.getPhoneTypeCode(), actualMemberPhoneDto.getPhoneTypeCode());
             assertEquals(expectedMemberPhoneDto.getPhoneNumber(), actualMemberPhoneDto.getPhoneNumber());
@@ -630,15 +642,17 @@ public class AccountValidation {
                             .build());
             assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
             if (expectedMemberLanguageDto.getMemberLanguageSK() != null){
-                log.info("Expected member language sk:{}", expectedMemberLanguageDto.getMemberLanguageSK());
+//                log.info("Expected member language sk:{}", expectedMemberLanguageDto.getMemberLanguageSK());
                 assertNotNull(actualMemberLanguageDto.getMemberLanguageSK());
                 assertEquals(expectedMemberLanguageDto.getMemberLanguageSK(), actualMemberLanguageDto.getMemberLanguageSK());
             }
             if(expectedMemberLanguageDto.getChanged() != null){
-                log.info("Member Language code:{}", expectedMemberLanguageDto.getMemberLanguageCode());
+//                log.info("Member Language code:{}", expectedMemberLanguageDto.getMemberLanguageCode());
                 assertNotNull(actualMemberLanguageDto.getChanged());
                 assertEquals(expectedMemberLanguageDto.getChanged().get(),
                         actualMemberLanguageDto.getChanged().get());
+            }else{
+                assertNull(actualMemberLanguageDto.getChanged());
             }
             assertEquals(expectedMemberLanguageDto.getLanguageTypeCode(), actualMemberLanguageDto.getLanguageTypeCode());
             assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
@@ -675,15 +689,17 @@ public class AccountValidation {
                             .build());
             assertEquals(expectedMemberEmailDto.getMemberEmailCode(), actualMemberEmailDto.getMemberEmailCode());
             if (expectedMemberEmailDto.getMemberEmailSK() != null){
-                log.info("Expected member email sk:{}", expectedMemberEmailDto.getMemberEmailSK());
+//                log.info("Expected member email sk:{}", expectedMemberEmailDto.getMemberEmailSK());
                 assertNotNull(actualMemberEmailDto.getMemberEmailSK());
                 assertEquals(expectedMemberEmailDto.getMemberEmailSK(), actualMemberEmailDto.getMemberEmailSK());
             }
             if(expectedMemberEmailDto.getChanged() != null){
-                log.info("Member Email code:{}", expectedMemberEmailDto.getMemberEmailCode());
+//                log.info("Member Email code:{}", expectedMemberEmailDto.getMemberEmailCode());
                 assertNotNull(actualMemberEmailDto.getChanged());
                 assertEquals(expectedMemberEmailDto.getChanged().get(),
                         actualMemberEmailDto.getChanged().get());
+            }else{
+                assertNull(actualMemberEmailDto.getChanged());
             }
             assertEquals(expectedMemberEmailDto.getEmailTypeCode(), actualMemberEmailDto.getEmailTypeCode());
             assertEquals(expectedMemberEmailDto.getEmail(), actualMemberEmailDto.getEmail());
