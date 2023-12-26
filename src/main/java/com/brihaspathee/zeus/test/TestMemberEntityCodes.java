@@ -3,6 +3,7 @@ package com.brihaspathee.zeus.test;
 import lombok.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created in Intellij IDEA
@@ -22,27 +23,6 @@ public class TestMemberEntityCodes {
 
     private String exchangeMemberId;
 
-    private String memberCode;
+    private Map<String, List<String>> entityCodes;
 
-    private List<String> memberAddressCodes;
-
-    private List<String> memberPhoneCodes;
-
-    private List<String> memberIdentifierCodes;
-
-    private List<String> memberEmailCodes;
-
-    private List<String> memberLanguageCodes;
-
-    @Override
-    public String toString() {
-        return "TestMemberEntityCodes{" +
-                "memberCode='" + memberCode + '\'' +
-                ", memberAddressCodes=" + memberAddressCodes +
-                ", memberPhoneCodes=" + memberPhoneCodes +
-                ", memberIdentifierCodes=" + memberIdentifierCodes +
-                ", memberEmailCodes=" + memberEmailCodes +
-                ", memberLanguageCodes=" + memberLanguageCodes +
-                '}';
-    }
 }
