@@ -1,6 +1,6 @@
 package com.brihaspathee.zeus.dto.transaction;
 
-import com.brihaspathee.zeus.test.TestTransactionControlNumber;
+import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -53,7 +53,7 @@ public class FileDetailDto {
      * created are provided here instead of being randomly created
      * so that testing can be done by comparing against those codes
      */
-    private List<TestTransactionControlNumber> transactionControlNumbers;
+    private List<ZeusTransactionControlNumber> transactionControlNumbers;
 
     @Override
     public String toString() {

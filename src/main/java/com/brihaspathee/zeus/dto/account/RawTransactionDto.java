@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.dto.account;
 
 import com.brihaspathee.zeus.edi.models.enrollment.Transaction;
+import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -62,6 +63,13 @@ public class RawTransactionDto {
     private Transaction transaction;
 
     /**
+     * This is used during integration testing to carry all the entity codes that
+     * will be created by the test case so that they can be validated
+     * This should not be used for production
+     */
+    private ZeusTransactionControlNumber zeusTransactionControlNumber;
+
+    /**
      * toString method
      * @return
      */
@@ -76,6 +84,7 @@ public class RawTransactionDto {
                 ", businessUnitTypeCode='" + businessUnitTypeCode + '\'' +
                 ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
                 ", transaction=" + transaction +
+                ", zeusTransactionControlNumber=" + zeusTransactionControlNumber +
                 '}';
     }
 }

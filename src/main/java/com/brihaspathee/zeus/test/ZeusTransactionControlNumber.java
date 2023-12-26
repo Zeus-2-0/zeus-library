@@ -2,8 +2,6 @@ package com.brihaspathee.zeus.test;
 
 import lombok.*;
 
-import java.util.List;
-
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -18,7 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TestTransactionControlNumber {
+public class ZeusTransactionControlNumber {
 
     private String ztcn;
 
