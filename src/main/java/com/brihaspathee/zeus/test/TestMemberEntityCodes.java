@@ -25,4 +25,11 @@ public class TestMemberEntityCodes {
 
     private Map<String, List<String>> entityCodes;
 
+    @Override
+    public String toString() {
+        return "TestMemberEntityCodes{" +
+                "exchangeMemberId='" + exchangeMemberId + '\'' +
+                ", entityCodes=" + entityCodes +
+                '}';
+    }
 }

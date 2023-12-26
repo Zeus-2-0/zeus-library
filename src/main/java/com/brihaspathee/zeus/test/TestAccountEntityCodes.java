@@ -3,6 +3,7 @@ package com.brihaspathee.zeus.test;
 import lombok.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created in Intellij IDEA
@@ -20,29 +21,14 @@ import java.util.List;
 @AllArgsConstructor
 public class TestAccountEntityCodes {
 
-    private String accountNumber;
-
-    private String enrollmentSpanCode;
-
-    private List<String> premiumSpanCodes;
-
-    private String brokerCode;
-
-    private String sponsorCode;
-
-    private String payerCode;
+    private Map<String, List<String>> entityCodes;
 
     private List<TestMemberEntityCodes> memberEntityCodes;
 
     @Override
     public String toString() {
         return "TestAccountEntityCodes{" +
-                "accountNumber='" + accountNumber + '\'' +
-                ", enrollmentSpanCode='" + enrollmentSpanCode + '\'' +
-                ", premiumSpanCodes=" + premiumSpanCodes +
-                ", brokerCode='" + brokerCode + '\'' +
-                ", sponsorCode='" + sponsorCode + '\'' +
-                ", payerCode='" + payerCode + '\'' +
+                "entityCodes=" + entityCodes +
                 ", memberEntityCodes=" + memberEntityCodes +
                 '}';
     }
