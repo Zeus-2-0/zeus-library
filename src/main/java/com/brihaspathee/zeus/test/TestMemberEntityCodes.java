@@ -20,6 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 public class TestMemberEntityCodes {
 
+    private String exchangeMemberId;
+
     private String memberCode;
 
     private List<String> memberAddressCodes;
