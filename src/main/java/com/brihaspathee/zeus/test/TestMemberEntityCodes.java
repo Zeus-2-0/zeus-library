@@ -21,10 +21,20 @@ import java.util.Map;
 @AllArgsConstructor
 public class TestMemberEntityCodes {
 
+    /**
+     * The exchange member id that is received in the transaction
+     */
     private String exchangeMemberId;
 
+    /**
+     * The entity codes if any that needs to be created for the member as part of transaction processing
+     */
     private Map<String, List<String>> entityCodes;
 
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
         return "TestMemberEntityCodes{" +

@@ -18,14 +18,30 @@ import lombok.*;
 @AllArgsConstructor
 public class ZeusTransactionControlNumber {
 
+    /**
+     * Transaction control number received in the test transaction
+     */
+    private String tcn;
+
+    /**
+     * The zeus transaction control number that should be assigned to the transaction
+     */
     private String ztcn;
 
+    /**
+     * The account entity codes if any that needs to be created as part of the transaction
+     */
     private TestAccountEntityCodes accountEntityCodes;
 
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
-        return "TestTransactionControlNumber{" +
-                "ztcn='" + ztcn + '\'' +
+        return "ZeusTransactionControlNumber{" +
+                "tcn='" + tcn + '\'' +
+                ", ztcn='" + ztcn + '\'' +
                 ", accountEntityCodes=" + accountEntityCodes +
                 '}';
     }

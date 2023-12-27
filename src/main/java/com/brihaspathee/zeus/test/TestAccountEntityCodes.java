@@ -21,10 +21,20 @@ import java.util.Map;
 @AllArgsConstructor
 public class TestAccountEntityCodes {
 
+    /**
+     * List of entity codes if any that needs to be created for the account as part of the transaction
+     */
     private Map<String, List<String>> entityCodes;
 
+    /**
+     * The member entity codes that needs to be created as part of the transaction
+     */
     private List<TestMemberEntityCodes> memberEntityCodes;
 
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
         return "TestAccountEntityCodes{" +
