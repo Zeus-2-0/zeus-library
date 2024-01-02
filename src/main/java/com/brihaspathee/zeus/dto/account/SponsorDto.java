@@ -73,6 +73,13 @@ public class SponsorDto {
     private String sponsorName;
 
     /**
+     * The zeus transaction control number of the transaction that created the sponsor
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the account", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * The start date of the sponsor
      */
     @JsonProperty(required = true)

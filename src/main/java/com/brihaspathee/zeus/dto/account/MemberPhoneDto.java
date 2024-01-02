@@ -73,6 +73,13 @@ public class MemberPhoneDto {
     private String phoneNumber;
 
     /**
+     * The zeus transaction control number of the transaction that created the phone number
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the phone number", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * The start date of the phone
      */
     @JsonProperty(required = true)

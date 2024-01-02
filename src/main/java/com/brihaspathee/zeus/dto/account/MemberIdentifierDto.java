@@ -77,6 +77,13 @@ public class MemberIdentifierDto {
     private boolean isActive;
 
     /**
+     * The zeus transaction control number of the transaction that created the identifier
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the identifier", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * Identifies if the identifier was updated
      */
     @JsonProperty(required = true)

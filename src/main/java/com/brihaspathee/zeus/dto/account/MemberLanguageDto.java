@@ -73,6 +73,13 @@ public class MemberLanguageDto {
     private String languageCode;
 
     /**
+     * The zeus transaction control number of the transaction that created the language
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the language", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * The start date of the language
      */
     @JsonProperty(required = true)

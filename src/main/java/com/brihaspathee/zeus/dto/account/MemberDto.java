@@ -119,6 +119,13 @@ public class MemberDto {
     private double weight;
 
     /**
+     * The zeus transaction control number of the transaction that created the member
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "The zeus transaction control number of the transaction that created the member", example = "SDFG43456DFG23G", requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String ztcn;
+
+    /**
      * Identifies if the member was updated
      */
     @JsonProperty(required = true)
