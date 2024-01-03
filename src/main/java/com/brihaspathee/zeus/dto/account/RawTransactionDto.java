@@ -3,6 +3,8 @@ package com.brihaspathee.zeus.dto.account;
 import com.brihaspathee.zeus.edi.models.enrollment.Transaction;
 import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 /**
@@ -61,6 +63,13 @@ public class RawTransactionDto {
      * The transaction that was received from the marketplace
      */
     private Transaction transaction;
+
+    /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
 
     /**
      * This is used during integration testing to carry all the entity codes that

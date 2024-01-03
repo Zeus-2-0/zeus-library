@@ -202,6 +202,13 @@ public class EnrollmentSpanDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Identifies if the enrollment span was updated
      */
     @JsonProperty(required = true)
@@ -237,6 +244,7 @@ public class EnrollmentSpanDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -263,6 +271,7 @@ public class EnrollmentSpanDto {
                 ", effectiveReason='" + effectiveReason + '\'' +
                 ", termReason='" + termReason + '\'' +
                 ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +

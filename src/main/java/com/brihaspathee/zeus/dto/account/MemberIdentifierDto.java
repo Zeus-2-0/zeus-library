@@ -84,6 +84,13 @@ public class MemberIdentifierDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Identifies if the identifier was updated
      */
     @JsonProperty(required = true)
@@ -112,6 +119,7 @@ public class MemberIdentifierDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -123,6 +131,9 @@ public class MemberIdentifierDto {
                 ", identifierTypeCode='" + identifierTypeCode + '\'' +
                 ", identifierValue='" + identifierValue + '\'' +
                 ", isActive=" + isActive +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

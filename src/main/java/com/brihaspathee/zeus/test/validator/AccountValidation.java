@@ -71,6 +71,8 @@ public class AccountValidation {
         log.info("Actual Account:{}", actualAccountDto);
         log.info("Actual Account String :{}", actualAccountDtoString);
         assertEquals(expectedAccountDto.getAccountNumber(), actualAccountDto.getAccountNumber());
+        assertZtcn(expectedAccountDto.getZtcn(), actualAccountDto.getZtcn());
+        assertSource(expectedAccountDto.getSource(), actualAccountDto.getSource());
         assertEnrollmentSpans(expectedAccountDto.getEnrollmentSpans(), actualAccountDto.getEnrollmentSpans());
         assertMemberDetails(expectedAccountDto.getMembers(), actualAccountDto.getMembers());
         assertBrokers(expectedAccountDto.getBrokers(), actualAccountDto.getBrokers());
@@ -160,8 +162,8 @@ public class AccountValidation {
                     }
                     assertEquals(expectedEnrollmentSpanDto.getStatusTypeCode(),
                             actualEnrollmentSpanDto.getStatusTypeCode());
-                    assertEquals(expectedEnrollmentSpanDto.getZtcn(),
-                            actualEnrollmentSpanDto.getZtcn());
+                    assertZtcn(expectedEnrollmentSpanDto.getZtcn(), actualEnrollmentSpanDto.getZtcn());
+                    assertSource(expectedEnrollmentSpanDto.getSource(), actualEnrollmentSpanDto.getSource());
                     assertEquals(expectedEnrollmentSpanDto.isDelinqInd(),
                             actualEnrollmentSpanDto.isDelinqInd());
                     assertEquals(expectedEnrollmentSpanDto.getClaimPaidThroughDate(),
@@ -203,7 +205,8 @@ public class AccountValidation {
                             assertNull(actualPremiumSpanDto.getPremiumSpanSK());
                         }
                     }
-                    assertEquals(expectedPremiumSpanDto.getZtcn(), actualPremiumSpanDto.getZtcn());
+                    assertZtcn(expectedPremiumSpanDto.getZtcn(), actualPremiumSpanDto.getZtcn());
+                    assertSource(expectedPremiumSpanDto.getSource(), actualPremiumSpanDto.getSource());
                     assertEquals(expectedPremiumSpanDto.getStartDate(), actualPremiumSpanDto.getStartDate());
                     assertEquals(expectedPremiumSpanDto.getEndDate(), actualPremiumSpanDto.getEndDate());
                     assertEquals(expectedPremiumSpanDto.getStatusTypeCode(), actualPremiumSpanDto.getStatusTypeCode());
@@ -303,6 +306,8 @@ public class AccountValidation {
                             .brokerCode("Random Broker Code")
                             .build());
             assertEquals(expectedBrokerDto.getBrokerCode(), actualBrokerDto.getBrokerCode());
+            assertZtcn(expectedBrokerDto.getZtcn(), actualBrokerDto.getZtcn());
+            assertSource(expectedBrokerDto.getSource(), actualBrokerDto.getSource());
             if (expectedBrokerDto.getBrokerSK() != null){
                 assertNotNull(actualBrokerDto.getBrokerSK());
                 assertEquals(expectedBrokerDto.getBrokerSK(), actualBrokerDto.getBrokerSK());
@@ -369,6 +374,8 @@ public class AccountValidation {
                             .sponsorCode("Random Sponsor Code")
                             .build());
             assertEquals(expectedSponsorDto.getSponsorCode(), actualSponsorDto.getSponsorCode());
+            assertZtcn(expectedSponsorDto.getZtcn(), actualSponsorDto.getZtcn());
+            assertSource(expectedSponsorDto.getSource(), actualSponsorDto.getSource());
             if (expectedSponsorDto.getSponsorSK() != null){
                 assertNotNull(actualSponsorDto.getSponsorSK());
                 assertEquals(expectedSponsorDto.getSponsorSK(), actualSponsorDto.getSponsorSK());
@@ -411,6 +418,8 @@ public class AccountValidation {
                             .payerCode("Random Payer Code")
                             .build());
             assertEquals(expectedPayerDto.getPayerCode(), actualPayerDto.getPayerCode());
+            assertZtcn(expectedPayerDto.getZtcn(), actualPayerDto.getZtcn());
+            assertSource(expectedPayerDto.getSource(), actualPayerDto.getSource());
             if (expectedPayerDto.getPayerSK() != null){
                 assertNotNull(actualPayerDto.getPayerSK());
                 assertEquals(expectedPayerDto.getPayerSK(), actualPayerDto.getPayerSK());
@@ -454,6 +463,8 @@ public class AccountValidation {
                                 .memberCode("Random Member Code")
                                 .build());
                 assertEquals(expectedMemberDto.getMemberCode(), actualMemberDto.getMemberCode());
+                assertZtcn(expectedMemberDto.getZtcn(), actualMemberDto.getZtcn());
+                assertSource(expectedMemberDto.getSource(), actualMemberDto.getSource());
                 if(expectedMemberDto.getMemberCode().equals(actualMemberDto.getMemberCode())){
                     assertEquals(expectedMemberDto.getFirstName(), actualMemberDto.getFirstName());
                     assertEquals(expectedMemberDto.getMiddleName(), actualMemberDto.getMiddleName());
@@ -501,6 +512,8 @@ public class AccountValidation {
                                 .memberAddressCode("Random Member Address Code")
                                 .build());
                 assertEquals(expectedMemberAddressDto.getMemberAddressCode(), actualMemberAddressDto.getMemberAddressCode());
+                assertZtcn(expectedMemberAddressDto.getZtcn(), actualMemberAddressDto.getZtcn());
+                assertSource(expectedMemberAddressDto.getSource(), actualMemberAddressDto.getSource());
                 if (expectedMemberAddressDto.getMemberAddressCode().equals(actualMemberAddressDto.getMemberAddressCode())) {
                     if (expectedMemberAddressDto.getMemberAddressSK() != null){
                         assertNotNull(actualMemberAddressDto.getMemberAddressSK());
@@ -553,6 +566,8 @@ public class AccountValidation {
                             .memberIdentifierCode("Random Member Identifier Code")
                             .build());
             assertEquals(expectedMemberIdentifierDto.getMemberIdentifierCode(), actualMemberIdentifierDto.getMemberIdentifierCode());
+            assertZtcn(expectedMemberIdentifierDto.getZtcn(), actualMemberIdentifierDto.getZtcn());
+            assertSource(expectedMemberIdentifierDto.getSource(), actualMemberIdentifierDto.getSource());
             if (expectedMemberIdentifierDto.getMemberIdentifierSK() != null){
 //                log.info("Expected member Identifier sk:{}", expectedMemberIdentifierDto.getMemberIdentifierSK());
                 assertNotNull(actualMemberIdentifierDto.getMemberIdentifierSK());
@@ -594,6 +609,8 @@ public class AccountValidation {
                             .memberPhoneCode("Random Member Phone Code")
                             .build());
             assertEquals(expectedMemberPhoneDto.getMemberPhoneCode(), actualMemberPhoneDto.getMemberPhoneCode());
+            assertZtcn(expectedMemberPhoneDto.getZtcn(), actualMemberPhoneDto.getZtcn());
+            assertSource(expectedMemberPhoneDto.getSource(), actualMemberPhoneDto.getSource());
             if (expectedMemberPhoneDto.getMemberPhoneSK() != null){
 //                log.info("Expected member phone sk:{}", expectedMemberPhoneDto.getMemberPhoneSK());
                 assertNotNull(actualMemberPhoneDto.getMemberPhoneSK());
@@ -641,6 +658,8 @@ public class AccountValidation {
                             .memberLanguageCode("Random Member Language Code")
                             .build());
             assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
+            assertZtcn(expectedMemberLanguageDto.getZtcn(), actualMemberLanguageDto.getZtcn());
+            assertSource(expectedMemberLanguageDto.getSource(), actualMemberLanguageDto.getSource());
             if (expectedMemberLanguageDto.getMemberLanguageSK() != null){
 //                log.info("Expected member language sk:{}", expectedMemberLanguageDto.getMemberLanguageSK());
                 assertNotNull(actualMemberLanguageDto.getMemberLanguageSK());
@@ -655,7 +674,7 @@ public class AccountValidation {
                 assertNull(actualMemberLanguageDto.getChanged());
             }
             assertEquals(expectedMemberLanguageDto.getLanguageTypeCode(), actualMemberLanguageDto.getLanguageTypeCode());
-            assertEquals(expectedMemberLanguageDto.getMemberLanguageCode(), actualMemberLanguageDto.getMemberLanguageCode());
+            assertEquals(expectedMemberLanguageDto.getLanguageCode(), actualMemberLanguageDto.getLanguageCode());
             assertEquals(expectedMemberLanguageDto.getStartDate(), actualMemberLanguageDto.getStartDate());
             if(expectedMemberLanguageDto.getEndDate() == null){
                 assertNull(actualMemberLanguageDto.getEndDate());
@@ -688,6 +707,8 @@ public class AccountValidation {
                             .memberEmailCode("Random Member Email Code")
                             .build());
             assertEquals(expectedMemberEmailDto.getMemberEmailCode(), actualMemberEmailDto.getMemberEmailCode());
+            assertZtcn(expectedMemberEmailDto.getZtcn(), actualMemberEmailDto.getZtcn());
+            assertSource(expectedMemberEmailDto.getSource(), actualMemberEmailDto.getSource());
             if (expectedMemberEmailDto.getMemberEmailSK() != null){
 //                log.info("Expected member email sk:{}", expectedMemberEmailDto.getMemberEmailSK());
                 assertNotNull(actualMemberEmailDto.getMemberEmailSK());
@@ -712,6 +733,32 @@ public class AccountValidation {
                 assertEquals(expectedMemberEmailDto.getEndDate(), actualMemberEmailDto.getEndDate());
             }
         });
+    }
+
+    /**
+     * Validate of the ZTCNs are equal
+     * @param expectedZtcn
+     * @param actualZtcn
+     */
+    private void assertZtcn(String expectedZtcn, String actualZtcn){
+        log.info("Expected Ztcn:{}", expectedZtcn);
+        log.info("Actual Ztcn:{}", actualZtcn);
+        if(expectedZtcn == null){
+            assertNull(actualZtcn);
+        }else{
+            assertNotNull(actualZtcn);
+            assertEquals(expectedZtcn, actualZtcn);
+        }
+    }
+
+    /**
+     * Validate if the source is equal
+     * @param expectedSource
+     * @param actualSource
+     */
+    private void assertSource(String expectedSource, String actualSource){
+        assertNotNull(actualSource);
+        assertEquals(expectedSource, actualSource);
     }
 
     /**

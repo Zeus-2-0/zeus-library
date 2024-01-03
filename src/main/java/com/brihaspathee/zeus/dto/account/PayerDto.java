@@ -80,6 +80,13 @@ public class PayerDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The start date of the payer
      */
     @JsonProperty(required = true)
@@ -128,6 +135,7 @@ public class PayerDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -138,8 +146,11 @@ public class PayerDto {
                 ", payerCode='" + payerCode + '\'' +
                 ", payerName='" + payerName + '\'' +
                 ", payerId='" + payerId + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

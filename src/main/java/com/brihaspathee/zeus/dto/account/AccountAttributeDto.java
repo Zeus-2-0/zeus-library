@@ -62,6 +62,13 @@ public class AccountAttributeDto {
     private String attributeValue;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The date when the account attribute was created
      */
     @JsonProperty(required = false)
@@ -83,6 +90,7 @@ public class AccountAttributeDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -92,6 +100,7 @@ public class AccountAttributeDto {
                 ", attributeSK=" + attributeSK +
                 ", accountSK=" + accountSK +
                 ", attributeValue='" + attributeValue + '\'' +
+                ", source='" + source + '\'' +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

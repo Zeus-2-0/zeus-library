@@ -59,6 +59,13 @@ public class TransactionDto {
     private String zfcn;
 
     /**
+     * The source of the transaction
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the transaction", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The date and time when the transaction was received
      */
     @JsonProperty(required = false)
@@ -156,6 +163,7 @@ public class TransactionDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -164,6 +172,7 @@ public class TransactionDto {
                 "transactionSK=" + transactionSK +
                 ", ztcn='" + ztcn + '\'' +
                 ", zfcn='" + zfcn + '\'' +
+                ", source='" + source + '\'' +
                 ", transactionReceivedDate=" + transactionReceivedDate +
                 ", transactionSourceTypeCode='" + transactionSourceTypeCode + '\'' +
                 ", transactionDetail=" + transactionDetail +

@@ -108,6 +108,13 @@ public class BrokerDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The start date of the broker
      */
     @JsonProperty(required = true)
@@ -156,6 +163,7 @@ public class BrokerDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -170,8 +178,11 @@ public class BrokerDto {
                 ", agencyId='" + agencyId + '\'' +
                 ", accountNumber1='" + accountNumber1 + '\'' +
                 ", accountNumber2='" + accountNumber2 + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

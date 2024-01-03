@@ -63,6 +63,13 @@ public class MemberAttributeDto {
     private String attributeValue;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Identifies if the attribute was updated
      */
     @JsonProperty(required = true)
@@ -91,6 +98,7 @@ public class MemberAttributeDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -100,6 +108,8 @@ public class MemberAttributeDto {
                 ", attributeSK=" + attributeSK +
                 ", memberSK=" + memberSK +
                 ", attributeValue='" + attributeValue + '\'' +
+                ", source='" + source + '\'' +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

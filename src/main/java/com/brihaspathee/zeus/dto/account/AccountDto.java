@@ -60,6 +60,13 @@ public class AccountDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * List of enrollment spans associated with the account
      */
     @JsonProperty(required = true)
@@ -117,6 +124,7 @@ public class AccountDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -125,6 +133,8 @@ public class AccountDto {
                 "accountSK=" + accountSK +
                 ", accountNumber='" + accountNumber + '\'' +
                 ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", enrollmentSpans=" + enrollmentSpans +
                 ", members=" + members +
                 ", brokers=" + brokers +

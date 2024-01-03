@@ -78,6 +78,13 @@ public class PremiumSpanDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Start date of the premium span
      */
     @JsonProperty(required = true)
@@ -182,6 +189,7 @@ public class PremiumSpanDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -190,8 +198,9 @@ public class PremiumSpanDto {
                 "premiumSpanSK=" + premiumSpanSK +
                 ", enrollmentSpanSK=" + enrollmentSpanSK +
                 ", sequence=" + sequence +
-                ", ztcn='" + ztcn + '\'' +
                 ", premiumSpanCode='" + premiumSpanCode + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", statusTypeCode='" + statusTypeCode + '\'' +

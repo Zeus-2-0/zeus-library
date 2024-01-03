@@ -126,6 +126,13 @@ public class MemberDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Identifies if the member was updated
      */
     @JsonProperty(required = true)
@@ -210,6 +217,7 @@ public class MemberDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -226,6 +234,8 @@ public class MemberDto {
                 ", genderTypeCode='" + genderTypeCode + '\'' +
                 ", height=" + height +
                 ", weight=" + weight +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", changed=" + changed +
                 ", memberAttributes=" + memberAttributes +
                 ", memberAddresses=" + memberAddresses +

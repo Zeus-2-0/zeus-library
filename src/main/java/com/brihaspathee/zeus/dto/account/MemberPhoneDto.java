@@ -80,6 +80,13 @@ public class MemberPhoneDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The start date of the phone
      */
     @JsonProperty(required = true)
@@ -128,6 +135,7 @@ public class MemberPhoneDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -138,8 +146,11 @@ public class MemberPhoneDto {
                 ", memberPhoneCode='" + memberPhoneCode + '\'' +
                 ", phoneTypeCode='" + phoneTypeCode + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

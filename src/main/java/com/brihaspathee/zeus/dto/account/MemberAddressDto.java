@@ -106,6 +106,13 @@ public class MemberAddressDto {
     private String ztcn;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * The start date of the address
      */
     @JsonProperty(required = true)
@@ -154,6 +161,7 @@ public class MemberAddressDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -168,8 +176,11 @@ public class MemberAddressDto {
                 ", city='" + city + '\'' +
                 ", stateTypeCode='" + stateTypeCode + '\'' +
                 ", zipCode='" + zipCode + '\'' +
+                ", ztcn='" + ztcn + '\'' +
+                ", source='" + source + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';

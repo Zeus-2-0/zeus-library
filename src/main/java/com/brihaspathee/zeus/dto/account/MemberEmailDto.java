@@ -73,6 +73,13 @@ public class MemberEmailDto {
     private String email;
 
     /**
+     * The source of the data
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The source of the data", example = "MARKETPLACE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String source;
+
+    /**
      * Identifies if the email is the primary email
      */
     @JsonProperty(required = true)
@@ -135,6 +142,7 @@ public class MemberEmailDto {
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -145,9 +153,12 @@ public class MemberEmailDto {
                 ", memberEmailCode='" + memberEmailCode + '\'' +
                 ", emailTypeCode='" + emailTypeCode + '\'' +
                 ", email='" + email + '\'' +
+                ", source='" + source + '\'' +
                 ", isPrimary=" + isPrimary +
+                ", ztcn='" + ztcn + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", changed=" + changed +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 '}';
