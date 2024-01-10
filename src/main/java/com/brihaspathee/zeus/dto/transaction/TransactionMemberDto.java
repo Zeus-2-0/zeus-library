@@ -246,8 +246,9 @@ public class TransactionMemberDto {
     private LocalDateTime updatedDate;
 
     /**
-     * This is a hashmap of the codes that should be used when creating the account from the transaction in unit test mode
-     * This is used only for unit testing the Account Processing Service
+     * This is a hashmap of the codes that should be used when creating the account from the transaction
+     * in unit test mode or integration test mode
+     * This is used only for unit testing and integration testing
      */
     @JsonProperty(required = false)
     @Schema(description = "Map of the codes to be used for entities within a member",
@@ -255,7 +256,18 @@ public class TransactionMemberDto {
     private Map<String, List<String>> entityCodes = new HashMap<>();
 
     /**
+     * This is a hashmap of the codes that should be used when creating the transaction in transaction manager
+     * in unit test or integration test mode
+     * This is used only for unit testing and integration testing
+     */
+    @JsonProperty(required = false)
+    @Schema(description = "Map of the codes to be used for entities within a member",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
+    private Map<String, List<String>> transactionEntityCodes = new HashMap<>();
+
+    /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -289,6 +301,7 @@ public class TransactionMemberDto {
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", entityCodes=" + entityCodes +
+                ", transactionEntityCodes=" + transactionEntityCodes +
                 '}';
     }
 }

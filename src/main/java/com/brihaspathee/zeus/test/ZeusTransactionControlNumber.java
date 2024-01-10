@@ -2,6 +2,9 @@ package com.brihaspathee.zeus.test;
 
 import lombok.*;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -32,6 +35,11 @@ public class ZeusTransactionControlNumber {
      * The account entity codes if any that needs to be created as part of the transaction
      */
     private TestAccountEntityCodes accountEntityCodes;
+
+    /**
+     * List of entity codes if any that needs to be used when creating the transaction
+     */
+    private Map<String, List<String>> transactionEntityCodes;
 
     /**
      * toString method
