@@ -39,10 +39,11 @@ public class ZeusTransactionControlNumber {
     /**
      * List of entity codes if any that needs to be used when creating the transaction
      */
-    private Map<String, List<String>> transactionEntityCodes;
+    private List<Map<String, List<String>>> transactionEntityCodes;
 
     /**
      * toString method
+     *
      * @return
      */
     @Override
@@ -51,6 +52,7 @@ public class ZeusTransactionControlNumber {
                 "tcn='" + tcn + '\'' +
                 ", ztcn='" + ztcn + '\'' +
                 ", accountEntityCodes=" + accountEntityCodes +
+                ", transactionEntityCodes=" + transactionEntityCodes +
                 '}';
     }
 }
