@@ -255,15 +255,6 @@ public class TransactionMemberDto {
             requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
     private Map<String, List<String>> entityCodes = new HashMap<>();
 
-    /**
-     * This is a hashmap of the codes that should be used when creating the transaction in transaction manager
-     * in unit test or integration test mode
-     * This is used only for unit testing and integration testing
-     */
-    @JsonProperty(required = false)
-    @Schema(description = "Map of the codes to be used for entities within a member",
-            requiredMode = Schema.RequiredMode.NOT_REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
-    private Map<String, List<String>> transactionEntityCodes = new HashMap<>();
 
     /**
      * toString method
@@ -301,7 +292,6 @@ public class TransactionMemberDto {
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +
                 ", entityCodes=" + entityCodes +
-                ", transactionEntityCodes=" + transactionEntityCodes +
                 '}';
     }
 }
