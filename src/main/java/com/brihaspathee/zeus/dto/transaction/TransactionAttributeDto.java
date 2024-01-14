@@ -38,10 +38,10 @@ public class TransactionAttributeDto {
     private UUID transactionAttributeSK;
 
     /**
-     * Transaction in which the attribute was received
+     * TransactionSK of the transaction the attribute is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transactionDto;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The transaction attribute type code
@@ -79,7 +79,7 @@ public class TransactionAttributeDto {
     public String toString() {
         return "TransactionAttributeDto{" +
                 "transactionAttributeSK=" + transactionAttributeSK +
-                ", transactionDto=" + transactionDto +
+                ", transactionSK=" + transactionSK +
                 ", transactionAttributeTypeCode='" + transactionAttributeTypeCode + '\'' +
                 ", transactionAttributeValue='" + transactionAttributeValue + '\'' +
                 ", createdDate=" + createdDate +

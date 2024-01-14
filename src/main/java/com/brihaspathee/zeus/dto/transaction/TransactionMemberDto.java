@@ -46,10 +46,10 @@ public class TransactionMemberDto {
     private UUID memberSK;
 
     /**
-     * Transaction in which the member was received
+     * TransactionSK of the transaction the member is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * Unique member code assigned for the member during transaction processing
@@ -265,7 +265,7 @@ public class TransactionMemberDto {
     public String toString() {
         return "TransactionMemberDto{" +
                 "memberSK=" + memberSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", transactionMemberCode='" + transactionMemberCode + '\'' +
                 ", mmsMemberCode='" + mmsMemberCode + '\'' +
                 ", transactionTypeCode='" + transactionTypeCode + '\'' +

@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
 
@@ -25,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 @Setter
 @Getter
-public class AccountValidation {
+public class AccountValidator {
 
     private String testServiceName;
 

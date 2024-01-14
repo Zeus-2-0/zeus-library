@@ -41,10 +41,10 @@ public class TransactionRateDto {
     private UUID transactionRateSK;
 
     /**
-     * The transaction associated with the payer
+     * TransactionSK of the transaction the rate is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The rate type - E.g. PREAMTOT, APTCAMT etc.
@@ -102,7 +102,7 @@ public class TransactionRateDto {
     public String toString() {
         return "TransactionRateDto{" +
                 "transactionRateSK=" + transactionRateSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", rateTypeCode='" + rateTypeCode + '\'' +
                 ", transactionRate=" + transactionRate +
                 ", rateStartDate=" + rateStartDate +

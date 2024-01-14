@@ -39,10 +39,10 @@ public class TransactionMemberPhoneDto {
     private UUID memberPhoneSK;
 
     /**
-     * The member for whom the phone was received
+     * memberSK of the member that the phone is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The type of phone that was received for the member
@@ -88,7 +88,7 @@ public class TransactionMemberPhoneDto {
     public String toString() {
         return "TransactionMemberPhoneDto{" +
                 "memberPhoneSK=" + memberPhoneSK +
-                ", member=" + member +
+                ", memberSK=" + memberSK +
                 ", phoneTypeCode='" + phoneTypeCode + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", receivedDate=" + receivedDate +

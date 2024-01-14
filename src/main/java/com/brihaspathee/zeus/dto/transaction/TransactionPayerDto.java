@@ -39,10 +39,10 @@ public class TransactionPayerDto {
     private UUID payerSK;
 
     /**
-     * The transaction associated with the payer
+     * TransactionSK of the transaction the payer is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The payer name received in the transaction
@@ -88,7 +88,7 @@ public class TransactionPayerDto {
     public String toString() {
         return "TransactionPayerDto{" +
                 "payerSK=" + payerSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", payerName='" + payerName + '\'' +
                 ", payerId='" + payerId + '\'' +
                 ", receivedDate=" + receivedDate +

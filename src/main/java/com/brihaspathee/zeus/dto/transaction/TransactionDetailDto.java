@@ -41,10 +41,10 @@ public class TransactionDetailDto {
     private UUID transactionDetailSK;
 
     /**
-     * The transaction associated with the detail
+     * TransactionSK of the transaction the detail is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The type of transaction
@@ -135,7 +135,7 @@ public class TransactionDetailDto {
     public String toString() {
         return "TransactionDetailDto{" +
                 "transactionDetailSK=" + transactionDetailSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", transactionTypeCode='" + transactionTypeCode + '\'' +
                 ", coverageTypeCode='" + coverageTypeCode + '\'' +
                 ", planId='" + planId + '\'' +

@@ -39,10 +39,10 @@ public class TransactionMemberLanguageDto {
     private UUID memberLanguageSK;
 
     /**
-     * The member for whom the language was received
+     * memberSK of the member that the language is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The type of language that was received for the member
@@ -88,7 +88,7 @@ public class TransactionMemberLanguageDto {
     public String toString() {
         return "TransactionMemberLanguageDto{" +
                 "memberLanguageSK=" + memberLanguageSK +
-                ", member=" + member +
+                ", memberSK=" + memberSK +
                 ", languageTypeCode='" + languageTypeCode + '\'' +
                 ", languageCode='" + languageCode + '\'' +
                 ", receivedDate=" + receivedDate +

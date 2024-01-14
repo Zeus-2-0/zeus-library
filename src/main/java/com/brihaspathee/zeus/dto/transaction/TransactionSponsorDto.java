@@ -39,10 +39,10 @@ public class TransactionSponsorDto {
     private UUID sponsorSK;
 
     /**
-     * The transaction associated with the payer
+     * TransactionSK of the transaction the sponsor is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The sponsor name received in the transaction
@@ -88,7 +88,7 @@ public class TransactionSponsorDto {
     public String toString() {
         return "TransactionSponsorDto{" +
                 "sponsorSK=" + sponsorSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", sponsorName='" + sponsorName + '\'' +
                 ", sponsorId='" + sponsorId + '\'' +
                 ", receivedDate=" + receivedDate +

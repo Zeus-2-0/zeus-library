@@ -39,10 +39,10 @@ public class TransactionMemberEmailDto {
     private UUID memberEmailSK;
 
     /**
-     * The member for whom the email was received
+     * memberSK of the member that the email is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The email that was received for the member
@@ -72,4 +72,20 @@ public class TransactionMemberEmailDto {
     @JsonProperty(required = false)
     @Schema(description = "The date when the record was updated", example = "12/15/2021", required = false, accessMode = Schema.AccessMode.READ_WRITE)
     private LocalDateTime updatedDate;
+
+    /**
+     * toString method
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "TransactionMemberEmailDto{" +
+                "memberEmailSK=" + memberEmailSK +
+                ", memberSK=" + memberSK +
+                ", email='" + email + '\'' +
+                ", receivedDate=" + receivedDate +
+                ", createdDate=" + createdDate +
+                ", updatedDate=" + updatedDate +
+                '}';
+    }
 }

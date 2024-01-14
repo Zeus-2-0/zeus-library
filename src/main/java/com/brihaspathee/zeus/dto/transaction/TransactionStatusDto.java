@@ -38,10 +38,10 @@ public class TransactionStatusDto {
     private UUID transactionStatusSK;
 
     /**
-     * The status of the transaction
+     * TransactionSK of the transaction the status is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The sequence of the status
@@ -90,7 +90,7 @@ public class TransactionStatusDto {
     public String toString() {
         return "TransactionStatusDto{" +
                 "transactionStatusSK=" + transactionStatusSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", statusSequence=" + statusSequence +
                 ", transactionStatusTypeCode='" + transactionStatusTypeCode + '\'' +
                 ", processingStatusTypeCode='" + processingStatusTypeCode + '\'' +

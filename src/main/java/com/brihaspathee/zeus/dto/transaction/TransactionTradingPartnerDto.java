@@ -38,10 +38,10 @@ public class TransactionTradingPartnerDto {
     private UUID tradingPartnerSK;
 
     /**
-     * The transaction that the trading partner is associated
+     * TransactionSK of the transaction the trading partner is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transaction;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The trading partner id associated with the transaction
@@ -100,7 +100,7 @@ public class TransactionTradingPartnerDto {
     public String toString() {
         return "TransactionTradingPartnerDto{" +
                 "tradingPartnerSK=" + tradingPartnerSK +
-                ", transaction=" + transaction +
+                ", transactionSK=" + transactionSK +
                 ", tradingPartnerId='" + tradingPartnerId + '\'' +
                 ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
                 ", businessTypeCode='" + businessTypeCode + '\'' +

@@ -39,10 +39,10 @@ public class TransactionMemberAddressDto {
     private UUID memberAddressSK;
 
     /**
-     * The member for whom the address was received
+     * memberSK of the member that the address is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The type of address that was received for the member
@@ -123,7 +123,7 @@ public class TransactionMemberAddressDto {
     public String toString() {
         return "TransactionMemberAddressDto{" +
                 "memberAddressSK=" + memberAddressSK +
-                ", member=" + member +
+                ", memberSK=" + memberSK +
                 ", addressTypeCode='" + addressTypeCode + '\'' +
                 ", addressLine1='" + addressLine1 + '\'' +
                 ", addressLine2='" + addressLine2 + '\'' +

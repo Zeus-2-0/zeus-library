@@ -39,10 +39,10 @@ public class TransactionAlternateContactDto {
     private UUID alternateContactSK;
 
     /**
-     * The member to whom the alternate contact is associated
+     * memberSK of the member that the alternate contact is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The type code of the alternate contact
@@ -172,7 +172,7 @@ public class TransactionAlternateContactDto {
     public String toString() {
         return "TransactionAlternateContactDto{" +
                 "alternateContactSK=" + alternateContactSK +
-                ", member=" + member +
+                ", memberSK=" + memberSK +
                 ", alternateContactTypeCode='" + alternateContactTypeCode + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +

@@ -39,10 +39,10 @@ public class TransactionMemberIdentifierDto {
     private UUID memberIdentifierSK;
 
     /**
-     * The member for whom the identifier was received
+     * memberSK of the member that the identifier is associated
      */
-    @JsonProperty(required = true)
-    private TransactionMemberDto member;
+    @JsonProperty(required = false)
+    private UUID memberSK;
 
     /**
      * The type of identifier that was received for the member
@@ -88,7 +88,7 @@ public class TransactionMemberIdentifierDto {
     public String toString() {
         return "TransactionMemberIdentifierDto{" +
                 "memberIdentifierSK=" + memberIdentifierSK +
-                ", member=" + member +
+                ", memberSK=" + memberSK +
                 ", identifierTypeCode='" + identifierTypeCode + '\'' +
                 ", identifierValue='" + identifierValue + '\'' +
                 ", receivedDate=" + receivedDate +

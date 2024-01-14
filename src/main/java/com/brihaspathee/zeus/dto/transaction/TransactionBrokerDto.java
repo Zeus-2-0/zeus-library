@@ -39,10 +39,10 @@ public class TransactionBrokerDto {
     private UUID transactionBrokerSK;
 
     /**
-     * Transaction in which the broker was received
+     * TransactionSK of the transaction the broker is associated
      */
-    @JsonProperty(required = true)
-    private TransactionDto transactionDto;
+    @JsonProperty(required = false)
+    private UUID transactionSK;
 
     /**
      * The name of the broker
@@ -116,7 +116,7 @@ public class TransactionBrokerDto {
     public String toString() {
         return "TransactionBrokerDto{" +
                 "transactionBrokerSK=" + transactionBrokerSK +
-                ", transactionDto=" + transactionDto +
+                ", transactionSK=" + transactionSK +
                 ", brokerName='" + brokerName + '\'' +
                 ", brokerId='" + brokerId + '\'' +
                 ", agencyName='" + agencyName + '\'' +
