@@ -41,6 +41,16 @@ public class RateResponseDto {
     private String zipCode;
 
     /**
+     * Exception occurred
+     */
+    private boolean isException;
+
+    /**
+     * Exception code indicating the type of exception
+     */
+    private String exceptionCode;
+
+    /**
      * The list of members with their respective rates
      */
     private List<MemberRateResponseDto> memberRateResponseDtos;
