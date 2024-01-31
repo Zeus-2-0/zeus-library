@@ -27,7 +27,7 @@
         <!--        <developerConnection>scm:git:ssh://github.com:Zeus-2-0/zeus-library.git</developerConnection>-->
         <developerConnection>scm:git:git@github.com:Zeus-2-0/zeus-library.git</developerConnection>
         <url>scm:git:http://github.com/Zeus-2-0/zeus-library</url>
-        <tag>zeus-library-1.0.0</tag>
+        <tag>zeus-library-2.0.7</tag>
     </scm>
 
     <developers>
