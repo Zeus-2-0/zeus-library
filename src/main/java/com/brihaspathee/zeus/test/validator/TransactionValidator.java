@@ -1,6 +1,8 @@
 package com.brihaspathee.zeus.test.validator;
 
 import com.brihaspathee.zeus.dto.transaction.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +32,12 @@ public class TransactionValidator {
      * @param actualTransactionDto
      */
     public void assertTransaction(TransactionDto expectedTransactionDto,
-                                  TransactionDto actualTransactionDto){
+                                  TransactionDto actualTransactionDto) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String actualTransactionDtoString = objectMapper.writeValueAsString(actualTransactionDto);
+        log.info("Expected Transaction:{}", expectedTransactionDto);
+        log.info("Actual Transaction:{}", actualTransactionDto);
+        log.info("Actual Transaction String :{}", actualTransactionDtoString);
         assertEquals(expectedTransactionDto.getZtcn(), actualTransactionDto.getZtcn());
         assertEquals(expectedTransactionDto.getSource(), actualTransactionDto.getSource());
         assertEquals(expectedTransactionDto.getTransactionReceivedDate(),
@@ -218,8 +225,9 @@ public class TransactionValidator {
     private void assertRate(TransactionRateDto expectedRate, TransactionRateDto actualRate){
         assertEquals(expectedRate.getRateTypeCode(),
                 actualRate.getRateTypeCode());
-        assertEquals(expectedRate.getTransactionRate(),
-                actualRate.getTransactionRate());
+//        assertEquals(expectedRate.getTransactionRate(),
+//                actualRate.getTransactionRate());
+        assertEquals(0, expectedRate.getTransactionRate().compareTo(actualRate.getTransactionRate()));
         assertEquals(expectedRate.getRateStartDate(),
                 actualRate.getRateStartDate());
         assertEquals(expectedRate.getCsrVariant(),
