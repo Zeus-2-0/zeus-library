@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
- * Date: 09, November 2022
- * Time: 3:29 PM
+ * Date: 17, February 2024
+ * Time: 8:38 AM
  * Project: Zeus
  * Package Name: com.brihaspathee.zeus.dto.rules
  * To change this template use File | Settings | File and Code Template
@@ -24,49 +24,50 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class RuleCategoryDto {
+public class RuleTypeDto {
 
     /**
-     * The rule category id. This is unique id for the rule category
+     * The rule type id. This is unique id for the rule type
      */
     @JsonProperty(required = true)
-    @Schema(description = "This is unique id for the rule category", example = "GLPSKJXBMPXDVUI",
+    @Schema(description = "This is unique id for the rule type", example = "GLPSKJXBMPXDVUI",
             required = true, accessMode = Schema.AccessMode.READ_ONLY)
-    private String ruleCategoryId;
+    private String ruleTypeId;
 
     /**
-     * The rule category name. This is name for the rule category
+     * The rule type name. This is name for the rule type
      */
     @JsonProperty(required = false)
-    @Schema(description = "This is name for the rule category", example = "ACCOUNT",
+    @Schema(description = "This is name for the rule type", example = "BUSINESS_RULE",
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
-    private String ruleCategoryName;
+    private String ruleTypeName;
 
     /**
-     * A short description for the rule category
+     * A short description for the rule type
      */
     @JsonProperty(required = false)
-    @Schema(description = "A short description for the rule category", example = "Account Rules",
+    @Schema(description = "A short description for the rule type", example = "Business Rules",
             required = false, accessMode = Schema.AccessMode.READ_ONLY)
-    private String ruleCategoryDesc;
+    private String ruleTypeDesc;
+
 
     /**
-     * The rule types associated with the rule category
+     * The rule sets associated with the rule type
      */
     @JsonProperty(required = false)
-    private List<RuleTypeDto> ruleTypes;
+    private List<RuleSetDto> ruleSets;
 
     /**
-     * toString method
+     * to String method
      * @return
      */
     @Override
     public String toString() {
-        return "RuleCategoryDto{" +
-                "ruleCategoryId='" + ruleCategoryId + '\'' +
-                ", ruleCategoryName='" + ruleCategoryName + '\'' +
-                ", ruleCategoryDesc='" + ruleCategoryDesc + '\'' +
-                ", ruleTypes='" + ruleTypes + '\'' +
+        return "RuleTypeDto{" +
+                "ruleTypeId='" + ruleTypeId + '\'' +
+                ", ruleTypeName='" + ruleTypeName + '\'' +
+                ", ruleTypeDesc='" + ruleTypeDesc + '\'' +
+                ", ruleSets=" + ruleSets +
                 '}';
     }
 }
