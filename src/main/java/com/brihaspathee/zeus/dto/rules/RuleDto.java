@@ -80,11 +80,11 @@ public class RuleDto {
     public String toString() {
         return "RuleDto{" +
                 "ruleId='" + ruleId + '\'' +
-                ", ruleTransactions=" + ruleTransactions +
                 ", ruleName='" + ruleName + '\'' +
                 ", ruleDesc='" + ruleDesc + '\'' +
                 ", active=" + active +
                 ", memberLevel=" + memberLevel +
+                ", ruleTransactions=" + ruleTransactions +
                 '}';
     }
 }

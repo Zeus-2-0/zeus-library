@@ -72,10 +72,10 @@ public class RuleSetDto {
     public String toString() {
         return "RuleSetDto{" +
                 "ruleSetId='" + ruleSetId + '\'' +
-                ", rules=" + rules +
                 ", ruleSetName='" + ruleSetName + '\'' +
                 ", ruleSetDesc='" + ruleSetDesc + '\'' +
                 ", active=" + active +
+                ", rules=" + rules +
                 '}';
     }
 }
