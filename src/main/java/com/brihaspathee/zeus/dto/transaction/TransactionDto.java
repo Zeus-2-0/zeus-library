@@ -129,6 +129,12 @@ public class TransactionDto {
     private List<TransactionMemberDto> members;
 
     /**
+     * List of rules executed for the transaction
+     */
+    @JsonProperty(required = false)
+    private List<TransactionRuleDto> transactionRules;
+
+    /**
      * The date when the account was created
      */
     @JsonProperty(required = false)
