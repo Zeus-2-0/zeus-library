@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.validator;
 
+import com.brihaspathee.zeus.dto.transaction.TransactionDto;
 import com.brihaspathee.zeus.validator.rules.RuleResult;
 import lombok.*;
 
@@ -51,6 +52,13 @@ public class TransactionValidationResult {
      * The validation results for the members who are present in the transaction
      */
     private List<MemberValidationResult> memberValidationResults;
+
+    /**
+     * The original transaction that was received for validation
+     * This will be passed back only when a transaction is processed in
+     * integration test environment
+     */
+    private TransactionDto testTransactionDto;
 
     /**
      * toString method
