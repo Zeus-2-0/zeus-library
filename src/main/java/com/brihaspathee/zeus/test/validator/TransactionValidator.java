@@ -57,6 +57,8 @@ public class TransactionValidator {
                 actualTransactionDto.getTransactionRates());
         assertMembers(expectedTransactionDto.getMembers(),
                 actualTransactionDto.getMembers());
+        assertTransactionRules(expectedTransactionDto.getTransactionRules(),
+                actualTransactionDto.getTransactionRules());
 
     }
 
@@ -651,5 +653,84 @@ public class TransactionValidator {
                 transactionMemberDto.getIdentifiers().stream().filter(
                         identifier -> identifier.getIdentifierTypeCode().equals("EXCHMEMID")).findFirst();
         return exchangeMemberId.map(TransactionMemberIdentifierDto::getIdentifierValue).orElse(null);
+    }
+
+    /**
+     * Assert the rules that were executed for the transaction
+     * @param expectedTransactionRules
+     * @param actualTransactionRules
+     */
+    private void assertTransactionRules(List<TransactionRuleDto> expectedTransactionRules,
+                                        List<TransactionRuleDto> actualTransactionRules){
+        if(expectedTransactionRules != null && !expectedTransactionRules.isEmpty()){
+            assertNotNull(actualTransactionRules);
+            assertEquals(expectedTransactionRules.size(),
+                    actualTransactionRules.size());
+            // Todo validate transaction level rules
+            List<TransactionRuleDto> transactionLevelRules = expectedTransactionRules.stream()
+                    .filter(transactionRuleDto ->
+                            transactionRuleDto.getTransactionMemberCode() == null)
+                    .toList();
+            transactionLevelRules.forEach(expectedTransactionRule -> {
+                Optional<TransactionRuleDto> optionalActualTransactionRule = actualTransactionRules.stream()
+                        .filter(transactionRule ->
+                                transactionRule.getRuleId().equals(expectedTransactionRule.getRuleId()))
+                        .findFirst();
+                assertTrue(optionalActualTransactionRule.isPresent());
+                TransactionRuleDto actualTransactionRule = optionalActualTransactionRule.get();
+                assertEquals(expectedTransactionRule.getRuleName(), actualTransactionRule.getRuleName());
+                assertEquals(expectedTransactionRule.isRulePassed(), actualTransactionRule.isRulePassed());
+                assertNull(actualTransactionRule.getTransactionMemberCode());
+                assertTransactionRuleMessages(expectedTransactionRule.getTransactionRuleMessages(),
+                        actualTransactionRule.getTransactionRuleMessages());
+            });
+            // Todo validate member level rules
+            List<TransactionRuleDto> memberLevelRules = expectedTransactionRules.stream()
+                    .filter(transactionRuleDto ->
+                            transactionRuleDto.getTransactionMemberCode() != null)
+                    .toList();
+            memberLevelRules.forEach(expectedMemberLevelRule -> {
+                Optional<TransactionRuleDto> optionalActualMemberLevelRule = actualTransactionRules.stream()
+                        .filter(transactionRule ->
+                                transactionRule.getRuleId().equals(expectedMemberLevelRule.getRuleId()) &&
+                                        transactionRule.getTransactionMemberCode().equals(expectedMemberLevelRule.getTransactionMemberCode()))
+                        .findFirst();
+                assertTrue(optionalActualMemberLevelRule.isPresent());
+                TransactionRuleDto actualMemberLevelRule = optionalActualMemberLevelRule.get();
+                assertEquals(expectedMemberLevelRule.getRuleName(), actualMemberLevelRule.getRuleName());
+                assertEquals(expectedMemberLevelRule.isRulePassed(), actualMemberLevelRule.isRulePassed());
+                assertEquals(expectedMemberLevelRule.getTransactionMemberCode(), actualMemberLevelRule.getTransactionMemberCode());
+                assertTransactionRuleMessages(expectedMemberLevelRule.getTransactionRuleMessages(),
+                        actualMemberLevelRule.getTransactionRuleMessages());
+            });
+        }
+    }
+
+    /**
+     * Assert rule messages present for each rule
+     * @param expectedRuleMessages
+     * @param actualRuleMessages
+     */
+    private void assertTransactionRuleMessages(List<TransactionRuleMessageDto> expectedRuleMessages,
+                                               List<TransactionRuleMessageDto> actualRuleMessages){
+        if(expectedRuleMessages == null || expectedRuleMessages.isEmpty()){
+            assertNull(actualRuleMessages);
+        }else{
+            assertNotNull(actualRuleMessages);
+            assertFalse(actualRuleMessages.isEmpty());
+            expectedRuleMessages.forEach(expectedRuleMessage -> {
+                Optional<TransactionRuleMessageDto> optionalActualRuleMessage =
+                        actualRuleMessages
+                                .stream()
+                                .filter(ruleMessage ->
+                                        ruleMessage.getMessageCode().equals(expectedRuleMessage.getMessageCode()))
+                                .findFirst();
+                assertTrue(optionalActualRuleMessage.isPresent());
+                TransactionRuleMessageDto actualRuleMessage = optionalActualRuleMessage.get();
+                assertEquals(expectedRuleMessage.getMessageCode(), actualRuleMessage.getMessageCode());
+                assertEquals(expectedRuleMessage.getMessageTypeCode(), actualRuleMessage.getMessageTypeCode());
+                assertEquals(expectedRuleMessage.getMessageDesc(), actualRuleMessage.getMessageDesc());
+            });
+        }
     }
 }
