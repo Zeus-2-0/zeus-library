@@ -27,6 +27,8 @@ public class FileDetailDto {
 
     private String zeusFileControlNumber;
 
+    private String interchangeControlNumber;
+
     private String fileName;
 
     private LocalDateTime fileReceivedDate;

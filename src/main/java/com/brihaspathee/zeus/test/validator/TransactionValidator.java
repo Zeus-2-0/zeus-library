@@ -684,22 +684,43 @@ public class TransactionValidator {
                 assertTransactionRuleMessages(expectedTransactionRule.getTransactionRuleMessages(),
                         actualTransactionRule.getTransactionRuleMessages());
             });
-            // Todo validate member level rules
+            // Identify all member level rules that have member code and exchange member id present
             List<TransactionRuleDto> memberLevelRules = expectedTransactionRules.stream()
                     .filter(transactionRuleDto ->
-                            transactionRuleDto.getTransactionMemberCode() != null)
+                            transactionRuleDto.getTransactionMemberCode() != null &&
+                            transactionRuleDto.getExchangeMemberId() != null)
                     .toList();
+            // Identify all expected member level rules that have member code but does not have exchange member id
+            List<TransactionRuleDto> expectedExchangeMemIdMissingRules = expectedTransactionRules.stream()
+                    .filter(transactionRuleDto ->
+                            transactionRuleDto.getTransactionMemberCode() != null &&
+                                    transactionRuleDto.getExchangeMemberId() == null)
+                    .toList();
+            // Identify all actual member level rules that have member code but does not have exchange member id
+            List<TransactionRuleDto> actualExchangeMemIdMissingRules = actualTransactionRules.stream()
+                    .filter(transactionRuleDto ->
+                            transactionRuleDto.getTransactionMemberCode() != null &&
+                                    transactionRuleDto.getExchangeMemberId() == null)
+                    .toList();
+            // Validate all member level rules for which the exchange member id is not present
+            if(!expectedExchangeMemIdMissingRules.isEmpty()){
+                assertNotNull(actualExchangeMemIdMissingRules);
+                assertEquals(expectedExchangeMemIdMissingRules.size(), actualExchangeMemIdMissingRules.size());
+            }
+            // Validate all member level rules for members in the transaction that have exchange member id present
             memberLevelRules.forEach(expectedMemberLevelRule -> {
+                log.info("Expected Member level rule:{}", expectedMemberLevelRule);
+                log.info("Actual Transaction Rules:{}", actualTransactionRules);
                 Optional<TransactionRuleDto> optionalActualMemberLevelRule = actualTransactionRules.stream()
                         .filter(transactionRule ->
                                 transactionRule.getRuleId().equals(expectedMemberLevelRule.getRuleId()) &&
-                                        transactionRule.getTransactionMemberCode().equals(expectedMemberLevelRule.getTransactionMemberCode()))
+                                        transactionRule.getExchangeMemberId().equals(expectedMemberLevelRule.getExchangeMemberId()))
                         .findFirst();
                 assertTrue(optionalActualMemberLevelRule.isPresent());
                 TransactionRuleDto actualMemberLevelRule = optionalActualMemberLevelRule.get();
                 assertEquals(expectedMemberLevelRule.getRuleName(), actualMemberLevelRule.getRuleName());
                 assertEquals(expectedMemberLevelRule.isRulePassed(), actualMemberLevelRule.isRulePassed());
-                assertEquals(expectedMemberLevelRule.getTransactionMemberCode(), actualMemberLevelRule.getTransactionMemberCode());
+                assertEquals(expectedMemberLevelRule.getExchangeMemberId(), actualMemberLevelRule.getExchangeMemberId());
                 assertTransactionRuleMessages(expectedMemberLevelRule.getTransactionRuleMessages(),
                         actualMemberLevelRule.getTransactionRuleMessages());
             });
