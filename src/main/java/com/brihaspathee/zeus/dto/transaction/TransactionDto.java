@@ -180,6 +180,7 @@ public class TransactionDto {
                 ", sponsor=" + sponsor +
                 ", broker=" + broker +
                 ", payer=" + payer +
+                ", rules=" + transactionRules +
                 ", members=" + members +
                 ", createdDate=" + createdDate +
                 ", updatedDate=" + updatedDate +

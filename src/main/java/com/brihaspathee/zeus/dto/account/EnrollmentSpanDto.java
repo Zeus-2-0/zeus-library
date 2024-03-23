@@ -82,6 +82,13 @@ public class EnrollmentSpanDto {
     private String businessUnitTypeCode;
 
     /**
+     * The enrollment type of the enrollment span (ACTIVE or PASSIVE)
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The enrollment type of the enrollment span", example = "PASSIVE", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_WRITE)
+    private String enrollmentType;
+
+    /**
      * The start date of the enrollment span
      */
     @JsonProperty(required = true)
@@ -256,6 +263,7 @@ public class EnrollmentSpanDto {
                 ", stateTypeCode='" + stateTypeCode + '\'' +
                 ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
                 ", businessUnitTypeCode='" + businessUnitTypeCode + '\'' +
+                ", enrollmentType='" + enrollmentType + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", exchangeSubscriberId='" + exchangeSubscriberId + '\'' +

@@ -288,8 +288,11 @@ public class TransactionValidator {
         if(expectedMembers!=null){
             expectedMembers.forEach(expectedMember -> {
                 String expectedExchangeMemberId = getExchangeMemberId(expectedMember);
+                log.info("Expected Exchange member id:{}", expectedExchangeMemberId);
                 Optional<TransactionMemberDto> optionalActualMember = actualMembers.stream().filter(actualMember -> {
+
                     String actualExchangeMemberId = getExchangeMemberId(actualMember);
+                    log.info("Actual Exchange member id:{}", actualExchangeMemberId);
                     return expectedExchangeMemberId.equals(actualExchangeMemberId);
                 }).findFirst();
                 assertTrue(optionalActualMember.isPresent());
@@ -341,8 +344,11 @@ public class TransactionValidator {
                 actualMember.getGenderTypeCode());
 //        assertEquals(expectedMember.getMemberRate(),
 //                actualMember.getMemberRate());
-        assertEquals(0, expectedMember.getMemberRate()
-                .compareTo(actualMember.getMemberRate()));
+        if(expectedMember.getMemberRate()!=null){
+            assertNotNull(actualMember.getMemberRate());
+            assertEquals(0, expectedMember.getMemberRate()
+                    .compareTo(actualMember.getMemberRate()));
+        }
         assertEquals(expectedMember.getHeight(),
                 actualMember.getHeight());
         assertEquals(expectedMember.getWeight(),
@@ -351,8 +357,11 @@ public class TransactionValidator {
 //                actualMember.getProductCatalogRate());
         log.info("Expected Member Product Catalog Rate:{}", expectedMember.getProductCatalogRate());
         log.info("Actual Member Product Catalog Rate:{}", actualMember.getProductCatalogRate());
-        assertEquals(0, expectedMember.getProductCatalogRate()
-                .compareTo(actualMember.getProductCatalogRate()));
+        if(expectedMember.getProductCatalogRate()!=null){
+            assertNotNull(actualMember.getProductCatalogRate());
+            assertEquals(0, expectedMember.getProductCatalogRate()
+                    .compareTo(actualMember.getProductCatalogRate()));
+        }
         assertMemberPhones(expectedMember.getMemberPhones(),
                 actualMember.getMemberPhones());
         assertMemberAddresses(expectedMember.getMemberAddresses(),

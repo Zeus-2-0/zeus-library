@@ -128,6 +128,8 @@ public class AccountValidator {
                             actualEnrollmentSpanDto.getMarketplaceTypeCode());
                     assertEquals(expectedEnrollmentSpanDto.getBusinessUnitTypeCode(),
                             actualEnrollmentSpanDto.getBusinessUnitTypeCode());
+                    assertEquals(expectedEnrollmentSpanDto.getEnrollmentType(),
+                            actualEnrollmentSpanDto.getEnrollmentType());
                     assertEquals(expectedEnrollmentSpanDto.getCoverageTypeCode(),
                             actualEnrollmentSpanDto.getCoverageTypeCode());
                     assertEquals(expectedEnrollmentSpanDto.getStartDate(),

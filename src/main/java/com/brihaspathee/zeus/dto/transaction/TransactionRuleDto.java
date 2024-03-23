@@ -90,6 +90,7 @@ public class TransactionRuleDto {
                 ", ruleName='" + ruleName + '\'' +
                 ", rulePassed=" + rulePassed +
                 ", transactionMemberCode='" + transactionMemberCode + '\'' +
+                ", exchangeMemberId='" + exchangeMemberId + '\'' +
                 ", transactionRuleMessages=" + transactionRuleMessages +
                 '}';
     }
