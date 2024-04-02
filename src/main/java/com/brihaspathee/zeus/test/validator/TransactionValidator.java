@@ -346,6 +346,8 @@ public class TransactionValidator {
 //                actualMember.getMemberRate());
         if(expectedMember.getMemberRate()!=null){
             assertNotNull(actualMember.getMemberRate());
+            log.info("Expected Member Rate:{}", expectedMember.getMemberRate());
+            log.info("Actual Member  Rate:{}", actualMember.getMemberRate());
             assertEquals(0, expectedMember.getMemberRate()
                     .compareTo(actualMember.getMemberRate()));
         }
