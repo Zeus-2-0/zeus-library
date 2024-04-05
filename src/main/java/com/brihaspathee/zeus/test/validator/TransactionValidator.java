@@ -107,11 +107,10 @@ public class TransactionValidator {
      */
     private void assertTransactionStatus(TransactionStatusDto expectedTransactionStatusDto,
                                         TransactionStatusDto actualTransactionStatusDto){
-        assertEquals(expectedTransactionStatusDto.getTransactionStatusTypeCode(),
-                actualTransactionStatusDto.getTransactionStatusTypeCode());
         assertEquals(expectedTransactionStatusDto.getProcessingStatusTypeCode(),
                 actualTransactionStatusDto.getProcessingStatusTypeCode());
-
+        assertEquals(expectedTransactionStatusDto.getTransactionStatusTypeCode(),
+                actualTransactionStatusDto.getTransactionStatusTypeCode());
     }
 
     /**
