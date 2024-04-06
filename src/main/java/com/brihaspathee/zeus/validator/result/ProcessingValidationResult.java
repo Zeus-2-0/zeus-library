@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.validator.result;
 
 import com.brihaspathee.zeus.validator.MemberValidationResult;
+import com.brihaspathee.zeus.validator.request.ProcessingValidationRequest;
 import com.brihaspathee.zeus.validator.rules.RuleResult;
 import lombok.*;
 
@@ -32,6 +33,11 @@ public class ProcessingValidationResult {
      * The request payload id for which the response is sent
      */
     private String requestPayloadId;
+
+    /**
+     * The validation request for which the results are produced
+     */
+    private ProcessingValidationRequest validationRequest;
 
     /**
      * indicates if the validation passed or failed, this will indicate a failure even if

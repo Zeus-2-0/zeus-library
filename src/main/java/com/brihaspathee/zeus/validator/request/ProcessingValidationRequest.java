@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.validator.request;
 
+import com.brihaspathee.zeus.constants.ProcessFlowType;
 import com.brihaspathee.zeus.dto.account.AccountDto;
 import com.brihaspathee.zeus.dto.transaction.TransactionDto;
 import lombok.*;
@@ -21,6 +22,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProcessingValidationRequest {
+
+    /**
+     * Process flow type for which the validation request is made
+     */
+    private ProcessFlowType processFlowType;
 
     /**
      * Transaction for which the validation is requested
