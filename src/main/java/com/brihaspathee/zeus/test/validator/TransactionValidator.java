@@ -171,6 +171,10 @@ public class TransactionValidator {
      */
     private void assertBroker(TransactionBrokerDto expectedBroker,
                              TransactionBrokerDto actualBroker){
+        if(expectedBroker == null){
+            assertNull(actualBroker);
+            return;
+        }
         assertEquals(expectedBroker.getBrokerName(),
                 actualBroker.getBrokerName());
         assertEquals(expectedBroker.getBrokerId(),
