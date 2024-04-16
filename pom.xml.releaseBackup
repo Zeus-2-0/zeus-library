@@ -27,7 +27,7 @@
         <!--        <developerConnection>scm:git:ssh://github.com:Zeus-2-0/zeus-library.git</developerConnection>-->
         <developerConnection>scm:git:git@github.com:Zeus-2-0/zeus-library.git</developerConnection>
         <url>scm:git:http://github.com/Zeus-2-0/zeus-library</url>
-        <tag>zeus-library-2.0.7</tag>
+        <tag>zeus-library-2.0.21</tag>
     </scm>
 
     <developers>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
+            <version>1.18.32</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
