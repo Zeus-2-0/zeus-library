@@ -26,4 +26,5 @@ public class ZeusServiceNames {
     public static final String ACCOUNT_PROCESSOR_SERVICE = "ACCOUNT-PROCESSOR-SERVICE";
     public static final String PLAN_CATALOG = "PLAN-CATALOG";
     public static final String RULE_SERVICE = "RULE-SERVICE";
+    public static final String PREMIUM_BILLING = "PREMIUM-BILLING";
 }
