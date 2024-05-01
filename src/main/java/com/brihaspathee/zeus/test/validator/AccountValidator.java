@@ -540,6 +540,7 @@ public class AccountValidator {
                     assertEquals(expectedMemberAddressDto.getAddressLine2(), actualMemberAddressDto.getAddressLine2());
                     assertEquals(expectedMemberAddressDto.getCity(), actualMemberAddressDto.getCity());
                     assertEquals(expectedMemberAddressDto.getStateTypeCode(), actualMemberAddressDto.getStateTypeCode());
+                    assertEquals(expectedMemberAddressDto.getFipsCode(), actualMemberAddressDto.getFipsCode());
                     assertEquals(expectedMemberAddressDto.getZipCode(), actualMemberAddressDto.getZipCode());
                     assertEquals(expectedMemberAddressDto.getStartDate(), actualMemberAddressDto.getStartDate());
                     if(expectedMemberAddressDto.getEndDate() == null){

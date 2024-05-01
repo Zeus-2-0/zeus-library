@@ -99,6 +99,13 @@ public class MemberAddressDto {
     private String zipCode;
 
     /**
+     * The fips code of the address
+     */
+    @JsonProperty(required = true)
+    @Schema(description = "The fips code of the address", example = "12003", required = true, accessMode = Schema.AccessMode.READ_WRITE)
+    private String fipsCode;
+
+    /**
      * The zeus transaction control number of the transaction that created the address
      */
     @JsonProperty(required = false)
@@ -176,6 +183,7 @@ public class MemberAddressDto {
                 ", city='" + city + '\'' +
                 ", stateTypeCode='" + stateTypeCode + '\'' +
                 ", zipCode='" + zipCode + '\'' +
+                ", fipsCode='" + fipsCode + '\'' +
                 ", ztcn='" + ztcn + '\'' +
                 ", source='" + source + '\'' +
                 ", startDate=" + startDate +
