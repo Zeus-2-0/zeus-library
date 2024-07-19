@@ -250,6 +250,12 @@ public class EnrollmentSpanDto {
     private Set<PremiumSpanDto> premiumSpans;
 
     /**
+     * The premium payments associated with the enrollment span
+     */
+    @JsonProperty(required = false)
+    private Set<PremiumPaymentDto> premiumPayments;
+
+    /**
      * toString method
      *
      * @return
