@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.test;
 
+import com.brihaspathee.zeus.dto.account.PremiumPaymentDto;
 import lombok.*;
 
 import java.util.List;
@@ -35,6 +36,11 @@ public class ZeusTransactionControlNumber {
      * The account entity codes if any that needs to be created as part of the transaction
      */
     private TestAccountEntityCodes accountEntityCodes;
+
+    /**
+     * The list of premium payments to be made
+     */
+    private List<PremiumPaymentDto> premiumPayments;
 
     /**
      * toString method

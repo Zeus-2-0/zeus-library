@@ -767,8 +767,12 @@ public class AccountValidator {
      * @param actualSource
      */
     private void assertSource(String expectedSource, String actualSource){
-        assertNotNull(actualSource);
-        assertEquals(expectedSource, actualSource);
+        if(expectedSource == null){
+            assertNull(actualSource);
+        }else{
+            assertNotNull(actualSource);
+            assertEquals(expectedSource, actualSource);
+        }
     }
 
 
