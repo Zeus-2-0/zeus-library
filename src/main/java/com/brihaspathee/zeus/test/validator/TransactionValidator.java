@@ -201,6 +201,8 @@ public class TransactionValidator {
                             List<TransactionRateDto> actualRates){
         if(expectedRates!=null){
             expectedRates.forEach(expectedRateDto -> {
+                log.info("Expected Rate Type:{}", expectedRateDto.getRateTypeCode());
+                log.info("Expected Rate Start Date:{}", expectedRateDto.getRateStartDate());
                 Optional<TransactionRateDto> optionalRateDto =
                         actualRates.stream()
                                 .filter(actualRateDto ->

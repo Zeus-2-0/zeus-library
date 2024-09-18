@@ -53,6 +53,7 @@ public class ZeusTransactionControlNumber {
                 "tcn='" + tcn + '\'' +
                 ", ztcn='" + ztcn + '\'' +
                 ", accountEntityCodes=" + accountEntityCodes +
+                ", premiumPayments=" + premiumPayments +
                 '}';
     }
 }
