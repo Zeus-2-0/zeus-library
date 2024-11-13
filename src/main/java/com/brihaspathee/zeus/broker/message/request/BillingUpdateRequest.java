@@ -2,6 +2,9 @@ package com.brihaspathee.zeus.broker.message.request;
 
 import com.brihaspathee.zeus.dto.account.AccountDto;
 import com.brihaspathee.zeus.dto.account.EnrollmentSpanDto;
+import jakarta.validation.Constraint;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.List;
@@ -26,15 +29,19 @@ public class BillingUpdateRequest {
      * The request control number
      * If the update is made from a transaction this will be ztcn
      */
+    @NotNull
+    @Size(min = 15)
     private String zrcn;
 
     /**
      * This is the type code indicating the type of request
      */
+    @NotNull
     private String zrcnTypeCode;
 
     /**
      * The account that is getting updated
      */
+    @NotNull
     private AccountDto accountDto;
 }
