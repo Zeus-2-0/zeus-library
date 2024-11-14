@@ -1,0 +1,32 @@
+{
+  "type" : "object",
+  "properties" : {
+    "accountNumber" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "requestPayloadId" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "responseCode" : {
+      "type" : "string",
+      "minLength" : 2,
+      "maxLength" : 20
+    },
+    "responseId" : {
+      "type" : "string",
+      "description" : "The response id of the payload",
+      "minLength" : 1
+    },
+    "responseMessage" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "ztcn" : {
+      "type" : "string"
+    }
+  },
+  "required" : [ "accountNumber", "requestPayloadId", "responseCode", "responseId", "responseMessage" ],
+  "additionalProperties" : false
+}

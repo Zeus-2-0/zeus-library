@@ -1,5 +1,10 @@
 package com.brihaspathee.zeus.broker.message.response;
 
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import jakarta.validation.Constraint;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 /**
@@ -21,16 +26,23 @@ public class BillingUpdateResponse {
     /**
      * A unique id that is created as a response for processing the account information
      */
+    @NotNull
+    @NotBlank
+    @JsonPropertyDescription("The response id of the payload")
     private String responseId;
 
     /**
      * The request payload id for which the response is sent
      */
+    @NotNull
+    @NotBlank
     private String requestPayloadId;
 
     /**
      * Account number for which the response is created.
      */
+    @NotNull
+    @NotBlank
     private String accountNumber;
 
     /**
@@ -43,11 +55,16 @@ public class BillingUpdateResponse {
      * 1. Billing Update Completed
      * 2. Billing Update Error
      */
+    @NotNull(message = "Response code cannot be null")
+    @NotBlank(message = "Response code cannot be blank")
+    @Size(min = 2, max = 20)
     private String responseCode;
 
     /**
      * Response message corresponding to the response code
      */
+    @NotNull
+    @NotBlank
     private String responseMessage;
 
     /**

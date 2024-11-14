@@ -1,0 +1,998 @@
+{
+  "$defs" : {
+    "AccountAttributeDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountAttributeSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "accountSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "attributeSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "attributeValue" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "attributeSK", "attributeValue", "source" ],
+      "additionalProperties" : false
+    },
+    "AccountDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountAttributes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/AccountAttributeDto"
+          }
+        },
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "accountSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "brokers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/BrokerDto"
+          }
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "enrollmentSpans" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/EnrollmentSpanDto"
+          }
+        },
+        "lineOfBusinessTypeCode" : {
+          "type" : "string"
+        },
+        "members" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberDto"
+          }
+        },
+        "payers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/PayerDto"
+          }
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "sponsors" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/SponsorDto"
+          }
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "accountNumber", "brokers", "enrollmentSpans", "lineOfBusinessTypeCode", "members", "payers", "source", "sponsors" ],
+      "additionalProperties" : false
+    },
+    "AlternateContactDto" : {
+      "type" : "object",
+      "properties" : {
+        "addressLine1" : {
+          "type" : "string"
+        },
+        "addressLine2" : {
+          "type" : "string"
+        },
+        "alternateContactCode" : {
+          "type" : "string"
+        },
+        "alternateContactSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "alternateContactTypeCode" : {
+          "type" : "string"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "identifierTypeCode" : {
+          "type" : "string"
+        },
+        "identifierValue" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "middleName" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        },
+        "phoneTypeCode" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "stateTypeCode" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "zipCode" : {
+          "type" : "string"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "alternateContactCode", "alternateContactTypeCode", "changed", "lastName", "source", "startDate", "stateTypeCode" ],
+      "additionalProperties" : false
+    },
+    "AtomicBoolean" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "BrokerDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountNumber1" : {
+          "type" : "string"
+        },
+        "accountNumber2" : {
+          "type" : "string"
+        },
+        "accountSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "agencyId" : {
+          "type" : "string"
+        },
+        "agencyName" : {
+          "type" : "string"
+        },
+        "brokerCode" : {
+          "type" : "string"
+        },
+        "brokerId" : {
+          "type" : "string"
+        },
+        "brokerName" : {
+          "type" : "string"
+        },
+        "brokerSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "brokerCode", "brokerId", "brokerName", "changed", "source", "startDate" ],
+      "additionalProperties" : false
+    },
+    "EnrollmentSpanDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "businessUnitTypeCode" : {
+          "type" : "string"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "claimPaidThroughDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "coverageTypeCode" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "delinqInd" : {
+          "type" : "boolean"
+        },
+        "effectiveReason" : {
+          "type" : "string"
+        },
+        "effectuationDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "enrollmentSpanCode" : {
+          "type" : "string"
+        },
+        "enrollmentSpanSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "enrollmentType" : {
+          "type" : "string"
+        },
+        "exchangeSubscriberId" : {
+          "type" : "string"
+        },
+        "groupPolicyId" : {
+          "type" : "string"
+        },
+        "marketplaceTypeCode" : {
+          "type" : "string"
+        },
+        "paidThroughDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "planId" : {
+          "type" : "string"
+        },
+        "premiumPayments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/PremiumPaymentDto"
+          }
+        },
+        "premiumSpans" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/PremiumSpanDto"
+          }
+        },
+        "productTypeCode" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "stateTypeCode" : {
+          "type" : "string"
+        },
+        "statusTypeCode" : {
+          "type" : "string"
+        },
+        "termReason" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "businessUnitTypeCode", "changed", "coverageTypeCode", "endDate", "enrollmentType", "groupPolicyId", "marketplaceTypeCode", "planId", "productTypeCode", "source", "startDate", "stateTypeCode", "statusTypeCode" ],
+      "additionalProperties" : false
+    },
+    "MemberAddressDto" : {
+      "type" : "object",
+      "properties" : {
+        "addressLine1" : {
+          "type" : "string"
+        },
+        "addressLine2" : {
+          "type" : "string"
+        },
+        "addressTypeCode" : {
+          "type" : "string"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "fipsCode" : {
+          "type" : "string"
+        },
+        "memberAddressCode" : {
+          "type" : "string"
+        },
+        "memberAddressSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "stateTypeCode" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "zipCode" : {
+          "type" : "string"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "addressLine1", "addressTypeCode", "changed", "city", "fipsCode", "memberAddressCode", "source", "startDate", "stateTypeCode", "zipCode" ],
+      "additionalProperties" : false
+    },
+    "MemberAttributeDto" : {
+      "type" : "object",
+      "properties" : {
+        "attributeSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "attributeValue" : {
+          "type" : "string"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "memberAttributeSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "attributeSK", "attributeValue", "changed", "source" ],
+      "additionalProperties" : false
+    },
+    "MemberDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "alternateContacts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/AlternateContactDto"
+          }
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dateOfBirth" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "genderTypeCode" : {
+          "type" : "string"
+        },
+        "height" : {
+          "type" : "number"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "memberAddresses" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberAddressDto"
+          }
+        },
+        "memberAttributes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberAttributeDto"
+          }
+        },
+        "memberCode" : {
+          "type" : "string"
+        },
+        "memberEmails" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberEmailDto"
+          }
+        },
+        "memberIdentifiers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberIdentifierDto"
+          }
+        },
+        "memberLanguages" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberLanguageDto"
+          }
+        },
+        "memberPhones" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberPhoneDto"
+          }
+        },
+        "memberPremiums" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberPremiumDto"
+          }
+        },
+        "memberSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "middleName" : {
+          "type" : "string"
+        },
+        "relationshipTypeCode" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "weight" : {
+          "type" : "number"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "dateOfBirth", "firstName", "genderTypeCode", "lastName", "memberCode", "relationshipTypeCode", "source" ],
+      "additionalProperties" : false
+    },
+    "MemberEmailDto" : {
+      "type" : "object",
+      "properties" : {
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "emailTypeCode" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "isPrimary" : {
+          "type" : "boolean"
+        },
+        "memberEmailCode" : {
+          "type" : "string"
+        },
+        "memberEmailSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "email", "emailTypeCode", "isPrimary", "memberEmailCode", "source", "startDate" ],
+      "additionalProperties" : false
+    },
+    "MemberIdentifierDto" : {
+      "type" : "object",
+      "properties" : {
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "identifierTypeCode" : {
+          "type" : "string"
+        },
+        "identifierValue" : {
+          "type" : "string"
+        },
+        "isActive" : {
+          "type" : "boolean"
+        },
+        "memberIdentifierCode" : {
+          "type" : "string"
+        },
+        "memberIdentifierSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "identifierTypeCode", "identifierValue", "isActive", "memberIdentifierCode", "source" ],
+      "additionalProperties" : false
+    },
+    "MemberLanguageDto" : {
+      "type" : "object",
+      "properties" : {
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "languageCode" : {
+          "type" : "string"
+        },
+        "languageTypeCode" : {
+          "type" : "string"
+        },
+        "memberLanguageCode" : {
+          "type" : "string"
+        },
+        "memberLanguageSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "endDate", "languageCode", "languageTypeCode", "memberLanguageCode", "source", "startDate" ],
+      "additionalProperties" : false
+    },
+    "MemberPhoneDto" : {
+      "type" : "object",
+      "properties" : {
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "memberPhoneCode" : {
+          "type" : "string"
+        },
+        "memberPhoneSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        },
+        "phoneTypeCode" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "memberPhoneCode", "phoneNumber", "phoneTypeCode", "source", "startDate" ],
+      "additionalProperties" : false
+    },
+    "MemberPremiumDto" : {
+      "type" : "object",
+      "properties" : {
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "exchangeMemberId" : {
+          "type" : "string"
+        },
+        "individualPremiumAmount" : {
+          "type" : "number"
+        },
+        "memberCode" : {
+          "type" : "string"
+        },
+        "memberPremiumSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "memberSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "exchangeMemberId", "individualPremiumAmount", "memberCode" ],
+      "additionalProperties" : false
+    },
+    "PayerDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "payerCode" : {
+          "type" : "string"
+        },
+        "payerId" : {
+          "type" : "string"
+        },
+        "payerName" : {
+          "type" : "string"
+        },
+        "payerSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "payerCode", "payerId", "payerName", "source", "startDate" ],
+      "additionalProperties" : false
+    },
+    "PremiumPaymentDto" : {
+      "type" : "object",
+      "properties" : {
+        "enrollmentSpanCode" : {
+          "type" : "string",
+          "minLength" : 1
+        },
+        "paymentAmount" : {
+          "type" : "number"
+        },
+        "paymentDate" : {
+          "type" : "string",
+          "format" : "date"
+        }
+      },
+      "required" : [ "enrollmentSpanCode", "paymentAmount", "paymentDate" ],
+      "additionalProperties" : false
+    },
+    "PremiumSpanDto" : {
+      "type" : "object",
+      "properties" : {
+        "aptcAmount" : {
+          "type" : "number"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "csrAmount" : {
+          "type" : "number"
+        },
+        "csrVariant" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "enrollmentSpanSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "memberPremiumSpans" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/$defs/MemberPremiumDto"
+          }
+        },
+        "otherPayAmount" : {
+          "type" : "number"
+        },
+        "premiumSpanCode" : {
+          "type" : "string"
+        },
+        "premiumSpanSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "sequence" : {
+          "type" : "integer"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "statusTypeCode" : {
+          "type" : "string"
+        },
+        "totalPremiumAmount" : {
+          "type" : "number"
+        },
+        "totalResponsibleAmount" : {
+          "type" : "number"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "csrVariant", "endDate", "memberPremiumSpans", "premiumSpanCode", "sequence", "source", "startDate", "totalPremiumAmount", "totalResponsibleAmount", "ztcn" ],
+      "additionalProperties" : false
+    },
+    "SponsorDto" : {
+      "type" : "object",
+      "properties" : {
+        "accountSK" : {
+          "type" : [ "string", "null" ],
+          "format" : "uuid"
+        },
+        "changed" : {
+          "$ref" : "#/$defs/AtomicBoolean"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "endDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "sponsorCode" : {
+          "type" : "string"
+        },
+        "sponsorId" : {
+          "type" : "string"
+        },
+        "sponsorName" : {
+          "type" : "string"
+        },
+        "sponsorSK" : {
+          "type" : "string",
+          "format" : "uuid"
+        },
+        "startDate" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "updatedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "ztcn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "changed", "source", "sponsorCode", "sponsorId", "sponsorName", "startDate" ],
+      "additionalProperties" : false
+    }
+  },
+  "type" : "object",
+  "properties" : {
+    "accountDto" : {
+      "$ref" : "#/$defs/AccountDto"
+    },
+    "zrcn" : {
+      "type" : "string",
+      "minLength" : 15
+    },
+    "zrcnTypeCode" : {
+      "type" : "string"
+    }
+  },
+  "required" : [ "accountDto", "zrcn", "zrcnTypeCode" ],
+  "additionalProperties" : false
+}
