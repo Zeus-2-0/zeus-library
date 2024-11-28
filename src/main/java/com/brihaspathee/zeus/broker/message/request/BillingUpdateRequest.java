@@ -27,7 +27,7 @@ public class BillingUpdateRequest {
 
     /**
      * The request control number
-     * If the update is made from a transaction this will be ztcn
+     * If the update is made from a transaction this will be ztcn (Zeus Transaction control number)
      */
     @NotNull
     @Size(min = 15)
