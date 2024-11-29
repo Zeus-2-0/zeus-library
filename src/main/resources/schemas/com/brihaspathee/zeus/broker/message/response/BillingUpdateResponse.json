@@ -1,12 +1,17 @@
 {
   "type" : "object",
   "properties" : {
+    "The Zeus Transaction Control Number of the transaction for which the response is created" : {
+      "type" : "string"
+    },
     "accountNumber" : {
       "type" : "string",
+      "description" : "The account number for which the response is created",
       "minLength" : 1
     },
     "requestPayloadId" : {
       "type" : "string",
+      "description" : "The request payload id for which the response is created",
       "minLength" : 1
     },
     "responseCode" : {
@@ -22,9 +27,6 @@
     "responseMessage" : {
       "type" : "string",
       "minLength" : 1
-    },
-    "ztcn" : {
-      "type" : "string"
     }
   },
   "required" : [ "accountNumber", "requestPayloadId", "responseCode", "responseId", "responseMessage" ],
